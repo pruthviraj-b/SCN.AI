@@ -1,0 +1,365 @@
+{
+  "users": [
+    {
+      "id": "ocacgsj84",
+      "email": "raj123@gmail.com",
+      "password": "$2b$10$VuvfKuArWwvSGroAZTDWTO.o/DSPB4BK3IKjlKDuB/LCzCu7oFWbq",
+      "createdAt": "2025-11-26T14:34:02.851Z",
+      "updatedAt": "2025-11-26T14:34:02.853Z",
+      "plans": []
+    },
+    {
+      "id": "ibgkxguis",
+      "email": "testuser@gmail.com",
+      "password": "$2b$10$skPxYGJliElC0S/q7cwGhePsS9nbNihPaxsdrV4bVRqPXHItYQbl6",
+      "createdAt": "2025-11-26T14:41:29.835Z",
+      "updatedAt": "2025-11-26T14:41:29.835Z",
+      "plans": []
+    },
+    {
+      "id": "v1p7hwvkp",
+      "email": "ABC@123",
+      "password": "$2b$10$eSvwQA2d9EsyOWPr9cl39.4akOWqgMym.PjjA4e6QAZZrt3GdiN9e",
+      "name": "RAJ",
+      "createdAt": "2025-11-27T02:04:08.826Z",
+      "updatedAt": "2025-11-27T02:04:08.866Z",
+      "plans": []
+    },
+    {
+      "id": "obr9g8krm",
+      "email": "xx@2",
+      "password": "$2b$10$JYENPcJmw2EgHO.DU.KEFO/Jk7xlyhkeCMNOOojyHxxbFU58c3IoG",
+      "name": "x",
+      "createdAt": "2025-11-27T02:06:48.717Z",
+      "updatedAt": "2025-11-27T02:06:48.717Z",
+      "plans": []
+    },
+    {
+      "id": "x7txek6gy",
+      "email": "bbb@gmail.com",
+      "password": "$2b$10$OXoFgdwwa7F3Hbr9fOx7xO69qngfphJ5jMxEAaRaAbI0dfX4AZq/y",
+      "name": "abc",
+      "createdAt": "2025-11-27T02:12:33.390Z",
+      "updatedAt": "2025-11-27T02:12:33.390Z",
+      "plans": []
+    },
+    {
+      "id": "jdwa2ekfr",
+      "email": "abc@gmail.com",
+      "password": "$2b$10$2SZyXC10p5WBgvVcKBBKW.Eez/ofw9zmEU5R1Q6tjTFVJt7pVGZru",
+      "name": "a",
+      "createdAt": "2025-11-27T02:27:08.771Z",
+      "updatedAt": "2025-11-27T02:27:08.771Z",
+      "plans": [
+        {
+          "id": "qmr7qolwh",
+          "title": "Career Plan - 27/11/2025",
+          "data": "{\"title\":\"Career Plan - Full Stack Developer\",\"data\":\"{\\\"name\\\":\\\"s\\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"JavaScript\\\"],\\\"goal\\\":\\\"Full Stack Developer\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "jdwa2ekfr",
+          "createdAt": "2025-11-27T02:35:17.618Z"
+        }
+      ]
+    },
+    {
+      "id": "p2bm3gisx",
+      "email": "a@h",
+      "password": "$2b$10$yjLEDrnHZXc9/rUCU4aHOuIIwkr4XlI4lWIKa75kpgqERtRo9nbO2",
+      "name": "a",
+      "createdAt": "2025-11-27T02:34:33.242Z",
+      "updatedAt": "2025-11-27T02:34:33.242Z",
+      "plans": []
+    },
+    {
+      "id": "7czeiu7h4",
+      "email": "aa@gmail.com",
+      "password": "$2b$10$Q0cemmo7M4vVwACBkCCQjuTZl2FmF/E6HEiqtiwiqDLLlACTuL/AW",
+      "name": "aa",
+      "createdAt": "2025-11-27T02:45:45.928Z",
+      "updatedAt": "2025-11-27T02:45:45.928Z",
+      "plans": [
+        {
+          "id": "mru3d2ywp",
+          "title": "Career Plan - 27/11/2025",
+          "data": "{\"title\":\"Career Plan - Data Scientist\",\"data\":\"{\\\"name\\\":\\\"Pruthvi Raj\\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"Python\\\",\\\"SQL\\\",\\\"Data Analysis\\\"],\\\"goal\\\":\\\"Data Scientist\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "7czeiu7h4",
+          "createdAt": "2025-11-27T02:46:38.411Z"
+        }
+      ]
+    },
+    {
+      "id": "i0lhw17k1",
+      "email": "pruthviraj1984bc@gmail.com",
+      "password": "$2b$10$uN6Jrq0RlmkkgFZm9gN/w.GvV.eRQSPBQ.u0s6jZZD.bVv6p7FtVe",
+      "name": "Admin_User",
+      "createdAt": "2025-11-27T03:00:21.642Z",
+      "updatedAt": "2025-11-27T03:00:21.642Z",
+      "plans": []
+    },
+    {
+      "id": "hkz3ogllr",
+      "email": "abc1@gmail.com",
+      "password": "$2b$10$Kr4f0s0JwJGFMwlGyptwEeL1GZE0jweERuA2d0cN2tTUGwiUssqQa",
+      "name": "laex",
+      "createdAt": "2025-11-27T12:41:53.310Z",
+      "updatedAt": "2025-11-27T12:41:53.310Z",
+      "plans": [
+        {
+          "id": "t05xgdk57",
+          "title": "Career Plan - 27/11/2025",
+          "data": "{\"name\":\"laex\",\"experienceLevel\":\"beginner\",\"skills\":[\"Data Analysis\",\"Python\"],\"goal\":\"Data Scientist\",\"timeCommitment\":\"5-10\"}",
+          "userId": "hkz3ogllr",
+          "createdAt": "2025-11-27T12:41:53.310Z"
+        }
+      ]
+    },
+    {
+      "id": "hej2z1m9y",
+      "email": "abc3@gmail.com",
+      "password": "$2b$10$cued/ZLk/joBSiffZ6K8Xus.gQsD8LwEQR2F6kN6V0oa6WcivWFJK",
+      "name": "aa",
+      "createdAt": "2025-11-27T12:49:51.527Z",
+      "updatedAt": "2025-11-27T12:49:51.528Z",
+      "plans": [
+        {
+          "id": "8pw4xnkzv",
+          "title": "Career Plan - 27/11/2025",
+          "data": "{\"name\":\"aa\",\"experienceLevel\":\"beginner\",\"skills\":[\"Python\",\"SQL\"],\"goal\":\"Data Scientist\",\"timeCommitment\":\"5-10\"}",
+          "userId": "hej2z1m9y",
+          "createdAt": "2025-11-27T12:49:51.528Z"
+        }
+      ]
+    },
+    {
+      "id": "l34ldn3fg",
+      "email": "ABC4@gmail.com",
+      "password": "$2b$10$YShk5DWPPrykstGmT18ZOeRGXwFvcG4IQ8NxVdojlCiojGKeWwRa.",
+      "name": "SHAM",
+      "createdAt": "2025-11-28T09:09:02.597Z",
+      "updatedAt": "2025-11-28T09:09:02.598Z",
+      "plans": [
+        {
+          "id": "8j73zydf6",
+          "title": "Career Plan - 28/11/2025",
+          "data": "{\"name\":\"SHAM\",\"experienceLevel\":\"beginner\",\"skills\":[\"Python\",\"Java\",\"Data Analysis\",\"React\"],\"goal\":\"Data Scientist\",\"timeCommitment\":\"5-10\"}",
+          "userId": "l34ldn3fg",
+          "createdAt": "2025-11-28T09:09:02.598Z"
+        }
+      ]
+    },
+    {
+      "id": "r87n23gbt",
+      "email": "test_v2@example.com",
+      "password": "$2b$10$8L/O4UQTNw5VOHAcjLPuSuIQjeEqBEz/NRkXb5Mmr72iSI0ZPcUa.",
+      "name": "testuservtwo",
+      "createdAt": "2025-11-28T18:13:28.585Z",
+      "updatedAt": "2025-11-28T18:13:28.586Z",
+      "plans": []
+    },
+    {
+      "id": "vv8m69dmh",
+      "email": "user123@gmail.com",
+      "password": "$2b$10$gLMS.ZCHK33ERnk09JSa5.FVfZqkyiK/JE6DpG0QdS85L.RztSqly",
+      "name": "user",
+      "createdAt": "2025-11-28T19:08:13.136Z",
+      "updatedAt": "2025-11-28T19:08:13.137Z",
+      "plans": []
+    },
+    {
+      "id": "ua2z6wegt",
+      "email": "username34@gmail.com",
+      "password": "$2b$10$uEWsBEkUQNaPhjex2GS3ke3Wtp4URADblzI7z.p16PtH7C3VFbKZ6",
+      "name": "username",
+      "createdAt": "2025-11-28T19:38:40.811Z",
+      "updatedAt": "2025-11-28T19:38:40.816Z",
+      "plans": [
+        {
+          "id": "gz9k0wsb5",
+          "title": "Career Plan - 29/11/2025",
+          "data": "{\"title\":\"Career Plan - Data Scientist\",\"data\":\"{\\\"name\\\":\\\"SMAPLE USER \\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"Python\\\",\\\"SQL\\\",\\\"Data Analysis\\\"],\\\"goal\\\":\\\"Data Scientist\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "ua2z6wegt",
+          "createdAt": "2025-11-28T19:40:52.428Z"
+        },
+        {
+          "id": "uhzasshc4",
+          "title": "Career Plan - 29/11/2025",
+          "data": "{\"title\":\"Career Plan - Data Scientist\",\"data\":\"{\\\"name\\\":\\\"lkaj.,sba\\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"Python\\\",\\\"Data Analysis\\\",\\\"React\\\"],\\\"goal\\\":\\\"Data Scientist\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "ua2z6wegt",
+          "createdAt": "2025-11-29T07:35:30.011Z"
+        }
+      ]
+    },
+    {
+      "id": "xs4lcig93",
+      "email": "prajwalnr911@gmail.com",
+      "password": "$2b$10$tl2L0uwVm8mGnav1gUYmweMnS8Fa1TfFiKIosStbTjwXa5zgVfNpm",
+      "name": "MN",
+      "createdAt": "2025-11-29T08:07:34.879Z",
+      "updatedAt": "2025-11-29T08:07:34.879Z",
+      "plans": [
+        {
+          "id": "voddtgiz1",
+          "title": "Career Plan - 29/11/2025",
+          "data": "{\"name\":\"MN\",\"experienceLevel\":\"intermediate\",\"skills\":[\"Python\",\"Data Analysis\"],\"goal\":\"Full Stack Developer\",\"timeCommitment\":\"5-10\"}",
+          "userId": "xs4lcig93",
+          "createdAt": "2025-11-29T08:07:34.879Z"
+        }
+      ]
+    }
+  ],
+  "careerPaths": [
+    {
+      "id": "soruq1uf5",
+      "title": "Full Stack Developer",
+      "category": "Technology",
+      "demand": "High",
+      "avgSalary": "$105,000",
+      "description": "Work on both front-end and back-end development. Build complete web applications using modern frameworks and technologies."
+    }
+  ],
+  "skills": [
+    {
+      "id": "ppjjedz8f",
+      "name": "Python",
+      "category": "Programming",
+      "level": "Beginner to Advanced"
+    },
+    {
+      "id": "nu894stdh",
+      "name": "JavaScript",
+      "category": "Programming",
+      "level": "Beginner to Advanced"
+    },
+    {
+      "id": "o5pdevn3r",
+      "name": "React",
+      "category": "Framework",
+      "level": "Intermediate to Advanced"
+    },
+    {
+      "id": "45ceq5700",
+      "name": "Node.js",
+      "category": "Backend",
+      "level": "Intermediate to Advanced"
+    },
+    {
+      "id": "2afdtdm7m",
+      "name": "SQL",
+      "category": "Database",
+      "level": "Beginner to Advanced"
+    },
+    {
+      "id": "zvn57yarv",
+      "name": "Data Analysis",
+      "category": "Analytics",
+      "level": "Beginner to Advanced"
+    },
+    {
+      "id": "3x7v7plie",
+      "name": "Machine Learning",
+      "category": "AI/ML",
+      "level": "Advanced"
+    },
+    {
+      "id": "cr5hayub8",
+      "name": "UX Design",
+      "category": "Design",
+      "level": "Beginner to Advanced"
+    },
+    {
+      "id": "fsy6oryhc",
+      "name": "Product Strategy",
+      "category": "Business",
+      "level": "Intermediate to Advanced"
+    },
+    {
+      "id": "j85i9lg6w",
+      "name": "Digital Marketing",
+      "category": "Marketing",
+      "level": "Beginner to Advanced"
+    }
+  ],
+  "learningResources": [
+    {
+      "id": "d5lo08d5u",
+      "title": "Python for Beginners",
+      "platform": "Coursera",
+      "category": "Programming",
+      "url": "coursera.org/learn/python",
+      "status": "Active"
+    },
+    {
+      "id": "pz22oov3g",
+      "title": "React - The Complete Guide",
+      "platform": "Udemy",
+      "category": "Web Development",
+      "url": "udemy.com/course/react-the-complete-guide",
+      "status": "Active"
+    },
+    {
+      "id": "8mcges7js",
+      "title": "Data Science Bootcamp",
+      "platform": "DataCamp",
+      "category": "Data Science",
+      "url": "datacamp.com/courses/data-science",
+      "status": "Active"
+    },
+    {
+      "id": "vv2ml8kr3",
+      "title": "Machine Learning A-Z",
+      "platform": "Udemy",
+      "category": "AI/ML",
+      "url": "udemy.com/course/machinelearning",
+      "status": "Active"
+    },
+    {
+      "id": "3jatfmq3x",
+      "title": "UX Design Fundamentals",
+      "platform": "Interaction Design Foundation",
+      "category": "Design",
+      "url": "interaction-design.org/courses/ux-design",
+      "status": "Active"
+    },
+    {
+      "id": "8d8pa7q9y",
+      "title": "Digital Marketing Masterclass",
+      "platform": "Udemy",
+      "category": "Marketing",
+      "url": "udemy.com/course/digital-marketing",
+      "status": "Active"
+    }
+  ],
+  "startupIdeas": [
+    {
+      "id": "5fwv6af34",
+      "title": "AI-Powered Resume Builder",
+      "category": "SaaS",
+      "difficulty": "Medium",
+      "market": "HR Tech",
+      "description": "Help job seekers create ATS-friendly resumes with AI suggestions"
+    },
+    {
+      "id": "76fnlinh7",
+      "title": "Eco-Friendly Delivery Service",
+      "category": "Logistics",
+      "difficulty": "High",
+      "market": "Green Tech",
+      "description": "Carbon-neutral last-mile delivery using electric vehicles"
+    },
+    {
+      "id": "jaqoufrwj",
+      "title": "Online Tutoring Platform",
+      "category": "EdTech",
+      "difficulty": "Medium",
+      "market": "Education",
+      "description": "Connect students with expert tutors for personalized learning"
+    },
+    {
+      "id": "nvtju8roo",
+      "title": "Smart Home Automation Hub",
+      "category": "IoT",
+      "difficulty": "High",
+      "market": "Smart Home",
+      "description": "Unified platform to control all smart home devices"
+    }
+  ]
+}
