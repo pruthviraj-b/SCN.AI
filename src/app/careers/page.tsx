@@ -27,7 +27,11 @@ export default async function ExploreCareersPage() {
                 ) : (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {careerPaths.map((career) => (
-                            <div key={career.id} className="glass-card p-6 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group">
+                            <Link
+                                key={career.id}
+                                href={`/careers/${career.id}`}
+                                className="glass-card p-6 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group block relative"
+                            >
                                 <div className="flex items-start gap-4 mb-4">
                                     <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                                         <Briefcase className="w-6 h-6 text-primary" />
@@ -61,14 +65,11 @@ export default async function ExploreCareersPage() {
                                     </div>
                                 </div>
 
-                                <Link
-                                    href="/onboarding"
-                                    className="flex items-center gap-2 text-primary hover:gap-3 transition-all text-sm font-semibold"
-                                >
-                                    Start Your Journey
+                                <div className="flex items-center gap-2 text-primary group-hover:gap-3 transition-all text-sm font-semibold">
+                                    View Details
                                     <ArrowRight className="w-4 h-4" />
-                                </Link>
-                            </div>
+                                </div>
+                            </Link>
                         ))}
                     </div>
                 )}

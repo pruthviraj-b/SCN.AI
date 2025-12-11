@@ -15,6 +15,7 @@ export default function Navigation() {
         { href: '/', label: 'Home' },
         { href: '/careers', label: 'Careers' },
         { href: '/resources', label: 'Resources' },
+        { href: '/startup-ideas', label: 'Startups' },
         { href: '/onboarding', label: 'Get Started' },
     ];
 
@@ -27,7 +28,7 @@ export default function Navigation() {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <Link href="/" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-                        Navigator
+                        SCN.AI
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -37,8 +38,8 @@ export default function Navigation() {
                                 key={link.href}
                                 href={link.href}
                                 className={`text-sm font-medium transition-colors ${isActive(link.href)
-                                        ? 'text-primary'
-                                        : 'text-gray-400 hover:text-white'
+                                    ? 'text-primary'
+                                    : 'text-gray-400 hover:text-white'
                                     }`}
                             >
                                 {link.label}
@@ -100,8 +101,8 @@ export default function Navigation() {
                                     href={link.href}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className={`text-sm font-medium transition-colors px-4 py-2 rounded-lg ${isActive(link.href)
-                                            ? 'text-primary bg-primary/10'
-                                            : 'text-gray-400 hover:text-white hover:bg-white/5'
+                                        ? 'text-primary bg-primary/10'
+                                        : 'text-gray-400 hover:text-white hover:bg-white/5'
                                         }`}
                                 >
                                     {link.label}

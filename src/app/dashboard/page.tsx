@@ -10,6 +10,8 @@ import DashboardSkills from "@/components/dashboard/DashboardSkills";
 import RecommendedCourses from "@/components/dashboard/RecommendedCourses";
 import CareerRoadmap from "@/components/dashboard/CareerRoadmap";
 import ResourcesLibrary from "@/components/dashboard/ResourcesLibrary";
+import StartupSupportWidget from "@/components/dashboard/StartupSupportWidget";
+import ProfessionalHelpWidget from "@/components/dashboard/ProfessionalHelpWidget";
 
 export default async function DashboardPage() {
     const session = await getServerSession(authOptions);
@@ -60,8 +62,11 @@ export default async function DashboardPage() {
             <nav className="fixed left-0 top-0 h-full w-64 border-r bg-card p-6 hidden md:block">
                 <div className="mb-12">
                     <h1 className="text-2xl font-bold text-primary">
-                        Navigator
+                        SCN.AI
                     </h1>
+                    <p className="text-[10px] text-muted-foreground mt-1 font-bold tracking-tighter leading-tight">
+                        SMART_CAREER_NAVIGATOR_<br />AI_POWERED_PERSONALIZED_<br />CAREER_GUIDANCE_SYSTEM
+                    </p>
                 </div>
 
                 <div className="space-y-2">
@@ -123,49 +128,49 @@ export default async function DashboardPage() {
                 {isAdmin ? (
                     <AdminDashboard />
                 ) : (
-                    <>
-                        {/* Stats Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-                            <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <div className="p-2 rounded-lg bg-blue-500/10">
-                                        <FileText className="w-5 h-5 text-blue-600" />
+                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                        {/* Main Content Area */}
+                        <div className="lg:col-span-3 space-y-8">
+                            {/* Stats Grid */}
+                            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                                <div className="bg-card p-6 rounded-2xl border shadow-sm">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="p-2 rounded-lg bg-blue-500/10">
+                                            <FileText className="w-5 h-5 text-blue-600" />
+                                        </div>
+                                        <h3 className="text-muted-foreground text-sm">Career Plans</h3>
                                     </div>
-                                    <h3 className="text-muted-foreground text-sm">Career Plans</h3>
+                                    <p className="text-3xl font-bold text-foreground">{user.plans.length}</p>
                                 </div>
-                                <p className="text-3xl font-bold text-foreground">{user.plans.length}</p>
-                            </div>
-                            <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <div className="p-2 rounded-lg bg-green-500/10">
-                                        <TrendingUp className="w-5 h-5 text-green-600" />
+                                <div className="bg-card p-6 rounded-2xl border shadow-sm">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="p-2 rounded-lg bg-green-500/10">
+                                            <TrendingUp className="w-5 h-5 text-green-600" />
+                                        </div>
+                                        <h3 className="text-muted-foreground text-sm">Skills Tracked</h3>
                                     </div>
-                                    <h3 className="text-muted-foreground text-sm">Skills Tracked</h3>
+                                    <p className="text-3xl font-bold text-foreground">{skillsCount}</p>
                                 </div>
-                                <p className="text-3xl font-bold text-foreground">{skillsCount}</p>
-                            </div>
-                            <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <div className="p-2 rounded-lg bg-purple-500/10">
-                                        <BookOpen className="w-5 h-5 text-purple-600" />
+                                <div className="bg-card p-6 rounded-2xl border shadow-sm">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="p-2 rounded-lg bg-purple-500/10">
+                                            <BookOpen className="w-5 h-5 text-purple-600" />
+                                        </div>
+                                        <h3 className="text-muted-foreground text-sm">Recommended Courses</h3>
                                     </div>
-                                    <h3 className="text-muted-foreground text-sm">Recommended Courses</h3>
+                                    <p className="text-3xl font-bold text-foreground">{recommendedCoursesCount}</p>
                                 </div>
-                                <p className="text-3xl font-bold text-foreground">{recommendedCoursesCount}</p>
-                            </div>
-                            <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                                <div className="flex items-center gap-3 mb-2">
-                                    <div className="p-2 rounded-lg bg-yellow-500/10">
-                                        <Target className="w-5 h-5 text-yellow-600" />
+                                <div className="bg-card p-6 rounded-2xl border shadow-sm">
+                                    <div className="flex items-center gap-3 mb-2">
+                                        <div className="p-2 rounded-lg bg-yellow-500/10">
+                                            <Target className="w-5 h-5 text-yellow-600" />
+                                        </div>
+                                        <h3 className="text-muted-foreground text-sm">Current Goal</h3>
                                     </div>
-                                    <h3 className="text-muted-foreground text-sm">Current Goal</h3>
+                                    <p className="text-lg font-bold truncate text-foreground">{userProfile.goal || 'Not set'}</p>
                                 </div>
-                                <p className="text-lg font-bold truncate text-foreground">{userProfile.goal || 'Not set'}</p>
                             </div>
-                        </div>
 
-                        {/* Main Content Sections */}
-                        <div className="space-y-8">
                             {/* Skills Section */}
                             {skillsCount > 0 && (
                                 <DashboardSkills userSkills={userProfile.skills} />
@@ -188,45 +193,49 @@ export default async function DashboardPage() {
                             {/* Resources Library */}
                             <ResourcesLibrary />
 
-                            {/* Career Plans */}
+                            {/* Deep Analysis */}
+                            <DeepAnalysis />
+                        </div>
+
+                        {/* Right Sidebar */}
+                        <div className="lg:col-span-1 space-y-6">
+                            <StartupSupportWidget />
+                            <ProfessionalHelpWidget />
+
+                            {/* Career Plans List */}
                             <div className="bg-card p-6 rounded-2xl border shadow-sm">
                                 <div className="flex justify-between items-center mb-6">
-                                    <h3 className="text-xl font-bold text-foreground">Your Career Plans</h3>
-                                    <Link href="/onboarding" className="text-primary hover:underline text-sm">
-                                        Create New +
+                                    <h3 className="text-lg font-bold text-foreground">Your Plans</h3>
+                                    <Link href="/onboarding" className="text-primary hover:underline text-xs">
+                                        + New
                                     </Link>
                                 </div>
 
-                                <div className="grid gap-4">
+                                <div className="grid gap-3">
                                     {user.plans.length === 0 ? (
-                                        <div className="text-center py-12 border border-dashed border-border rounded-xl">
-                                            <p className="text-muted-foreground mb-4">No plans created yet</p>
-                                            <Link href="/onboarding" className="px-6 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors inline-block">
-                                                Start Now
+                                        <div className="text-center py-8 border border-dashed border-border rounded-xl">
+                                            <p className="text-xs text-muted-foreground mb-3">No plans yet</p>
+                                            <Link href="/onboarding" className="px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-xs hover:bg-primary/90 transition-colors inline-block">
+                                                Create
                                             </Link>
                                         </div>
                                     ) : (
                                         user.plans.map((plan: any) => (
-                                            <div key={plan.id} className="p-4 rounded-xl bg-muted/50 border border-border hover:border-primary/50 transition-colors cursor-pointer group">
+                                            <div key={plan.id} className="p-3 rounded-xl bg-muted/50 border border-border hover:border-primary/50 transition-colors cursor-pointer group">
                                                 <div className="flex justify-between items-start">
-                                                    <div>
-                                                        <h4 className="font-bold mb-1 group-hover:text-primary transition-colors text-foreground">{plan.title}</h4>
-                                                        <p className="text-sm text-muted-foreground">Created on {new Date(plan.createdAt).toLocaleDateString()}</p>
+                                                    <div className="min-w-0">
+                                                        <h4 className="font-semibold mb-1 text-sm group-hover:text-primary transition-colors text-foreground truncate">{plan.title}</h4>
+                                                        <p className="text-xs text-muted-foreground">Updated {new Date(plan.createdAt).toLocaleDateString()}</p>
                                                     </div>
-                                                    <div className="px-3 py-1 rounded-full bg-green-500/10 text-green-600 text-xs font-medium">
-                                                        Active
-                                                    </div>
+                                                    <div className="w-2 h-2 rounded-full bg-green-500 mt-1.5 shrink-0" />
                                                 </div>
                                             </div>
                                         ))
                                     )}
                                 </div>
                             </div>
-
-                            {/* Deep Analysis */}
-                            <DeepAnalysis />
                         </div>
-                    </>
+                    </div>
                 )}
             </main>
         </div>

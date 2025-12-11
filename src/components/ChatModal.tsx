@@ -74,6 +74,7 @@ export default function ChatModal() {
         <>
             {/* Floating Action Button */}
             <button
+                id="chat-trigger"
                 onClick={() => setIsOpen(true)}
                 className={`fixed bottom-6 right-6 p-4 rounded-full bg-primary text-white shadow-lg hover:scale-110 transition-transform z-50 ${isOpen ? 'hidden' : 'flex'}`}
             >

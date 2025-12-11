@@ -53,6 +53,14 @@ type StartupIdea = {
     difficulty: string;
     market: string;
     description?: string;
+    businessPlan?: {
+        executiveSummary: string;
+        targetAudience: string[];
+        revenueModel: string[];
+        marketingStrategy: string[];
+        financialProjections: { year: string; revenue: string; expenses: string; profit: string }[];
+    };
+    faqs?: { question: string; answer: string }[];
 };
 
 type Database = {

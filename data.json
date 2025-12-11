@@ -204,6 +204,47 @@
           "createdAt": "2025-11-29T08:07:34.879Z"
         }
       ]
+    },
+    {
+      "id": "66bio4xqj",
+      "email": "abcd@gmail.com",
+      "password": "$2b$10$f1V1iBw24jaUYXvgzfiVMeGKaiEcV5dIAVzRL4fQsC8/Of8z5Wdfq",
+      "name": "asdxas",
+      "createdAt": "2025-12-11T17:41:06.798Z",
+      "updatedAt": "2025-12-11T17:41:06.799Z",
+      "plans": [
+        {
+          "id": "d4ya4532j",
+          "title": "Career Plan - 11/12/2025",
+          "data": "{\"title\":\"Career Plan - DATA SCEIENTIST\",\"data\":\"{\\\"name\\\":\\\"RAJ\\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"Python\\\",\\\"JavaScript\\\",\\\"React\\\"],\\\"goal\\\":\\\"DATA SCEIENTIST\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "66bio4xqj",
+          "createdAt": "2025-12-11T17:42:22.142Z"
+        },
+        {
+          "id": "w2xdcpaek",
+          "title": "Career Plan - 11/12/2025",
+          "data": "{\"title\":\"Career Plan - dev\",\"data\":\"{\\\"name\\\":\\\"bbb\\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"Python\\\",\\\"SQL\\\",\\\"Data Analysis\\\",\\\"UX Design\\\"],\\\"goal\\\":\\\"dev\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "66bio4xqj",
+          "createdAt": "2025-12-11T17:57:27.874Z"
+        }
+      ]
+    },
+    {
+      "id": "plvnd83gt",
+      "email": "thepruthviraj1984bc@gmail.com",
+      "password": "$2b$10$Y6jY2cwiyNuARfbNguHrEOXak/iktOsRsT7v.91u1r7PQ8PTFHC52",
+      "name": "PRUTHVI RAJ B",
+      "createdAt": "2025-12-11T18:39:54.768Z",
+      "updatedAt": "2025-12-11T18:39:54.768Z",
+      "plans": [
+        {
+          "id": "hym4sdakz",
+          "title": "Career Plan - 12/12/2025",
+          "data": "{\"name\":\"PRUTHVI RAJ B\",\"experienceLevel\":\"beginner\",\"skills\":[\"Node.js\",\"Product Management\",\"Machine Learning\",\"Digital Marketing\"],\"goal\":\"q\",\"timeCommitment\":\"5-10\"}",
+          "userId": "plvnd83gt",
+          "createdAt": "2025-12-11T18:39:54.768Z"
+        }
+      ]
     }
   ],
   "careerPaths": [
@@ -213,7 +254,47 @@
       "category": "Technology",
       "demand": "High",
       "avgSalary": "$105,000",
-      "description": "Work on both front-end and back-end development. Build complete web applications using modern frameworks and technologies."
+      "description": "Work on both front-end and back-end development. Build complete web applications using modern frameworks and technologies like React, Node.js, and Python."
+    },
+    {
+      "id": "cp1data01",
+      "title": "Data Scientist",
+      "category": "Data Science",
+      "demand": "Very High",
+      "avgSalary": "$120,000",
+      "description": "Analyze complex data sets to help companies make better decisions. Uses statistics, machine learning, and programming skills in Python or R."
+    },
+    {
+      "id": "cp2prod01",
+      "title": "Product Manager",
+      "category": "Business",
+      "demand": "High",
+      "avgSalary": "$115,000",
+      "description": "Guide the success of a product and lead the cross-functional team that is responsible for improving it. Requires a mix of business, UX, and tech skills."
+    },
+    {
+      "id": "cp3uxui01",
+      "title": "UX/UI Designer",
+      "category": "Design",
+      "demand": "High",
+      "avgSalary": "$95,000",
+      "description": "Design user-friendly interfaces for websites and apps. Focuses on userresearch, wireframing, prototyping, and visual design."
+    },
+    {
+      "id": "cp4devops",
+      "title": "DevOps Engineer",
+      "category": "Technology",
+      "demand": "High",
+      "avgSalary": "$125,000",
+      "description": "Bridge the gap between development and operations. Focuses on automation, CI/CD pipelines, and cloud infrastructure management."
+    },
+    {
+      "id": "cp5digimkt",
+      "title": "Digital Marketing Specialist",
+      "category": "Marketing",
+      "demand": "Medium",
+      "avgSalary": "$75,000",
+      "description": "Drive brand awareness and lead generation through digital channels like SEO, social media, email marketing, and PPC advertising."
     }
   ],
   "skills": [
@@ -281,10 +362,10 @@
   "learningResources": [
     {
       "id": "d5lo08d5u",
-      "title": "Python for Beginners",
+      "title": "Python for Everybody",
       "platform": "Coursera",
       "category": "Programming",
-      "url": "coursera.org/learn/python",
+      "url": "coursera.org/specializations/python",
       "status": "Active"
     },
     {
@@ -296,35 +377,51 @@
       "status": "Active"
     },
     {
-      "id": "8mcges7js",
-      "title": "Data Science Bootcamp",
-      "platform": "DataCamp",
+      "id": "lr3nds01",
+      "title": "Google Data Analytics Certificate",
+      "platform": "Coursera",
       "category": "Data Science",
-      "url": "datacamp.com/courses/data-science",
+      "url": "coursera.org/professional-certificates/google-data-analytics",
       "status": "Active"
     },
     {
-      "id": "vv2ml8kr3",
-      "title": "Machine Learning A-Z",
-      "platform": "Udemy",
-      "category": "AI/ML",
-      "url": "udemy.com/course/machinelearning",
-      "status": "Active"
-    },
-    {
-      "id": "3jatfmq3x",
-      "title": "UX Design Fundamentals",
-      "platform": "Interaction Design Foundation",
+      "id": "lr4ux01",
+      "title": "Google UX Design Certificate",
+      "platform": "Coursera",
       "category": "Design",
-      "url": "interaction-design.org/courses/ux-design",
+      "url": "coursera.org/professional-certificates/google-ux-design",
       "status": "Active"
     },
     {
-      "id": "8d8pa7q9y",
-      "title": "Digital Marketing Masterclass",
+      "id": "lr5aws01",
+      "title": "AWS Certified Solutions Architect",
+      "platform": "Udemy",
+      "category": "Cloud Computing",
+      "url": "udemy.com/course/aws-certified-solutions-architect-associate",
+      "status": "Active"
+    },
+    {
+      "id": "lr6pm01",
+      "title": "Product Management Fundamentals",
+      "platform": "Udemy",
+      "category": "Business",
+      "url": "udemy.com/course/become-a-product-manager-learn-the-skills-get-the-job",
+      "status": "Active"
+    },
+    {
+      "id": "lr7mkt01",
+      "title": "The Complete Digital Marketing Course",
       "platform": "Udemy",
       "category": "Marketing",
-      "url": "udemy.com/course/digital-marketing",
+      "url": "udemy.com/course/learn-digital-marketing-course",
+      "status": "Active"
+    },
+    {
+      "id": "lr8fullstack",
+      "title": "The Web Developer Bootcamp",
+      "platform": "Udemy",
+      "category": "Web Development",
+      "url": "udemy.com/course/the-web-developer-bootcamp",
       "status": "Active"
     }
   ],
@@ -335,7 +432,58 @@
       "category": "SaaS",
       "difficulty": "Medium",
       "market": "HR Tech",
-      "description": "Help job seekers create ATS-friendly resumes with AI suggestions"
+      "description": "Help job seekers create ATS-friendly resumes with AI suggestions",
+      "businessPlan": {
+        "executiveSummary": "A SaaS platform that leverages advanced AI to help job seekers build professional, ATS-optimized resumes in minutes. By analyzing industry keywords and formatting standards, we ensure high visibility for candidates.",
+        "targetAudience": [
+          "Recent graduates entering the job market",
+          "Professionals looking to switch careers",
+          "Freelancers needing portfolio resumes",
+          "Recruitment agencies"
+        ],
+        "revenueModel": [
+          "Freemium model with basic templates",
+          "Subscription for premium AI features ($15/mo)",
+          "B2B licensing for universities and bootcamps",
+          "Resume review services upsell"
+        ],
+        "marketingStrategy": [
+          "Content marketing via career advice blog",
+          "Partnerships with universities and coding bootcamps",
+          "Social media ads targeting job seekers",
+          "SEO optimization for 'resume builder' keywords"
+        ],
+        "financialProjections": [
+          {
+            "year": "Year 1",
+            "revenue": "$50,000",
+            "expenses": "$30,000",
+            "profit": "$20,000"
+          },
+          {
+            "year": "Year 2",
+            "revenue": "$150,000",
+            "expenses": "$60,000",
+            "profit": "$90,000"
+          },
+          {
+            "year": "Year 3",
+            "revenue": "$400,000",
+            "expenses": "$120,000",
+            "profit": "$280,000"
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "How is this different from other resume builders?",
+          "answer": "We use LLMs to rewrite bullet points for impact, not just fill in blanks."
+        },
+        {
+          "question": "Is the data secure?",
+          "answer": "Yes, all personal data is encrypted and GDPR compliant."
+        }
+      ]
     },
     {
       "id": "76fnlinh7",
@@ -343,7 +491,58 @@
       "category": "Logistics",
       "difficulty": "High",
       "market": "Green Tech",
-      "description": "Carbon-neutral last-mile delivery using electric vehicles"
+      "description": "Carbon-neutral last-mile delivery using electric vehicles",
+      "businessPlan": {
+        "executiveSummary": "A sustainable logistics solution focused on last-mile delivery using a fleet of electric cargo bikes and EVs. We parse the gap between speed and sustainability for modern e-commerce brands.",
+        "targetAudience": [
+          "Local e-commerce businesses",
+          "Restaurants requiring food delivery",
+          "Eco-conscious consumers",
+          "Corporate offices for document courier"
+        ],
+        "revenueModel": [
+          "Per-delivery fee structure",
+          "Monthly subscription for high-volume merchants",
+          "Advertising on delivery vehicles",
+          "Carbon offset certification fees"
+        ],
+        "marketingStrategy": [
+          "Partnerships with green-certified local brands",
+          "Local PR campaigns about reducing city smog",
+          "Referral program for small businesses",
+          "Direct sales to local restaurants"
+        ],
+        "financialProjections": [
+          {
+            "year": "Year 1",
+            "revenue": "$120,000",
+            "expenses": "$150,000",
+            "profit": "-$30,000"
+          },
+          {
+            "year": "Year 2",
+            "revenue": "$350,000",
+            "expenses": "$250,000",
+            "profit": "$100,000"
+          },
+          {
+            "year": "Year 3",
+            "revenue": "$800,000",
+            "expenses": "$500,000",
+            "profit": "$300,000"
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "What vehicles do you use?",
+          "answer": "We use E-bikes for city centers and electric vans for suburbs."
+        },
+        {
+          "question": "What is the delivery radius?",
+          "answer": "Currently 5-10 miles within major city hubs."
+        }
+      ]
     },
     {
       "id": "jaqoufrwj",
@@ -351,7 +550,58 @@
       "category": "EdTech",
       "difficulty": "Medium",
       "market": "Education",
-      "description": "Connect students with expert tutors for personalized learning"
+      "description": "Connect students with expert tutors for personalized learning",
+      "businessPlan": {
+        "executiveSummary": "A curated marketplace connecting K-12 and college students with vetted subject matter experts. Features include interactive whiteboards, session recording, and progress tracking.",
+        "targetAudience": [
+          "K-12 students struggling with core subjects",
+          "College students needing exam prep",
+          "Adult learners upskilling",
+          "Parents seeking quality education support"
+        ],
+        "revenueModel": [
+          "Commission on every completed session (20%)",
+          "Premium listing fees for top-rated tutors",
+          "Subscription for unlimited resource access",
+          "White-label solutions for schools"
+        ],
+        "marketingStrategy": [
+          "SEO content for homework help",
+          "Parent forums and Facebook groups",
+          "School partnerships",
+          "Influencer marketing with education creators"
+        ],
+        "financialProjections": [
+          {
+            "year": "Year 1",
+            "revenue": "$80,000",
+            "expenses": "$40,000",
+            "profit": "$40,000"
+          },
+          {
+            "year": "Year 2",
+            "revenue": "$250,000",
+            "expenses": "$100,000",
+            "profit": "$150,000"
+          },
+          {
+            "year": "Year 3",
+            "revenue": "$600,000",
+            "expenses": "$200,000",
+            "profit": "$400,000"
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "How do you vet tutors?",
+          "answer": "We require background checks and subject proficiency tests."
+        },
+        {
+          "question": "Can I request a refund?",
+          "answer": "Yes, if the first session is not satisfactory, it's free."
+        }
+      ]
     },
     {
       "id": "nvtju8roo",
@@ -359,7 +609,58 @@
       "category": "IoT",
       "difficulty": "High",
       "market": "Smart Home",
-      "description": "Unified platform to control all smart home devices"
+      "description": "Unified platform to control all smart home devices",
+      "businessPlan": {
+        "executiveSummary": "A hardware-agnostic platform that unifies disparate smart home devices (lights, locks, thermostats) into a single, easy-to-use interface with advanced automation routines.",
+        "targetAudience": [
+          "Tech-savvy homeowners",
+          "Airbnb hosts managing multiple properties",
+          "Elderly care facilities",
+          "Real estate developers"
+        ],
+        "revenueModel": [
+          "Hardware sales (Hub)",
+          "Monthly subscription for cloud features",
+          "Installation service fees",
+          "Enterprise licensing for property managers"
+        ],
+        "marketingStrategy": [
+          "Tech review channels on YouTube",
+          "Partnerships with real estate agents",
+          "Content marketing on home automation",
+          "Appearance at CES and tech expos"
+        ],
+        "financialProjections": [
+          {
+            "year": "Year 1",
+            "revenue": "$200,000",
+            "expenses": "$300,000",
+            "profit": "-$100,000"
+          },
+          {
+            "year": "Year 2",
+            "revenue": "$800,000",
+            "expenses": "$500,000",
+            "profit": "$300,000"
+          },
+          {
+            "year": "Year 3",
+            "revenue": "$2,000,000",
+            "expenses": "$1,200,000",
+            "profit": "$800,000"
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "Is it compatible with Alexa?",
+          "answer": "Yes, we support Alexa, Google Home, and HomeKit."
+        },
+        {
+          "question": "Does it work without internet?",
+          "answer": "Yes, local control is available for critical devices."
+        }
+      ]
     }
   ]
 }

@@ -28,7 +28,11 @@ export default async function ResourcesPage() {
                 ) : (
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {activeResources.map((resource) => (
-                            <div key={resource.id} className="glass-card p-6 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group">
+                            <Link
+                                key={resource.id}
+                                href={`/resources/${resource.id}`}
+                                className="glass-card p-6 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 group block relative"
+                            >
                                 <div className="flex items-start gap-4 mb-4">
                                     <div className="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                                         <BookOpen className="w-6 h-6 text-green-400" />
@@ -48,16 +52,11 @@ export default async function ResourcesPage() {
                                     </div>
                                 </div>
 
-                                <a
-                                    href={`https://${resource.url}`}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-2 text-primary hover:gap-3 transition-all text-sm font-semibold mt-4"
-                                >
-                                    Visit Course
-                                    <ExternalLink className="w-4 h-4" />
-                                </a>
-                            </div>
+                                <div className="flex items-center gap-2 text-primary group-hover:gap-3 transition-all text-sm font-semibold mt-4">
+                                    View Course Details
+                                    <ArrowRight className="w-4 h-4" />
+                                </div>
+                            </Link>
                         ))}
                     </div>
                 )}

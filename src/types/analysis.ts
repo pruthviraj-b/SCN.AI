@@ -19,6 +19,11 @@ export interface CareerAnalysis {
     strengths: string[];
     gaps: string[];
     recommendedSteps: string[];
+    isFallback?: boolean;
+    marketOutlook?: string;
+    salaryRange?: string;
+    estimatedTime?: string;
+    confidenceScore?: number;
 }
 
 export interface UserProfile {

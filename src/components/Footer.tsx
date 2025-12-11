@@ -10,7 +10,7 @@ export default function Footer() {
         <footer className="bg-black/40 border-t border-white/10 backdrop-blur-xl mt-20">
             <div className="container mx-auto px-4 py-12">
                 {/* Main Footer Content */}
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
                     {/* About Section */}
                     <div className="md:col-span-2">
                         <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-4">
@@ -31,17 +31,14 @@ export default function Footer() {
                                 className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
                                 <Github className="w-5 h-5" />
                             </a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
-                                <Twitter className="w-5 h-5" />
-                            </a>
                             <a href="https://linkedin.com/in/pruthvirajbc" target="_blank" rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
                                 <Linkedin className="w-5 h-5" />
                             </a>
-                            <a href="mailto:pruthviraj1984bc@gmail.com"
+                            <a href="https://instagram.com/pruthviraj1984bc" target="_blank" rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
-                                <Mail className="w-5 h-5" />
+                                <span className="sr-only">Instagram</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
                             </a>
                         </div>
                     </div>
@@ -74,6 +71,22 @@ export default function Footer() {
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+                    </div>
+
+                    {/* Contact Section (New) */}
+                    <div>
+                        <h4 className="font-semibold mb-4 text-primary">Contact Us</h4>
+                        <div className="space-y-3 text-sm">
+                            <a href="https://wa.me/919740634537" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-green-400 transition-colors">
+                                <span className="font-medium">WhatsApp</span>
+                            </a>
+                            <a href="https://instagram.com/pruthviraj1984bc" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-300 hover:text-pink-400 transition-colors">
+                                <span className="font-medium">Instagram DM</span>
+                            </a>
+                            <a href="mailto:pruthviraj1984bc@gmail.com" className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors">
+                                <span className="font-medium">Email Support</span>
+                            </a>
                         </div>
                     </div>
 

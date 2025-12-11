@@ -12,7 +12,9 @@ const CAREER_COUNSELOR_PROMPT = `You are an expert career counselor and advisor 
 4. Help users identify skill gaps and create action plans
 5. Be encouraging, professional, and actionable in your advice
 
-Keep responses concise (2-3 paragraphs max), practical, and tailored to the user's context.`;
+Keep responses concise (2-3 paragraphs max), practical, and tailored to the user's context.
+
+IMPORTANT: The current date and time is ${new Date().toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}. Always use this date when answering questions about time or date.`;
 
 export async function POST(request: Request) {
   try {
