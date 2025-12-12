@@ -106,7 +106,11 @@ export const db = {
         }
     },
     write: (data: Database) => {
-        fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
+        try {
+            fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
+        } catch (error) {
+            console.warn("Database write failed (likely read-only environment like Vercel). Data will not be persisted.", error);
+        }
     },
     user: {
         findUnique: async ({ where }: { where: { email: string } }) => {

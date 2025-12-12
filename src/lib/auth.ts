@@ -67,13 +67,17 @@ export const authOptions: NextAuthOptions = {
                 if (!existingUser) {
                     const hashedPassword = await bcrypt.hash("google-login-dummy-password-" + Math.random(), 10);
 
-                    await db.user.create({
-                        data: {
-                            email: user.email,
-                            name: user.name,
-                            password: hashedPassword,
-                        },
-                    });
+                    try {
+                        await db.user.create({
+                            data: {
+                                email: user.email,
+                                name: user.name,
+                                password: hashedPassword,
+                            },
+                        });
+                    } catch (error) {
+                        console.error("Failed to create user in DB (likely read-only environment). Proceeding with session-only login.", error);
+                    }
                 }
             }
             return true;
