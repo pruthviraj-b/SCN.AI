@@ -41,10 +41,10 @@ export default function FeaturedCourses() {
 
     const getLevelColor = (level: string) => {
         switch (level) {
-            case 'Beginner': return 'bg-green-500/20 text-green-400';
-            case 'Intermediate': return 'bg-yellow-500/20 text-yellow-400';
-            case 'Advanced': return 'bg-red-500/20 text-red-400';
-            default: return 'bg-white/5 text-blue-200/60';
+            case 'Beginner': return 'bg-green-500/10 text-green-600 dark:text-green-400';
+            case 'Intermediate': return 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-400';
+            case 'Advanced': return 'bg-red-500/10 text-red-600 dark:text-red-400';
+            default: return 'bg-muted text-muted-foreground';
         }
     };
 
@@ -52,8 +52,8 @@ export default function FeaturedCourses() {
         <section className="py-20 relative">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold mb-2">Featured Courses</h2>
-                    <p className="text-blue-200/60">{courses.length}+ courses from top platforms</p>
+                    <h2 className="text-4xl font-bold mb-2 text-foreground">Featured Courses</h2>
+                    <p className="text-muted-foreground">{courses.length}+ courses from top platforms</p>
                 </div>
 
                 {/* Search Bar */}
@@ -64,10 +64,10 @@ export default function FeaturedCourses() {
                             placeholder="Search courses..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-3 pl-12 focus:border-primary/50 focus:outline-none transition-all"
+                            className="w-full bg-muted/50 border border-border rounded-full px-6 py-3 pl-12 focus:border-primary focus:outline-none transition-all text-foreground placeholder:text-muted-foreground"
                             suppressHydrationWarning
                         />
-                        <BookOpen className="w-5 h-5 text-blue-200/60 absolute left-4 top-1/2 -translate-y-1/2" />
+                        <BookOpen className="w-5 h-5 text-muted-foreground absolute left-4 top-1/2 -translate-y-1/2" />
                     </div>
                 </div>
 
@@ -78,8 +78,8 @@ export default function FeaturedCourses() {
                             key={platform}
                             onClick={() => setSelectedPlatform(platform)}
                             className={`px-6 py-2 rounded-full whitespace-nowrap transition-all ${selectedPlatform === platform
-                                ? 'bg-primary text-white'
-                                : 'bg-white/5 hover:bg-white/10 text-blue-200/60'
+                                ? 'bg-primary text-primary-foreground'
+                                : 'bg-muted/50 hover:bg-muted text-muted-foreground'
                                 }`}
                         >
                             {platform}
@@ -94,8 +94,8 @@ export default function FeaturedCourses() {
                             key={category}
                             onClick={() => setSelectedCategory(category)}
                             className={`px-4 py-1 rounded-full text-sm whitespace-nowrap transition-all ${selectedCategory === category
-                                ? 'bg-purple-500/20 text-purple-400 border border-purple-500/50'
-                                : 'bg-white/5 hover:bg-white/10 text-blue-200/60 border border-white/10'
+                                ? 'bg-purple-500/20 text-purple-600 dark:text-purple-400 border border-purple-500/50'
+                                : 'bg-muted/50 hover:bg-muted text-muted-foreground border border-border'
                                 }`}
                         >
                             {category}
@@ -108,39 +108,39 @@ export default function FeaturedCourses() {
                     {displayedCourses.map((course) => (
                         <div
                             key={course.id}
-                            className="glass-card p-6 rounded-xl border border-white/10 hover:border-primary/50 transition-all group"
+                            className="bg-card p-6 rounded-xl border border-border hover:border-primary/50 transition-all group shadow-sm"
                         >
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
+                                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                                     <BookOpen className="w-6 h-6 text-primary" />
                                 </div>
-                                <span className={`px-3 py-1 rounded-full text-xs ${getLevelColor(course.level)}`}>
+                                <span className={`px-3 py-1 rounded-full text-xs font-medium ${getLevelColor(course.level)}`}>
                                     {course.level}
                                 </span>
                             </div>
 
-                            <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                            <h3 className="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors line-clamp-2">
                                 {course.title}
                             </h3>
 
-                            <div className="flex items-center gap-2 text-sm text-blue-200/60 mb-4">
-                                <span className="px-2 py-1 rounded bg-white/5">{course.platform}</span>
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                                <span className="px-2 py-1 rounded bg-muted">{course.platform}</span>
                                 <span>•</span>
                                 <span>{course.category}</span>
                             </div>
 
                             <div className="flex items-center justify-between text-sm mb-4">
-                                <div className="flex items-center gap-1 text-yellow-400">
+                                <div className="flex items-center gap-1 text-yellow-500">
                                     <Star className="w-4 h-4 fill-current" />
                                     {course.rating}
                                 </div>
-                                <div className="flex items-center gap-1 text-blue-200/60">
+                                <div className="flex items-center gap-1 text-muted-foreground">
                                     <Clock className="w-4 h-4" />
                                     {course.duration}
                                 </div>
                             </div>
 
-                            <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                            <div className="flex items-center justify-between pt-4 border-t border-border">
                                 <span className="text-lg font-bold text-primary">{course.price}</span>
                                 <a
                                     href={`https://${course.url}`}
@@ -157,7 +157,7 @@ export default function FeaturedCourses() {
                 </div>
 
                 {displayedCourses.length === 0 && (
-                    <div className="text-center text-blue-200/60 mt-8">
+                    <div className="text-center text-muted-foreground mt-8">
                         No courses found matching your criteria.
                     </div>
                 )}
@@ -167,7 +167,7 @@ export default function FeaturedCourses() {
                     <div className="text-center mt-12">
                         <button
                             onClick={() => setIsExpanded(!isExpanded)}
-                            className="px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-white font-medium"
+                            className="px-8 py-3 rounded-full bg-muted border border-border hover:bg-muted/80 transition-all text-foreground font-medium"
                         >
                             {isExpanded ? 'Show Less' : 'Explore More Courses'}
                         </button>

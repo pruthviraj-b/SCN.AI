@@ -26,53 +26,52 @@ export default function DashboardSkills({ userSkills }: DashboardSkillsProps) {
 
     const getDemandColor = (demand: string) => {
         switch (demand) {
-            case 'High': return 'text-green-500 bg-green-500/10 border-green-500/30';
-            case 'Medium': return 'text-yellow-500 bg-yellow-500/10 border-yellow-500/30';
-            case 'Low': return 'text-blue-200/60 bg-white/5 border-white/10';
-            default: return 'text-blue-200/60 bg-white/5 border-white/10';
+            case 'High': return 'text-green-600 dark:text-green-400 bg-green-500/10 border-green-500/30';
+            case 'Medium': return 'text-yellow-600 dark:text-yellow-400 bg-yellow-500/10 border-yellow-500/30';
+            case 'Low': return 'text-muted-foreground bg-muted/20 border-border';
+            default: return 'text-muted-foreground bg-muted/20 border-border';
         }
     };
 
     const getDifficultyColor = (difficulty: string) => {
         switch (difficulty) {
-            case 'Beginner': return 'text-blue-400';
-            case 'Intermediate': return 'text-purple-400';
-            case 'Advanced': return 'text-red-400';
-            default: return 'text-blue-200/60';
+            case 'Beginner': return 'text-blue-600 dark:text-blue-400';
+            case 'Intermediate': return 'text-purple-600 dark:text-purple-400';
+            case 'Advanced': return 'text-red-600 dark:text-red-400';
+            default: return 'text-muted-foreground';
         }
     };
 
     if (userSkillsData.length === 0) {
         return (
-            <div className="glass-card p-6 rounded-2xl border border-white/10">
-                <h3 className="text-xl font-bold mb-4">Your Skills</h3>
-                <div className="text-center py-8 border border-dashed border-white/10 rounded-xl">
-                    <p className="text-blue-200/60 mb-4">No skills tracked yet</p>
-                    <p className="text-sm text-blue-200/50">Complete the onboarding wizard to add your skills</p>
+            <div className="bg-card p-6 rounded-2xl border border-border">
+                <h3 className="text-xl font-bold mb-4 text-foreground">Your Skills</h3>
+                <div className="text-center py-8 border border-dashed border-border rounded-xl">
+                    <p className="text-muted-foreground mb-4">No skills tracked yet</p>
+                    <p className="text-sm text-muted-foreground/70">Complete the onboarding wizard to add your skills</p>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="glass-card p-6 rounded-2xl border border-white/10">
-            <div className="flex justify-between items-center mb-6">
-                <h3 className="text-xl font-bold">Your Skills</h3>
-                <span className="text-sm text-blue-200/60">{userSkillsData.length} skills tracked</span>
+        <div className="space-y-6">
+            <div className="flex justify-between items-center mb-2">
+                {/* Header moved to parent or removed */}
             </div>
 
             <div className="space-y-6">
                 {Object.entries(skillsByCategory).map(([category, categorySkills]) => (
                     <div key={category}>
-                        <h4 className="text-sm font-semibold text-blue-200/60 mb-3">{category}</h4>
+                        <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">{category}</h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                             {categorySkills.map((skill) => (
                                 <div
                                     key={skill.id}
-                                    className="relative p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all group cursor-pointer"
+                                    className="relative p-3 rounded-xl bg-muted/30 border border-border hover:border-primary/50 transition-all group cursor-pointer"
                                 >
                                     <div className="flex items-start justify-between mb-2">
-                                        <h5 className="font-semibold text-sm group-hover:text-primary transition-colors">
+                                        <h5 className="font-semibold text-sm text-foreground group-hover:text-primary transition-colors">
                                             {skill.name}
                                         </h5>
                                         {skill.trending && (
@@ -83,10 +82,10 @@ export default function DashboardSkills({ userSkills }: DashboardSkillsProps) {
                                     </div>
 
                                     <div className="flex items-center gap-2 flex-wrap">
-                                        <span className={`text-xs px-2 py-1 rounded-full border ${getDemandColor(skill.demand)}`}>
-                                            {skill.demand} Demand
+                                        <span className={`text-[10px] px-2 py-0.5 rounded-full border ${getDemandColor(skill.demand)}`}>
+                                            {skill.demand}
                                         </span>
-                                        <span className={`text-xs ${getDifficultyColor(skill.difficulty)}`}>
+                                        <span className={`text-[10px] ${getDifficultyColor(skill.difficulty)}`}>
                                             {skill.difficulty}
                                         </span>
                                     </div>

@@ -37,8 +37,8 @@ export default function PopularCareers() {
         <section className="py-20 relative">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl font-bold mb-2">Popular Career Paths</h2>
-                    <p className="text-blue-200/60">Explore 105+ career opportunities across industries and Trending Skills</p>
+                    <h2 className="text-4xl font-bold mb-2 text-foreground">Popular Career Paths</h2>
+                    <p className="text-muted-foreground">Explore 105+ career opportunities across industries and Trending Skills</p>
                 </div>
 
                 {/* Search Bar */}
@@ -49,9 +49,9 @@ export default function PopularCareers() {
                             placeholder="Search careers..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-3 pl-12 focus:border-primary/50 focus:outline-none transition-all"
+                            className="w-full bg-muted/50 border border-border rounded-full px-6 py-3 pl-12 focus:border-primary focus:outline-none transition-all text-foreground placeholder:text-muted-foreground"
                         />
-                        <Briefcase className="w-5 h-5 text-blue-200/60 absolute left-4 top-1/2 -translate-y-1/2" />
+                        <Briefcase className="w-5 h-5 text-muted-foreground absolute left-4 top-1/2 -translate-y-1/2" />
                     </div>
                 </div>
 
@@ -62,8 +62,8 @@ export default function PopularCareers() {
                             key={category}
                             onClick={() => setSelectedCategory(category)}
                             className={`px-6 py-2 rounded-full whitespace-nowrap transition-all ${selectedCategory === category
-                                ? 'bg-primary text-white'
-                                : 'bg-white/5 hover:bg-white/10 text-blue-200/60'
+                                ? 'bg-primary text-primary-foreground'
+                                : 'bg-muted/50 hover:bg-muted text-muted-foreground'
                                 }`}
                         >
                             {category}
@@ -76,30 +76,30 @@ export default function PopularCareers() {
                     {displayedCareers.map((career) => (
                         <div
                             key={career.id}
-                            className="glass-card p-6 rounded-xl border border-white/10 hover:border-primary/50 transition-all group cursor-pointer"
+                            className="bg-card p-6 rounded-xl border border-border hover:border-primary/50 transition-all group cursor-pointer shadow-sm"
                         >
                             <div className="flex items-start justify-between mb-4">
-                                <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center">
+                                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                                     <Briefcase className="w-6 h-6 text-primary" />
                                 </div>
                                 {career.trending && (
-                                    <span className="px-2 py-1 rounded-full bg-green-500/20 text-green-400 text-xs flex items-center gap-1">
+                                    <span className="px-2 py-1 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs flex items-center gap-1">
                                         <TrendingUp className="w-3 h-3" />
                                         Trending
                                     </span>
                                 )}
                             </div>
 
-                            <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                            <h3 className="text-lg font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                                 {career.title}
                             </h3>
 
-                            <p className="text-sm text-blue-200/70 mb-4 line-clamp-2">
+                            <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
                                 {career.description}
                             </p>
 
                             <div className="flex items-center justify-between text-sm">
-                                <div className="flex items-center gap-1 text-green-400">
+                                <div className="flex items-center gap-1 text-green-600 dark:text-green-400">
                                     <IndianRupee className="w-4 h-4" />
                                     {career.salary}
                                 </div>
@@ -110,12 +110,12 @@ export default function PopularCareers() {
 
                             <div className="flex flex-wrap gap-2 mt-4">
                                 {career.skills.slice(0, 2).map((skill, idx) => (
-                                    <span key={idx} className="px-2 py-1 rounded-full bg-white/5 text-xs text-blue-200/60">
+                                    <span key={idx} className="px-2 py-1 rounded-full bg-muted text-xs text-muted-foreground">
                                         {skill}
                                     </span>
                                 ))}
                                 {career.skills.length > 2 && (
-                                    <span className="px-2 py-1 rounded-full bg-white/5 text-xs text-blue-200/60">
+                                    <span className="px-2 py-1 rounded-full bg-muted text-xs text-muted-foreground">
                                         +{career.skills.length - 2}
                                     </span>
                                 )}
@@ -125,7 +125,7 @@ export default function PopularCareers() {
                 </div>
 
                 {displayedCareers.length === 0 && (
-                    <div className="text-center text-blue-200/60 mt-8">
+                    <div className="text-center text-muted-foreground mt-8">
                         No careers found matching your criteria.
                     </div>
                 )}
@@ -135,7 +135,7 @@ export default function PopularCareers() {
                     <div className="text-center mt-12">
                         <button
                             onClick={() => setIsExpanded(!isExpanded)}
-                            className="px-8 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-white font-medium"
+                            className="px-8 py-3 rounded-full bg-muted border border-border hover:bg-muted/80 transition-all text-foreground font-medium"
                         >
                             {isExpanded ? 'Show Less' : 'Explore More Careers'}
                         </button>

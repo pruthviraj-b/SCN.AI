@@ -147,17 +147,7 @@ export default async function DashboardPage() {
 
             {/* Main Content */}
             <main className="md:ml-64 p-8">
-                <header className="flex justify-between items-center mb-8">
-                    <div>
-                        <h2 className="text-3xl font-bold mb-2 text-foreground">Welcome back, {user.name?.split(' ')[0]}</h2>
-                        <p className="text-muted-foreground">
-                            {isAdmin ? "Admin Control Center" : "Here's an overview of your career journey."}
-                        </p>
-                    </div>
-                    <Link href="/api/auth/signout" className="md:hidden px-4 py-2 rounded-lg bg-muted hover:bg-muted/80 text-sm">
-                        Sign Out
-                    </Link>
-                </header>
+
 
                 {isAdmin ? (
                     <AdminDashboard />

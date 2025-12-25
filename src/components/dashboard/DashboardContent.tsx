@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from "next/link";
-import { Plus, FileText, TrendingUp, BookOpen, Target, Search, Sparkles, Send, Bot, Loader2 } from "lucide-react";
+import { Plus, Search, Send, Bot, Loader2, Sparkles } from "lucide-react";
 
 import DashboardSkills from "@/components/dashboard/DashboardSkills";
 import RecommendedCourses from "@/components/dashboard/RecommendedCourses";
@@ -12,6 +12,9 @@ import StartupSupportWidget from "@/components/dashboard/StartupSupportWidget";
 import ProfessionalHelpWidget from "@/components/dashboard/ProfessionalHelpWidget";
 import DeepAnalysis from "@/components/DeepAnalysis";
 import CareerRecommendations from "@/components/dashboard/CareerRecommendations";
+import DashboardHero from "@/components/dashboard/DashboardHero";
+import ProgressSnapshot from "@/components/dashboard/ProgressSnapshot";
+import NextBestAction from "@/components/dashboard/NextBestAction";
 
 type DashboardContentProps = {
     user: any;
@@ -40,8 +43,6 @@ export default function DashboardContent({ user, userProfile, skillsCount, recom
         setAiRecommendedIds(null);
         setAiMessage('');
 
-        console.log("Starting AI Search:", searchQuery);
-
         try {
             const response = await fetch('/api/recommend-courses', {
                 method: 'POST',
@@ -58,7 +59,6 @@ export default function DashboardContent({ user, userProfile, skillsCount, recom
             setAiRecommendedIds(data.courseIds);
             setAiMessage(data.message);
         } catch (error) {
-            console.error('AI Search Error:', error);
             setAiRecommendedIds(null);
             setAiMessage('Unable to connect to AI. Showing standard courses.');
         } finally {
@@ -72,129 +72,111 @@ export default function DashboardContent({ user, userProfile, skillsCount, recom
         setAiMessage('');
     };
 
-    // Scroll to courses when search completes
-    const scrollToCourses = () => {
-        const coursesSection = document.getElementById('recommended-courses-section');
-        if (coursesSection) {
-            coursesSection.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
-    if (aiRecommendedIds && !isAiLoading) {
-        // Maybe scroll automatically? 
-        // scrollToCourses(); 
-    }
+    const topMatch = matches && matches.length > 0 ? matches[0] : null;
 
     return (
-        <div className="space-y-8">
-            {/* Global AI Search Bar */}
-            <div className="relative w-full max-w-3xl mx-auto mb-10">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary via-blue-500 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
-                <div className="relative">
+        <div className="space-y-8 max-w-[1600px] mx-auto">
+            {/* SECTION 1: ORIENTATION (Welcome + AI) */}
+            <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-8">
+                <div>
+                    <h1 className="text-3xl font-bold text-foreground tracking-tight">
+                        Welcome back, {user.name?.split(' ')[0] || 'User'}
+                    </h1>
+                    <p className="text-muted-foreground mt-1">Here&apos;s your current career status</p>
+                </div>
+
+                {/* AI Input - Command Center */}
+                <div className="w-full md:max-w-md relative">
                     <form onSubmit={handleAiSearch} className="relative group">
                         <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
                             {isAiLoading ? (
-                                <Loader2 className="w-5 h-5 text-primary animate-spin" />
+                                <Loader2 className="w-4 h-4 text-primary animate-spin" />
                             ) : (
-                                <Sparkles className="w-5 h-5 text-primary" />
+                                <Sparkles className="w-4 h-4 text-primary" />
                             )}
                         </div>
                         <input
                             type="text"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder="What do you want to learn today? (e.g. 'Advanced AI courses' or 'Web dev for beginners')"
-                            className="w-full pl-12 pr-14 py-4 bg-card border border-border/50 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground placeholder-muted-foreground shadow-lg text-lg transition-all"
+                            placeholder="Ask AI to plan your next step..."
+                            className="w-full pl-10 pr-12 py-3 bg-card border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm shadow-sm transition-all"
                         />
                         <button
                             type="submit"
                             disabled={isAiLoading || !searchQuery.trim()}
-                            className="absolute inset-y-2 right-2 px-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center transform active:scale-95"
+                            className="absolute inset-y-2 right-2 px-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition-colors disabled:opacity-50 flex items-center justify-center h-8 w-8"
                         >
-                            <Send className="w-5 h-5" />
+                            <Send className="w-4 h-4" />
                         </button>
                     </form>
                 </div>
-                {/* Search Status / Message */}
-                {aiMessage && (
-                    <div className="mt-4 p-4 rounded-xl bg-primary/10 border border-primary/20 flex gap-3 animate-in fade-in slide-in-from-top-2 mx-2">
-                        <Bot className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <div className="flex-1">
-                            <p className="text-sm text-foreground/90 font-medium">{aiMessage}</p>
-                        </div>
-                        <button
-                            onClick={clearAiSearch}
-                            className="text-xs text-muted-foreground hover:text-foreground transition-colors self-start underline"
-                        >
-                            Clear Results
-                        </button>
-                    </div>
-                )}
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                {/* Main Content Area */}
-                <div className="lg:col-span-3 space-y-8">
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                        <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="p-2 rounded-lg bg-blue-500/10">
-                                    <FileText className="w-5 h-5 text-blue-600" />
-                                </div>
-                                <h3 className="text-muted-foreground text-sm">Career Plans</h3>
+            {/* AI Search Status / Message */}
+            {aiMessage && (
+                <div className="mt-4 p-4 rounded-xl bg-primary/10 border border-primary/20 flex gap-3 animate-in fade-in slide-in-from-top-2 mx-2">
+                    <Bot className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div className="flex-1">
+                        <p className="text-sm text-foreground/90 font-medium">{aiMessage}</p>
+                    </div>
+                </div>
+            )}
+
+            {/* MOBILE ORDER: Welcome -> NextAction -> Snapshot -> Courses */}
+            {/* DESKTOP ORDER: 2 Cols. LEFT: Action -> Snapshot -> Content. RIGHT: Agenda -> Support */}
+
+            <div className="grid grid-cols-1 xl:grid-cols-4 gap-8">
+
+                {/* LEFT MAIN COLUMN (3 cols wide) */}
+                <div className="xl:col-span-3 space-y-8 flex flex-col">
+
+                    {/* SECTION 3: NEXT BEST ACTION (High Priority) - Moved up for mobile importance via order classes if needed, but flex-col handles natural flow */}
+                    <div className="order-1">
+                        <NextBestAction
+                            userProfile={userProfile}
+                            hasPlans={user.plans.length > 0}
+                        />
+                    </div>
+
+                    {/* SECTION 2: PROGRESS SNAPSHOT */}
+                    <div className="order-2">
+                        <ProgressSnapshot
+                            userProfile={userProfile}
+                            stats={{
+                                plans: user.plans.length,
+                                skills: skillsCount,
+                                courses: recommendedCoursesCount
+                            }}
+                        />
+                    </div>
+
+                    {/* Content: Hero / Roadmap / Skills */}
+                    <div className="order-3 space-y-8">
+                        {/* Only show Hero if we have a match */}
+                        {topMatch && (
+                            <div className="h-[350px]">
+                                <DashboardHero topMatch={topMatch} userProfile={userProfile} />
                             </div>
-                            <p className="text-3xl font-bold text-foreground">{user.plans.length}</p>
-                        </div>
-                        <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="p-2 rounded-lg bg-green-500/10">
-                                    <TrendingUp className="w-5 h-5 text-green-600" />
-                                </div>
-                                <h3 className="text-muted-foreground text-sm">Skills Tracked</h3>
+                        )}
+
+                        {/* Working Hours / Skills Chart */}
+                        <div className="bg-card p-6 rounded-2xl border border-border shadow-sm">
+                            <div className="flex justify-between items-center mb-6">
+                                <h3 className="text-xl font-bold text-foreground">Skills Analysis</h3>
                             </div>
-                            <p className="text-3xl font-bold text-foreground">{skillsCount}</p>
-                        </div>
-                        <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="p-2 rounded-lg bg-purple-500/10">
-                                    <BookOpen className="w-5 h-5 text-purple-600" />
+                            {skillsCount > 0 ? (
+                                <DashboardSkills userSkills={userProfile.skills} />
+                            ) : (
+                                <div className="h-64 flex items-center justify-center border border-dashed border-border rounded-xl">
+                                    <p className="text-muted-foreground text-sm">No skills data available</p>
                                 </div>
-                                <h3 className="text-muted-foreground text-sm">Recommended Courses</h3>
-                            </div>
-                            <p className="text-3xl font-bold text-foreground">{recommendedCoursesCount}</p>
-                        </div>
-                        <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="p-2 rounded-lg bg-yellow-500/10">
-                                    <Target className="w-5 h-5 text-yellow-600" />
-                                </div>
-                                <h3 className="text-muted-foreground text-sm">Current Goal</h3>
-                            </div>
-                            <p className="text-lg font-bold truncate text-foreground">{userProfile.goal || 'Not set'}</p>
+                            )}
                         </div>
                     </div>
 
-                    {/* NEW: Smart Career Recommendations */}
-                    {matches && matches.length > 0 && (
-                        <CareerRecommendations matches={matches} />
-                    )}
-
-                    {/* Skills Section */}
-                    {skillsCount > 0 && (
-                        <DashboardSkills userSkills={userProfile.skills} />
-                    )}
-
-                    {/* Career Roadmap */}
-                    {userProfile.goal && (
-                        <CareerRoadmap
-                            userGoal={userProfile.goal}
-                            experienceLevel={userProfile.experienceLevel}
-                        />
-                    )}
-
-                    {/* Recommended Courses - ID for scrolling */}
-                    <div id="recommended-courses-section">
+                    {/* SECTION 4: RECOMMENDED COURSES */}
+                    <div className="order-4" id="recommended-courses-section">
                         <RecommendedCourses
                             userSkills={userProfile.skills}
                             experienceLevel={userProfile.experienceLevel}
@@ -205,53 +187,57 @@ export default function DashboardContent({ user, userProfile, skillsCount, recom
                         />
                     </div>
 
-                    {/* Resources Library */}
-                    <ResourcesLibrary />
-
-                    {/* Deep Analysis */}
-                    <DeepAnalysis />
+                    <div className="order-5">
+                        <DeepAnalysis />
+                    </div>
                 </div>
 
-                {/* Right Sidebar */}
-                <div className="lg:col-span-1 space-y-6">
-                    <StartupSupportWidget />
-                    <ProfessionalHelpWidget />
+                {/* RIGHT SIDEBAR - SECTION 5: SUPPORT & AGENDA */}
+                <div className="xl:col-span-1 space-y-6 flex flex-col order-last">
 
-                    {/* Career Plans List */}
-                    <div id="your-plans-section" className="bg-card p-6 rounded-2xl border shadow-sm">
-                        <div className="flex justify-between items-center mb-6">
-                            <h3 className="text-lg font-bold text-foreground">Your Plans</h3>
-                            <Link href="/get-started" className="text-primary hover:underline text-xs">
-                                + New
+                    {/* My Agenda */}
+                    <div id="your-plans-section" className="bg-card p-5 rounded-2xl border border-border shadow-sm">
+                        <div className="flex justify-between items-center mb-4">
+                            <div>
+                                <h3 className="font-bold text-foreground">My Agenda</h3>
+                                <p className="text-[10px] text-muted-foreground">Today's Schedule</p>
+                            </div>
+                            <Link href="/get-started" className="p-1.5 bg-primary/10 rounded-full text-primary hover:bg-primary/20 transition-colors">
+                                <Plus className="w-3.5 h-3.5" />
                             </Link>
                         </div>
 
-                        <div className="grid gap-3">
+                        <div className="space-y-3 relative">
+                            <div className="absolute left-3 top-2 bottom-2 w-0.5 bg-muted z-0" />
                             {user.plans.length === 0 ? (
-                                <div className="text-center py-8 border border-dashed border-border rounded-xl">
-                                    <p className="text-xs text-muted-foreground mb-3">No plans yet</p>
-                                    <Link href="/get-started" className="px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-xs hover:bg-primary/90 transition-colors inline-block">
-                                        Create
+                                <div className="text-center py-6 bg-card relative z-10">
+                                    <p className="text-xs text-muted-foreground mb-2">No active plans</p>
+                                    <Link href="/get-started" className="text-xs text-primary hover:underline font-medium">
+                                        + Add Plan
                                     </Link>
                                 </div>
                             ) : (
-                                user.plans.map((plan: any) => (
-                                    <Link key={plan.id} href={`/dashboard/plans/${plan.id}`}>
-                                        <div className="p-3 rounded-xl bg-muted/50 border border-border hover:border-primary/50 transition-colors cursor-pointer group">
-                                            <div className="flex justify-between items-start">
-                                                <div className="min-w-0">
-                                                    <h4 className="font-semibold mb-1 text-sm group-hover:text-primary transition-colors text-foreground truncate">{plan.title}</h4>
-                                                    <p className="text-xs text-muted-foreground">Updated {new Date(plan.createdAt).toLocaleDateString()}</p>
-                                                </div>
-                                                <div className="w-2 h-2 rounded-full bg-green-500 mt-1.5 shrink-0" />
-                                            </div>
+                                user.plans.slice(0, 4).map((plan: any) => (
+                                    <Link key={plan.id} href={`/dashboard/plans/${plan.id}`} className="block relative z-10 pl-6 group">
+                                        <div className="absolute left-[0.35rem] top-3 w-2 h-2 rounded-full bg-primary border-2 border-card group-hover:scale-110 transition-transform"></div>
+                                        <div className="p-2.5 rounded-lg bg-muted/30 border border-transparent hover:border-border hover:bg-muted/50 transition-all cursor-pointer">
+                                            <h4 className="font-semibold text-xs text-foreground truncate">{plan.title}</h4>
+                                            <p className="text-[10px] text-muted-foreground truncate">Next step pending</p>
                                         </div>
                                     </Link>
                                 ))
                             )}
                         </div>
                     </div>
+
+                    {/* Simplified Support Widgets */}
+                    <div className="space-y-4">
+                        <StartupSupportWidget />
+                        <ProfessionalHelpWidget />
+                        <ResourcesLibrary />
+                    </div>
                 </div>
+
             </div>
         </div>
     );

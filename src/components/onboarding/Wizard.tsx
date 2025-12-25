@@ -474,7 +474,7 @@ export default function Wizard() {
 
     const renderProgressBar = () => (
         <div className="mb-6">
-            <div className="flex justify-between items-center mb-3 px-2 text-xs font-medium text-blue-200 uppercase tracking-wider">
+            <div className="flex justify-between items-center mb-3 px-2 text-xs font-medium text-muted-foreground uppercase tracking-wider">
                 <span className={step >= 1 ? "text-primary transition-colors" : ""}>Profile</span>
                 <span className={step >= 2 ? "text-primary transition-colors" : ""}>Skills</span>
                 <span className={step >= 3 ? "text-primary transition-colors" : ""}>Goals</span>
@@ -483,7 +483,7 @@ export default function Wizard() {
                 <span className={step >= 6 ? "text-primary transition-colors" : ""}>Personality</span>
                 <span className={step >= 7 ? "text-primary transition-colors" : ""}>Review</span>
             </div>
-            <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
+            <div className="h-1.5 bg-muted rounded-full overflow-hidden">
                 <motion.div
                     className="h-full bg-gradient-to-r from-blue-500 to-purple-600"
                     initial={{ width: "0%" }}
@@ -536,12 +536,12 @@ export default function Wizard() {
             {/* Header */}
             <div className="mb-6 text-center">
                 <h1 className="text-2xl font-bold mb-2">Build Your Career Profile</h1>
-                <p className="text-sm text-blue-100/80">Personalized career and learning roadmap using AI.</p>
+                <p className="text-sm text-muted-foreground">Personalized career and learning roadmap using AI.</p>
             </div>
 
             {renderProgressBar()}
 
-            <div className="glass-card p-6 md:p-8 rounded-2xl flex-1 relative overflow-visible shadow-xl border border-white/5 bg-black/40 backdrop-blur-xl">
+            <div className="glass-card p-6 md:p-8 rounded-2xl flex-1 relative overflow-visible shadow-xl border border-border bg-card/50 backdrop-blur-xl">
                 <AnimatePresence mode="wait">
 
                     {/* STEP 1: PROFILE */}
@@ -579,26 +579,26 @@ export default function Wizard() {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label className="label">Highest Education</label>
+                                    <label className="label text-foreground">Highest Education</label>
                                     <select
                                         value={data.educationLevel}
                                         onChange={e => updateData('educationLevel', e.target.value)}
-                                        className={`input-field appearance-none bg-black/20 ${errors.educationLevel ? 'border-red-500' : ''}`}
+                                        className={`input-field appearance-none bg-muted/50 text-foreground border-border ${errors.educationLevel ? 'border-destructive' : ''}`}
                                     >
-                                        <option value="" className="bg-gray-900 text-gray-400">Select Level</option>
-                                        {EDUCATION_LEVELS.map(l => <option key={l} value={l} className="bg-gray-900">{l}</option>)}
+                                        <option value="" className="bg-background text-muted-foreground">Select Level</option>
+                                        {EDUCATION_LEVELS.map(l => <option key={l} value={l} className="bg-background text-foreground">{l}</option>)}
                                     </select>
                                     {errors.educationLevel && <p className="text-error">{errors.educationLevel}</p>}
                                 </div>
                                 <div>
-                                    <label className="label">Field of Study</label>
+                                    <label className="label text-foreground">Field of Study</label>
                                     <select
                                         value={data.fieldOfStudy}
                                         onChange={e => updateData('fieldOfStudy', e.target.value)}
-                                        className={`input-field appearance-none bg-black/20 ${errors.fieldOfStudy ? 'border-red-500' : ''}`}
+                                        className={`input-field appearance-none bg-muted/50 text-foreground border-border ${errors.fieldOfStudy ? 'border-destructive' : ''}`}
                                     >
-                                        <option value="" className="bg-gray-900 text-gray-400">Select Field</option>
-                                        {FIELDS_OF_STUDY.map(f => <option key={f} value={f} className="bg-gray-900">{f}</option>)}
+                                        <option value="" className="bg-background text-muted-foreground">Select Field</option>
+                                        {FIELDS_OF_STUDY.map(f => <option key={f} value={f} className="bg-background text-foreground">{f}</option>)}
                                     </select>
                                     {errors.fieldOfStudy && <p className="text-error">{errors.fieldOfStudy}</p>}
                                 </div>
@@ -611,7 +611,7 @@ export default function Wizard() {
                                         <button
                                             key={status}
                                             onClick={() => updateData('currentStatus', status)}
-                                            className={`p-2.5 rounded-lg border text-xs font-medium transition-all ${data.currentStatus === status ? 'bg-primary border-primary text-white shadow-lg shadow-primary/20' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                            className={`p-2.5 rounded-lg border text-xs font-medium transition-all ${data.currentStatus === status ? 'bg-primary border-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-muted/40 border-border hover:bg-muted text-foreground'}`}
                                         >
                                             {status}
                                         </button>
@@ -627,10 +627,10 @@ export default function Wizard() {
                                         <button
                                             key={level.value}
                                             onClick={() => updateData('experienceLevel', level.value)}
-                                            className={`p-3 rounded-lg border text-left transition-all group ${data.experienceLevel === level.value ? 'bg-primary/20 border-primary shadow-glow' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                            className={`p-3 rounded-lg border text-left transition-all group ${data.experienceLevel === level.value ? 'bg-primary/20 border-primary shadow-glow' : 'bg-muted/40 border-border hover:bg-muted'}`}
                                         >
-                                            <h3 className={`font-semibold text-sm mb-0.5 ${data.experienceLevel === level.value ? 'text-primary' : 'text-gray-200'}`}>{level.label}</h3>
-                                            <p className="text-[10px] text-blue-200/70">{level.description}</p>
+                                            <h3 className={`font-semibold text-sm mb-0.5 ${data.experienceLevel === level.value ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>{level.label}</h3>
+                                            <p className="text-[10px] text-muted-foreground">{level.description}</p>
                                         </button>
                                     ))}
                                 </div>
@@ -647,10 +647,10 @@ export default function Wizard() {
                             </h2>
 
                             {/* Starting Fresh Toggle */}
-                            <div className="bg-white/5 p-4 rounded-xl border border-white/10 flex items-center justify-between">
+                            <div className="bg-card border border-border p-4 rounded-xl flex items-center justify-between">
                                 <div>
-                                    <h3 className="text-sm font-semibold text-white">Starting Fresh?</h3>
-                                    <p className="text-xs text-blue-200/60">Select this if you have no prior professional experience.</p>
+                                    <h3 className="text-sm font-semibold text-foreground">Starting Fresh?</h3>
+                                    <p className="text-xs text-muted-foreground">Select this if you have no prior professional experience.</p>
                                 </div>
                                 <button
                                     onClick={() => {
@@ -658,17 +658,17 @@ export default function Wizard() {
                                         updateData('startingFresh', newVal);
                                         if (newVal) updateData('skills', []); // Clear skills if fresh
                                     }}
-                                    className={`relative w-11 h-6 rounded-full transition-colors ${data.startingFresh ? 'bg-green-500' : 'bg-white/10'}`}
+                                    className={`relative w-11 h-6 rounded-full transition-colors ${data.startingFresh ? 'bg-green-500' : 'bg-muted'}`}
                                 >
-                                    <span className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${data.startingFresh ? 'translate-x-5' : 'translate-x-0'}`} />
+                                    <span className={`absolute top-1 left-1 bg-background w-4 h-4 rounded-full transition-transform ${data.startingFresh ? 'translate-x-5' : 'translate-x-0'}`} />
                                 </button>
                             </div>
 
                             {/* Mode A: AI Text Analysis (Hidden if Fresh Start) */}
                             {!data.startingFresh && (
-                                <div className="bg-white/5 p-5 rounded-xl border border-white/10">
-                                    <label className="label flex items-center gap-2">
-                                        <Sparkles className="w-4 h-4 text-yellow-400" />
+                                <div className="bg-card border border-border p-5 rounded-xl">
+                                    <label className="label flex items-center gap-2 text-foreground">
+                                        <Sparkles className="w-4 h-4 text-yellow-500" />
                                         Describe your skills (AI Enhanced)
                                     </label>
                                     <textarea
@@ -686,7 +686,7 @@ export default function Wizard() {
                                             {isAnalyzing ? <span className="animate-pulse">Analyzing...</span> : <> <Sparkles className="w-3 h-3" /> Analyze with AI </>}
                                         </button>
                                         {aiAnalysisResult && (
-                                            <span className="text-green-400 text-xs font-medium animate-in fade-in bg-green-500/10 px-2 py-1 rounded">
+                                            <span className="text-green-600 dark:text-green-400 text-xs font-medium animate-in fade-in bg-green-500/10 px-2 py-1 rounded">
                                                 ✓ {aiAnalysisResult.extracted.length} skills found (+Inference)
                                             </span>
                                         )}
@@ -698,20 +698,20 @@ export default function Wizard() {
                             {!data.startingFresh && (
                                 <>
                                     <div className="space-y-4">
-                                        <div className="flex justify-between items-end border-b border-white/5 pb-2">
-                                            <label className="label mb-0">Quick Select</label>
+                                        <div className="flex justify-between items-end border-b border-border pb-2">
+                                            <label className="label mb-0 text-foreground">Quick Select</label>
                                         </div>
 
                                         <div className="h-[200px] overflow-y-auto pr-2 custom-scrollbar">
                                             {Object.entries(SKILL_CATEGORIES).map(([category, catSkills]) => (
                                                 <div key={category} className="mb-4">
-                                                    <h3 className="text-xs font-semibold text-blue-300 mb-2 uppercase tracking-wider">{category}</h3>
+                                                    <h3 className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wider">{category}</h3>
                                                     <div className="flex flex-wrap gap-2">
                                                         {catSkills.map(skill => (
                                                             <button
                                                                 key={skill}
                                                                 onClick={() => toggleSelection('skills', skill)}
-                                                                className={`px-2.5 py-1 rounded-full text-xs border transition-all ${data.skills.includes(skill) ? 'bg-blue-500/20 border-blue-500 text-blue-300' : 'bg-white/5 border-white/10 hover:border-white/30 text-blue-200/70'}`}
+                                                                className={`px-2.5 py-1 rounded-full text-xs border transition-all ${data.skills.includes(skill) ? 'bg-primary/20 border-primary text-primary' : 'bg-muted/40 border-border hover:border-primary/50 text-muted-foreground'}`}
                                                             >
                                                                 {skill}
                                                             </button>
@@ -723,13 +723,13 @@ export default function Wizard() {
                                     </div>
 
                                     {/* Selected Summary */}
-                                    <div className="border-t border-white/10 pt-4">
-                                        <p className="text-xs text-blue-200 mb-2">Selected ({data.skills.length})</p>
+                                    <div className="border-t border-border pt-4">
+                                        <p className="text-xs text-muted-foreground mb-2">Selected ({data.skills.length})</p>
                                         <div className="flex flex-wrap gap-2 max-h-[60px] overflow-y-auto">
                                             {data.skills.map(skill => (
-                                                <span key={skill} className="px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 text-xs border border-green-500/30 flex items-center gap-1">
+                                                <span key={skill} className="px-2 py-0.5 rounded-full bg-green-500/10 text-green-600 dark:text-green-400 text-xs border border-green-500/20 flex items-center gap-1">
                                                     {skill}
-                                                    <button onClick={() => toggleSelection('skills', skill)} className="hover:text-white">×</button>
+                                                    <button onClick={() => toggleSelection('skills', skill)} className="hover:text-foreground">×</button>
                                                 </span>
                                             ))}
                                         </div>
@@ -739,17 +739,17 @@ export default function Wizard() {
                             )}
 
                             {/* Interests Selection */}
-                            <div className="space-y-4 pt-4 border-t border-white/5">
+                            <div className="space-y-4 pt-4 border-t border-border">
                                 <div className="flex justify-between items-end">
-                                    <label className="label mb-0">Interests & Passions</label>
-                                    <span className="text-xs text-blue-200/50">What excites you?</span>
+                                    <label className="label mb-0 text-foreground">Interests & Passions</label>
+                                    <span className="text-xs text-muted-foreground">What excites you?</span>
                                 </div>
                                 <div className="flex flex-wrap gap-2">
                                     {INTERESTS_LIST.map(interest => (
                                         <button
                                             key={interest}
                                             onClick={() => toggleSelection('interests', interest)}
-                                            className={`px-3 py-1.5 rounded-full text-xs border transition-all ${data.interests.includes(interest) ? 'bg-purple-500/20 border-purple-500 text-purple-300' : 'bg-white/5 border-white/10 hover:border-white/30 text-blue-200/70'}`}
+                                            className={`px-3 py-1.5 rounded-full text-xs border transition-all ${data.interests.includes(interest) ? 'bg-purple-500/20 border-purple-500 text-purple-600 dark:text-purple-300' : 'bg-muted/40 border-border hover:border-primary/50 text-muted-foreground'}`}
                                         >
                                             {interest}
                                         </button>
@@ -769,13 +769,13 @@ export default function Wizard() {
                                 </h2>
 
                                 <div className="space-y-3">
-                                    <label className="label">Primary Objectives</label>
+                                    <label className="label text-foreground">Primary Objectives</label>
                                     <div className="grid grid-cols-2 gap-2">
                                         {CAREER_OBJECTIVES.map(obj => (
                                             <button
                                                 key={obj}
                                                 onClick={() => toggleSelection('primaryObjectives', obj)}
-                                                className={`p-2.5 rounded-lg border text-xs text-left transition-all ${data.primaryObjectives.includes(obj) ? 'bg-red-500/20 border-red-500 text-white' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                                className={`p-2.5 rounded-lg border text-xs text-left transition-all ${data.primaryObjectives.includes(obj) ? 'bg-red-500/20 border-red-500 text-red-600 dark:text-red-400' : 'bg-muted/40 border-border hover:bg-muted text-muted-foreground'}`}
                                             >
                                                 {obj}
                                             </button>
@@ -785,13 +785,13 @@ export default function Wizard() {
                                 </div>
 
                                 <div className="space-y-3">
-                                    <label className="label">Preferred Domains</label>
+                                    <label className="label text-foreground">Preferred Domains</label>
                                     <div className="grid grid-cols-2 gap-2">
                                         {CAREER_DOMAINS.map(domain => (
                                             <button
                                                 key={domain}
                                                 onClick={() => toggleSelection('preferredDomains', domain)}
-                                                className={`p-2.5 rounded-lg border text-xs text-center transition-all ${data.preferredDomains.includes(domain) ? 'bg-secondary border-secondary text-white' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                                className={`p-2.5 rounded-lg border text-xs text-center transition-all ${data.preferredDomains.includes(domain) ? 'bg-secondary border-secondary text-secondary-foreground font-medium' : 'bg-muted/40 border-border hover:bg-muted text-muted-foreground'}`}
                                             >
                                                 {domain}
                                             </button>
@@ -802,26 +802,26 @@ export default function Wizard() {
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label className="label text-xs">Learning Style</label>
+                                        <label className="label text-xs text-foreground">Learning Style</label>
                                         <select
                                             value={data.learningStyle}
                                             onChange={e => updateData('learningStyle', e.target.value)}
-                                            className={`input-field appearance-none bg-black/20 text-sm py-2 ${errors.learningStyle ? 'border-red-500' : ''}`}
+                                            className={`input-field appearance-none bg-muted/50 text-foreground text-sm py-2 ${errors.learningStyle ? 'border-destructive' : ''}`}
                                         >
-                                            <option value="" className="bg-gray-900 text-gray-400">Select Style</option>
-                                            {LEARNING_STYLES.map(style => <option key={style} value={style} className="bg-gray-900">{style}</option>)}
+                                            <option value="" className="bg-background text-muted-foreground">Select Style</option>
+                                            {LEARNING_STYLES.map(style => <option key={style} value={style} className="bg-background text-foreground">{style}</option>)}
                                         </select>
                                         {errors.learningStyle && <p className="text-error">{errors.learningStyle}</p>}
                                     </div>
                                     <div>
-                                        <label className="label text-xs">Weekly Hours</label>
+                                        <label className="label text-xs text-foreground">Weekly Hours</label>
                                         <select
                                             value={data.timeCommitment}
                                             onChange={e => updateData('timeCommitment', e.target.value)}
-                                            className={`input-field appearance-none bg-black/20 text-sm py-2 ${errors.timeCommitment ? 'border-red-500' : ''}`}
+                                            className={`input-field appearance-none bg-muted/50 text-foreground text-sm py-2 ${errors.timeCommitment ? 'border-destructive' : ''}`}
                                         >
-                                            <option value="" className="bg-gray-900 text-gray-400">Select Hours</option>
-                                            {TIME_COMMITMENTS.map(time => <option key={time} value={time} className="bg-gray-900">{time}</option>)}
+                                            <option value="" className="bg-background text-muted-foreground">Select Hours</option>
+                                            {TIME_COMMITMENTS.map(time => <option key={time} value={time} className="bg-background text-foreground">{time}</option>)}
                                         </select>
                                         {errors.timeCommitment && <p className="text-error">{errors.timeCommitment}</p>}
                                     </div>
@@ -839,7 +839,7 @@ export default function Wizard() {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label className="label">Years of Experience</label>
+                                    <label className="label text-foreground">Years of Experience</label>
                                     <input
                                         type="number"
                                         min="0"
@@ -851,7 +851,7 @@ export default function Wizard() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="label">Current Role (Optional)</label>
+                                    <label className="label text-foreground">Current Role (Optional)</label>
                                     <input
                                         type="text"
                                         value={data.currentRole}
@@ -863,13 +863,13 @@ export default function Wizard() {
                             </div>
 
                             <div>
-                                <label className="label">Target Industries</label>
+                                <label className="label text-foreground">Target Industries</label>
                                 <div className="grid grid-cols-2 gap-2">
                                     {INDUSTRIES.map(industry => (
                                         <button
                                             key={industry}
                                             onClick={() => toggleSelection('targetIndustries', industry)}
-                                            className={`p-2.5 rounded-lg border text-xs text-left transition-all ${data.targetIndustries.includes(industry) ? 'bg-green-500/20 border-green-500 text-white' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                            className={`p-2.5 rounded-lg border text-xs text-left transition-all ${data.targetIndustries.includes(industry) ? 'bg-green-500/20 border-green-500 text-green-600 dark:text-green-400' : 'bg-muted/40 border-border hover:bg-muted text-muted-foreground'}`}
                                         >
                                             {industry}
                                         </button>
@@ -879,7 +879,7 @@ export default function Wizard() {
                             </div>
 
                             <div>
-                                <label className="label">Salary Expectations (Annual, USD)</label>
+                                <label className="label text-foreground">Salary Expectations (Annual, USD)</label>
                                 <div className="grid grid-cols-2 gap-3">
                                     <input
                                         type="number"
@@ -899,13 +899,13 @@ export default function Wizard() {
                             </div>
 
                             <div>
-                                <label className="label">Work Location Preference</label>
+                                <label className="label text-foreground">Work Location Preference</label>
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                                     {['remote', 'hybrid', 'onsite', 'flexible'].map(pref => (
                                         <button
                                             key={pref}
                                             onClick={() => updateData('remotePreference', pref)}
-                                            className={`p-2.5 rounded-lg border text-xs capitalize transition-all ${data.remotePreference === pref ? 'bg-primary/20 border-primary text-white' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                            className={`p-2.5 rounded-lg border text-xs capitalize transition-all ${data.remotePreference === pref ? 'bg-primary/20 border-primary text-primary' : 'bg-muted/40 border-border hover:bg-muted text-muted-foreground'}`}
                                         >
                                             {pref}
                                         </button>
@@ -915,13 +915,13 @@ export default function Wizard() {
                             </div>
 
                             <div>
-                                <label className="label text-xs">Geographic Preferences</label>
+                                <label className="label text-xs text-foreground">Geographic Preferences</label>
                                 <div className="flex flex-wrap gap-2">
                                     {GEOGRAPHIC_REGIONS.map(region => (
                                         <button
                                             key={region}
                                             onClick={() => toggleSelection('geographicPreferences', region)}
-                                            className={`px-3 py-1.5 rounded-full text-xs border transition-all ${data.geographicPreferences.includes(region) ? 'bg-blue-500/20 border-blue-500 text-blue-300' : 'bg-white/5 border-white/10 hover:border-white/30'}`}
+                                            className={`px-3 py-1.5 rounded-full text-xs border transition-all ${data.geographicPreferences.includes(region) ? 'bg-blue-500/20 border-blue-500 text-blue-600 dark:text-blue-300' : 'bg-muted/40 border-border hover:border-primary/50 text-muted-foreground'}`}
                                         >
                                             {region}
                                         </button>
@@ -929,15 +929,15 @@ export default function Wizard() {
                                 </div>
                             </div>
 
-                            <div className="flex items-center gap-3 bg-white/5 p-4 rounded-xl">
+                            <div className="flex items-center gap-3 bg-muted/30 border border-border p-4 rounded-xl">
                                 <input
                                     type="checkbox"
                                     id="relocate"
                                     checked={data.willingToRelocate}
                                     onChange={e => updateData('willingToRelocate', e.target.checked)}
-                                    className="w-4 h-4 rounded border-white/20 bg-white/5 text-primary"
+                                    className="w-4 h-4 rounded border-border bg-background text-primary"
                                 />
-                                <label htmlFor="relocate" className="text-sm cursor-pointer">
+                                <label htmlFor="relocate" className="text-sm cursor-pointer text-foreground">
                                     I'm willing to relocate for the right opportunity
                                 </label>
                             </div>
@@ -952,7 +952,7 @@ export default function Wizard() {
                             </h2>
 
                             <div>
-                                <label className="label">When do you want to achieve your career goal?</label>
+                                <label className="label text-foreground">When do you want to achieve your career goal?</label>
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                                     {[
                                         { value: '6months', label: '6 Months', desc: 'Urgent transition' },
@@ -963,12 +963,12 @@ export default function Wizard() {
                                         <button
                                             key={timeline.value}
                                             onClick={() => updateData('careerTimeline', timeline.value)}
-                                            className={`p-3 rounded-lg border text-left transition-all ${data.careerTimeline === timeline.value ? 'bg-blue-500/20 border-blue-500 shadow-glow' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                            className={`p-3 rounded-lg border text-left transition-all ${data.careerTimeline === timeline.value ? 'bg-blue-500/20 border-blue-500 shadow-glow' : 'bg-muted/40 border-border hover:bg-muted'}`}
                                         >
-                                            <h3 className={`font-semibold text-sm mb-0.5 ${data.careerTimeline === timeline.value ? 'text-blue-300' : 'text-gray-200'}`}>
+                                            <h3 className={`font-semibold text-sm mb-0.5 ${data.careerTimeline === timeline.value ? 'text-blue-600 dark:text-blue-300' : 'text-muted-foreground'}`}>
                                                 {timeline.label}
                                             </h3>
-                                            <p className="text-[10px] text-blue-200/70">{timeline.desc}</p>
+                                            <p className="text-[10px] text-muted-foreground">{timeline.desc}</p>
                                         </button>
                                     ))}
                                 </div>
@@ -976,7 +976,7 @@ export default function Wizard() {
                             </div>
 
                             <div>
-                                <label className="label">Career Risk Tolerance</label>
+                                <label className="label text-foreground">Career Risk Tolerance</label>
                                 <div className="grid grid-cols-3 gap-3">
                                     {[
                                         { value: 'low', label: 'Low Risk', desc: 'Stable companies', icon: '🛡️' },
@@ -986,13 +986,13 @@ export default function Wizard() {
                                         <button
                                             key={risk.value}
                                             onClick={() => updateData('riskTolerance', risk.value)}
-                                            className={`p-4 rounded-lg border text-center transition-all ${data.riskTolerance === risk.value ? 'bg-purple-500/20 border-purple-500 shadow-glow' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                            className={`p-4 rounded-lg border text-center transition-all ${data.riskTolerance === risk.value ? 'bg-purple-500/20 border-purple-500 shadow-glow' : 'bg-muted/40 border-border hover:bg-muted'}`}
                                         >
                                             <div className="text-2xl mb-2">{risk.icon}</div>
-                                            <h3 className={`font-semibold text-sm mb-1 ${data.riskTolerance === risk.value ? 'text-purple-300' : 'text-gray-200'}`}>
+                                            <h3 className={`font-semibold text-sm mb-1 ${data.riskTolerance === risk.value ? 'text-purple-600 dark:text-purple-300' : 'text-muted-foreground'}`}>
                                                 {risk.label}
                                             </h3>
-                                            <p className="text-[10px] text-blue-200/70">{risk.desc}</p>
+                                            <p className="text-[10px] text-muted-foreground">{risk.desc}</p>
                                         </button>
                                     ))}
                                 </div>
@@ -1028,7 +1028,7 @@ export default function Wizard() {
                             </h2>
 
                             <div>
-                                <label className="label">Work Style</label>
+                                <label className="label text-foreground">Work Style</label>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                                     {WORK_STYLES.map(style => {
                                         const Icon = style.icon;
@@ -1036,13 +1036,13 @@ export default function Wizard() {
                                             <button
                                                 key={style.value}
                                                 onClick={() => updateData('workStyle', style.value)}
-                                                className={`p-4 rounded-lg border text-left transition-all group ${data.workStyle === style.value ? 'bg-primary/20 border-primary shadow-glow' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                                className={`p-4 rounded-lg border text-left transition-all group ${data.workStyle === style.value ? 'bg-primary/20 border-primary shadow-glow' : 'bg-muted/40 border-border hover:bg-muted'}`}
                                             >
-                                                <Icon className={`w-6 h-6 mb-2 ${data.workStyle === style.value ? 'text-primary' : 'text-gray-400'}`} />
-                                                <h3 className={`font-semibold text-sm mb-0.5 ${data.workStyle === style.value ? 'text-primary' : 'text-gray-200'}`}>
+                                                <Icon className={`w-6 h-6 mb-2 ${data.workStyle === style.value ? 'text-primary' : 'text-muted-foreground'}`} />
+                                                <h3 className={`font-semibold text-sm mb-0.5 ${data.workStyle === style.value ? 'text-primary' : 'text-foreground'}`}>
                                                     {style.label}
                                                 </h3>
-                                                <p className="text-[10px] text-blue-200/70">{style.description}</p>
+                                                <p className="text-[10px] text-muted-foreground">{style.description}</p>
                                             </button>
                                         );
                                     })}
@@ -1051,49 +1051,49 @@ export default function Wizard() {
                             </div>
 
                             <div>
-                                <label className="label">Problem-Solving Approach</label>
+                                <label className="label text-foreground">Problem-Solving Approach</label>
                                 <select
                                     value={data.problemSolvingApproach}
                                     onChange={e => updateData('problemSolvingApproach', e.target.value)}
-                                    className={`input-field appearance-none bg-black/20 ${errors.problemSolvingApproach ? 'border-red-500' : ''}`}
+                                    className={`input-field appearance-none bg-muted/50 text-foreground py-2 ${errors.problemSolvingApproach ? 'border-destructive' : ''}`}
                                 >
-                                    <option value="" className="bg-gray-900 text-gray-400">Select your approach</option>
+                                    <option value="" className="bg-background text-muted-foreground">Select your approach</option>
                                     {PROBLEM_SOLVING_APPROACHES.map(approach => (
-                                        <option key={approach} value={approach} className="bg-gray-900">{approach}</option>
+                                        <option key={approach} value={approach} className="bg-background text-foreground">{approach}</option>
                                     ))}
                                 </select>
                                 {errors.problemSolvingApproach && <p className="text-error">{errors.problemSolvingApproach}</p>}
                             </div>
 
                             <div>
-                                <label className="label">Learning Pace</label>
+                                <label className="label text-foreground">Learning Pace</label>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                                     {LEARNING_PACES.map(pace => (
                                         <button
                                             key={pace.value}
                                             onClick={() => updateData('learningPace', pace.value)}
-                                            className={`p-3 rounded-lg border text-left transition-all ${data.learningPace === pace.value ? 'bg-green-500/20 border-green-500 shadow-glow' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                                            className={`p-3 rounded-lg border text-left transition-all ${data.learningPace === pace.value ? 'bg-green-500/20 border-green-500 shadow-glow' : 'bg-muted/40 border-border hover:bg-muted'}`}
                                         >
-                                            <h3 className={`font-semibold text-sm mb-0.5 ${data.learningPace === pace.value ? 'text-green-300' : 'text-gray-200'}`}>
+                                            <h3 className={`font-semibold text-sm mb-0.5 ${data.learningPace === pace.value ? 'text-green-600 dark:text-green-300' : 'text-foreground'}`}>
                                                 {pace.label}
                                             </h3>
-                                            <p className="text-[10px] text-blue-200/70">{pace.description}</p>
+                                            <p className="text-[10px] text-muted-foreground">{pace.description}</p>
                                         </button>
                                     ))}
                                 </div>
                                 {errors.learningPace && <p className="text-error">{errors.learningPace}</p>}
                             </div>
 
-                            <div className="bg-white/5 p-4 rounded-xl flex items-center justify-between">
+                            <div className="bg-card border border-border p-4 rounded-xl flex items-center justify-between">
                                 <div>
-                                    <h3 className="text-sm font-semibold text-white">Leadership Aspirations</h3>
-                                    <p className="text-xs text-blue-200/60">Do you see yourself in a leadership role?</p>
+                                    <h3 className="text-sm font-semibold text-foreground">Leadership Aspirations</h3>
+                                    <p className="text-xs text-muted-foreground">Do you see yourself in a leadership role?</p>
                                 </div>
                                 <button
                                     onClick={() => updateData('leadershipAspirations', !data.leadershipAspirations)}
-                                    className={`relative w-11 h-6 rounded-full transition-colors ${data.leadershipAspirations ? 'bg-green-500' : 'bg-white/10'}`}
+                                    className={`relative w-11 h-6 rounded-full transition-colors ${data.leadershipAspirations ? 'bg-green-500' : 'bg-muted'}`}
                                 >
-                                    <span className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${data.leadershipAspirations ? 'translate-x-5' : 'translate-x-0'}`} />
+                                    <span className={`absolute top-1 left-1 bg-background w-4 h-4 rounded-full transition-transform ${data.leadershipAspirations ? 'translate-x-5' : 'translate-x-0'}`} />
                                 </button>
                             </div>
                         </motion.div>
@@ -1109,49 +1109,49 @@ export default function Wizard() {
 
                                 <div className="space-y-4">
                                     <ReviewSection title="Profile Overview" editStep={1}>
-                                        <p><span className="text-blue-200/60">Name:</span> {data.fullName}</p>
-                                        <p><span className="text-blue-200/60">Education:</span> {data.educationLevel} ({data.fieldOfStudy})</p>
-                                        <p><span className="text-blue-200/60">Status:</span> {data.currentStatus} ({data.startingFresh ? 'Starting Fresh' : data.experienceLevel})</p>
+                                        <p><span className="text-muted-foreground">Name:</span> {data.fullName}</p>
+                                        <p><span className="text-muted-foreground">Education:</span> {data.educationLevel} ({data.fieldOfStudy})</p>
+                                        <p><span className="text-muted-foreground">Status:</span> {data.currentStatus} ({data.startingFresh ? 'Starting Fresh' : data.experienceLevel})</p>
                                     </ReviewSection>
 
                                     <ReviewSection title="Skills" editStep={2}>
                                         <div className="flex flex-wrap gap-1 mb-2">
                                             {data.skills.map(skill => (
-                                                <span key={skill} className="bg-white/10 px-1.5 py-0.5 rounded text-[10px] text-blue-100/90">{skill}</span>
+                                                <span key={skill} className="bg-muted px-1.5 py-0.5 rounded text-[10px] text-foreground">{skill}</span>
                                             ))}
                                         </div>
-                                        <p className="text-xs text-blue-200/60 mt-1">Interests:</p>
+                                        <p className="text-xs text-muted-foreground mt-1">Interests:</p>
                                         <div className="flex flex-wrap gap-1">
                                             {data.interests.map(interest => (
-                                                <span key={interest} className="bg-purple-500/10 border border-purple-500/20 px-1.5 py-0.5 rounded text-[10px] text-purple-200/90">{interest}</span>
+                                                <span key={interest} className="bg-purple-500/10 border border-purple-500/20 px-1.5 py-0.5 rounded text-[10px] text-purple-600 dark:text-purple-300">{interest}</span>
                                             ))}
                                         </div>
                                     </ReviewSection>
 
                                     <ReviewSection title="Goals" editStep={3}>
-                                        <p><span className="text-blue-200/60">Target:</span> {data.preferredDomains.join(", ")}</p>
-                                        <p><span className="text-blue-200/60">Objectives:</span> {data.primaryObjectives.join(", ")}</p>
-                                        <p><span className="text-blue-200/60">Commitment:</span> {data.timeCommitment}/week</p>
+                                        <p><span className="text-muted-foreground">Target:</span> {data.preferredDomains.join(", ")}</p>
+                                        <p><span className="text-muted-foreground">Objectives:</span> {data.primaryObjectives.join(", ")}</p>
+                                        <p><span className="text-muted-foreground">Commitment:</span> {data.timeCommitment}/week</p>
                                     </ReviewSection>
                                 </div>
 
                                 <div className="bg-blue-500/10 border border-blue-500/20 p-3 rounded-xl flex items-start gap-3">
                                     <AlertCircle className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-                                    <div className="text-xs text-blue-100/80">
-                                        <p className="font-semibold text-blue-400 mb-0.5">Ready to Generate?</p>
+                                    <div className="text-xs text-blue-600 dark:text-blue-100/90">
+                                        <p className="font-semibold text-blue-700 dark:text-blue-400 mb-0.5">Ready to Generate?</p>
                                         Our AI will analyze these details to create a tailored roadmap including course recommendations.
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+                                <div className="flex items-center gap-3 pt-4 border-t border-border">
                                     <input
                                         type="checkbox"
                                         id="confirm"
                                         checked={termsAccepted}
                                         onChange={e => setTermsAccepted(e.target.checked)}
-                                        className="w-4 h-4 rounded border-white/20 bg-white/5 text-primary focus:ring-primary"
+                                        className="w-4 h-4 rounded border-border bg-card text-primary focus:ring-primary"
                                     />
-                                    <label htmlFor="confirm" className="text-xs text-blue-200 select-none cursor-pointer">
+                                    <label htmlFor="confirm" className="text-xs text-muted-foreground select-none cursor-pointer">
                                         I confirm the above details are correct.
                                     </label>
                                 </div>
@@ -1162,11 +1162,11 @@ export default function Wizard() {
                 </AnimatePresence >
 
                 {/* Footer Controls */}
-                < div className="flex justify-between mt-8 pt-4 border-t border-white/10" >
+                < div className="flex justify-between mt-8 pt-4 border-t border-border" >
                     <button
                         onClick={handleBack}
                         disabled={step === 1}
-                        className={`flex items-center gap-1.5 px-4 py-2 rounded-full font-medium transition-all text-sm ${step === 1 ? 'opacity-0 pointer-events-none' : 'hover:bg-white/10 text-blue-200 hover:text-white'}`}
+                        className={`flex items-center gap-1.5 px-4 py-2 rounded-full font-medium transition-all text-sm ${step === 1 ? 'opacity-0 pointer-events-none' : 'hover:bg-muted text-muted-foreground hover:text-foreground'}`}
                     >
                         <ChevronLeft className="w-3 h-3" /> Back
                     </button>
@@ -1175,7 +1175,7 @@ export default function Wizard() {
                         step < 7 ? (
                             <button
                                 onClick={handleNext}
-                                className="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full font-semibold shadow-lg shadow-primary/25 transition-all flex items-center gap-2 text-sm"
+                                className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-2 rounded-full font-semibold shadow-lg shadow-primary/25 transition-all flex items-center gap-2 text-sm"
                             >
                                 Next <ArrowRight className="w-3 h-3" />
                             </button>
@@ -1196,12 +1196,12 @@ export default function Wizard() {
 
     function ReviewSection({ title, children, editStep }: { title: string, children: React.ReactNode, editStep: number }) {
         return (
-            <div className="bg-white/5 p-4 rounded-xl border border-white/10">
+            <div className="bg-card border border-border p-4 rounded-xl">
                 <div className="flex justify-between items-start mb-3">
-                    <h3 className="font-semibold text-white">{title}</h3>
+                    <h3 className="font-semibold text-foreground">{title}</h3>
                     <button onClick={() => setStep(editStep)} className="text-xs text-primary hover:underline">Edit</button>
                 </div>
-                <div className="text-sm space-y-1">
+                <div className="text-sm space-y-1 text-foreground">
                     {children}
                 </div>
             </div>

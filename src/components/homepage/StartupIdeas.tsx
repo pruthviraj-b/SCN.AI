@@ -8,23 +8,23 @@ export default function StartupIdeas() {
 
     const getPotentialColor = (potential: string) => {
         switch (potential) {
-            case 'High': return 'bg-green-500/20 text-green-400 border-green-500/50';
-            case 'Medium': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50';
-            case 'Low': return 'bg-white/5 text-blue-200/60 border-white/10';
-            default: return 'bg-white/5 text-blue-200/60 border-white/10';
+            case 'High': return 'bg-green-500/10 text-green-600 dark:text-green-400 border-green-500/20';
+            case 'Medium': return 'bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border-yellow-500/20';
+            case 'Low': return 'bg-muted text-muted-foreground border-border';
+            default: return 'bg-muted text-muted-foreground border-border';
         }
     };
 
     return (
-        <section className="py-20 relative bg-white/5">
+        <section className="py-20 relative bg-muted/5">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 mb-6">
-                        <Lightbulb className="w-4 h-4 text-yellow-400" />
-                        <span className="text-sm text-yellow-400">Entrepreneurship</span>
+                        <Lightbulb className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />
+                        <span className="text-sm text-yellow-600 dark:text-yellow-400">Entrepreneurship</span>
                     </div>
-                    <h2 className="text-4xl font-bold mb-2">Startup Ideas</h2>
-                    <p className="text-blue-200/60">Explore {startupIdeas.length}+ innovative business opportunities</p>
+                    <h2 className="text-4xl font-bold mb-2 text-foreground">Startup Ideas</h2>
+                    <p className="text-muted-foreground">Explore {startupIdeas.length}+ innovative business opportunities</p>
                 </div>
 
                 {/* Ideas Grid */}
@@ -32,36 +32,36 @@ export default function StartupIdeas() {
                     {displayedIdeas.map((idea) => (
                         <div
                             key={idea.id}
-                            className="glass-card p-6 rounded-xl border border-white/10 hover:border-yellow-500/50 transition-all group cursor-pointer"
+                            className="bg-card p-6 rounded-xl border border-border hover:border-yellow-500/50 transition-all group cursor-pointer shadow-sm"
                         >
                             <div className="flex items-start justify-between mb-4">
                                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex items-center justify-center">
-                                    <Lightbulb className="w-6 h-6 text-yellow-400" />
+                                    <Lightbulb className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
                                 </div>
                                 <span className={`px-3 py-1 rounded-full text-xs border ${getPotentialColor(idea.marketPotential)}`}>
                                     {idea.marketPotential} Potential
                                 </span>
                             </div>
 
-                            <h3 className="text-xl font-bold mb-2 group-hover:text-yellow-400 transition-colors">
+                            <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-yellow-600 dark:group-hover:text-yellow-400 transition-colors">
                                 {idea.title}
                             </h3>
 
-                            <p className="text-sm text-blue-200/60 mb-4">
+                            <p className="text-sm text-muted-foreground mb-4">
                                 {idea.description}
                             </p>
 
-                            <div className="flex items-center gap-2 text-sm text-blue-200/80 mb-4">
-                                <span className="px-2 py-1 rounded bg-white/5">{idea.category}</span>
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+                                <span className="px-2 py-1 rounded bg-muted">{idea.category}</span>
                                 <span>•</span>
                                 <span>{idea.estimatedCost}</span>
                             </div>
 
-                            <div className="pt-4 border-t border-white/10">
-                                <p className="text-xs text-blue-200/60 mb-2">Required Skills:</p>
+                            <div className="pt-4 border-t border-border">
+                                <p className="text-xs text-muted-foreground mb-2">Required Skills:</p>
                                 <div className="flex flex-wrap gap-2">
                                     {idea.requiredSkills.map((skill, idx) => (
-                                        <span key={idx} className="px-2 py-1 rounded-full bg-primary/20 text-primary text-xs">
+                                        <span key={idx} className="px-2 py-1 rounded-full bg-primary/10 text-primary text-xs border border-primary/10">
                                             {skill}
                                         </span>
                                     ))}
@@ -72,7 +72,7 @@ export default function StartupIdeas() {
                 </div>
 
                 <div className="text-center mt-8">
-                    <button className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-yellow-500/20 text-yellow-400 hover:bg-yellow-500/30 transition-colors border border-yellow-500/50">
+                    <button className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 hover:bg-yellow-500/20 transition-colors border border-yellow-500/20">
                         View All {startupIdeas.length} Ideas
                         <ChevronRight className="w-5 h-5" />
                     </button>
