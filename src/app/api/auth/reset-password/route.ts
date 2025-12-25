@@ -17,8 +17,9 @@ export async function POST(req: Request) {
         // 1. Validation
         const result = resetPasswordSchema.safeParse(body);
         if (!result.success) {
+            const fieldErrors = result.error.flatten().fieldErrors;
             return NextResponse.json(
-                { error: result.error.errors[0].message },
+                { error: fieldErrors.otp?.[0] || fieldErrors.newPassword?.[0] || fieldErrors.email?.[0] || "Invalid request" },
                 { status: 400 }
             );
         }

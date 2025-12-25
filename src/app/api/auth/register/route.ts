@@ -17,8 +17,9 @@ export async function POST(req: Request) {
         // 1. Validation
         const result = registerSchema.safeParse(body);
         if (!result.success) {
+            const fieldErrors = result.error.flatten().fieldErrors;
             return NextResponse.json(
-                { error: result.error.errors[0].message },
+                { error: fieldErrors.email?.[0] || fieldErrors.password?.[0] || fieldErrors.name?.[0] || "Invalid request" },
                 { status: 400 }
             );
         }
