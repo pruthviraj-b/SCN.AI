@@ -73,10 +73,11 @@ export default function ChatModal() {
     return (
         <>
             {/* Floating Action Button */}
+            {/* Floating Action Button */}
             <button
                 id="chat-trigger"
                 onClick={() => setIsOpen(true)}
-                className={`fixed bottom-6 right-6 p-4 rounded-full bg-primary text-white shadow-lg hover:scale-110 transition-transform z-50 ${isOpen ? 'hidden' : 'flex'}`}
+                className={`fixed bottom-6 right-6 p-4 rounded-full bg-primary text-primary-foreground shadow-lg hover:scale-110 transition-transform z-[100] ${isOpen ? 'hidden' : 'flex'}`}
             >
                 <MessageSquare className="w-6 h-6" />
             </button>
@@ -84,31 +85,31 @@ export default function ChatModal() {
             {/* Chat Modal */}
             {
                 isOpen && (
-                    <div className="fixed bottom-6 right-6 w-[90vw] md:w-[400px] h-[600px] max-h-[80vh] bg-card border border-white/10 rounded-2xl shadow-2xl flex flex-col z-50 animate-in slide-in-from-bottom-10 fade-in duration-300">
+                    <div className="fixed bottom-6 right-6 w-[90vw] md:w-[400px] h-[600px] max-h-[80vh] bg-card border border-border rounded-2xl shadow-2xl flex flex-col z-[100] animate-in slide-in-from-bottom-10 fade-in duration-300">
                         {/* Header */}
-                        <div className="p-4 border-b border-white/10 flex items-center justify-between bg-white/5 rounded-t-2xl">
+                        <div className="p-4 border-b border-border flex items-center justify-between bg-muted/30 rounded-t-2xl">
                             <div className="flex items-center gap-2">
                                 <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
                                     <Sparkles className="w-4 h-4 text-primary" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-sm">Career Assistant</h3>
-                                    <span className="text-xs text-green-400 flex items-center gap-1">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                                    <h3 className="font-semibold text-sm text-foreground">Career Assistant</h3>
+                                    <span className="text-xs text-green-500 flex items-center gap-1">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                                         Online
                                     </span>
                                 </div>
                             </div>
                             <button
                                 onClick={() => setIsOpen(false)}
-                                className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                                className="p-2 hover:bg-muted rounded-full transition-colors"
                             >
-                                <X className="w-5 h-5 text-blue-200/60" />
+                                <X className="w-5 h-5 text-muted-foreground" />
                             </button>
                         </div>
 
                         {/* Messages */}
-                        <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent">
+                        <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-border scrollbar-track-transparent">
                             {messages.map((msg) => (
                                 <div
                                     key={msg.id}
@@ -116,8 +117,8 @@ export default function ChatModal() {
                                 >
                                     <div
                                         className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
-                                            ? 'bg-primary text-white rounded-br-none'
-                                            : 'bg-white/10 text-blue-100 rounded-bl-none'
+                                            ? 'bg-primary text-primary-foreground rounded-br-none'
+                                            : 'bg-muted text-foreground rounded-bl-none'
                                             }`}
                                     >
                                         <p className="whitespace-pre-wrap">{msg.content}</p>
@@ -126,10 +127,10 @@ export default function ChatModal() {
                             ))}
                             {isTyping && (
                                 <div className="flex justify-start">
-                                    <div className="bg-white/10 p-3 rounded-2xl rounded-bl-none flex gap-1">
-                                        <span className="w-2 h-2 bg-blue-300 rounded-full animate-bounce" />
-                                        <span className="w-2 h-2 bg-blue-300 rounded-full animate-bounce delay-100" />
-                                        <span className="w-2 h-2 bg-blue-300 rounded-full animate-bounce delay-200" />
+                                    <div className="bg-muted p-3 rounded-2xl rounded-bl-none flex gap-1">
+                                        <span className="w-2 h-2 bg-primary/40 rounded-full animate-bounce" />
+                                        <span className="w-2 h-2 bg-primary/40 rounded-full animate-bounce delay-100" />
+                                        <span className="w-2 h-2 bg-primary/40 rounded-full animate-bounce delay-200" />
                                     </div>
                                 </div>
                             )}
@@ -137,7 +138,7 @@ export default function ChatModal() {
                         </div>
 
                         {/* Input */}
-                        <div className="p-4 border-t border-white/10 bg-white/5 rounded-b-2xl">
+                        <div className="p-4 border-t border-border bg-muted/10 rounded-b-2xl">
                             <form
                                 onSubmit={(e) => { e.preventDefault(); handleSend(); }}
                                 className="flex gap-2"
@@ -147,12 +148,12 @@ export default function ChatModal() {
                                     value={inputValue}
                                     onChange={(e) => setInputValue(e.target.value)}
                                     placeholder="Ask for career advice..."
-                                    className="flex-1 bg-black/20 border border-white/10 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-primary/50 transition-colors"
+                                    className="flex-1 bg-background border border-border rounded-full px-4 py-2 text-sm text-foreground focus:outline-none focus:border-primary transition-colors placeholder:text-muted-foreground"
                                 />
                                 <button
                                     type="submit"
                                     disabled={!inputValue.trim() || isTyping}
-                                    className="p-2 bg-primary text-white rounded-full hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                    className="p-2 bg-primary text-primary-foreground rounded-full hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                                 >
                                     <Send className="w-4 h-4" />
                                 </button>
