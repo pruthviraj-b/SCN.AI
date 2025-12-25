@@ -15,8 +15,7 @@ export default async function PlanDetailsPage({ params }: { params: Promise<{ id
     const { id } = await params;
 
     const user = await db.user.findUnique({
-        where: { email: session.user.email },
-        include: { plans: true } // Ensure plans are loaded
+        where: { email: session.user.email }
     });
 
     if (!user) {
