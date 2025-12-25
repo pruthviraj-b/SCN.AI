@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import bcrypt from "bcryptjs";
+import { supabase } from "@/lib/supabase";
 import { sendWelcomeEmail } from "@/lib/email";
 import { z } from "zod";
 
@@ -26,36 +26,43 @@ export async function POST(req: Request) {
 
         const { name, email, password } = result.data;
 
-        // 2. Check if user already exists
-        const existingUser = await db.user.findUnique({
-            where: { email },
+        const { name, email, password } = result.data;
+
+        // 2. Sign Up with Supabase Auth
+        const { data: authData, error: authError } = await supabase.auth.signUp({
+            email,
+            password,
+            options: {
+                data: { full_name: name }
+            }
         });
 
-        if (existingUser) {
-            return NextResponse.json(
-                { error: "User with this email already exists" },
-                { status: 400 }
-            );
+        if (authError) {
+            console.error("Supabase Auth Error:", authError);
+            return NextResponse.json({ error: authError.message }, { status: 400 });
         }
 
-        // 3. Hash Password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        if (!authData.user) {
+            return NextResponse.json({ error: "Registration failed" }, { status: 500 });
+        }
 
-        // 4. Create User
-        await db.user.create({
-            data: {
-                name,
-                email,
-                password: hashedPassword,
-                plans: { create: [] }
-            },
-        });
+        // 3. Create Profile Entry (Implicit via Trigger usually, but explicit here for safety)
+        try {
+            await db.user.updateProfile(authData.user.id, {
+                full_name: name,
+                email: email,
+                created_at: new Date().toISOString()
+            });
+        } catch (dbError) {
+            console.error("Profile creation warning:", dbError);
+            // Proceeding because auth user is created, profile triggers might handle it
+        }
 
-        // 5. Send Welcome Email (Fire and forget, don't await blocking response)
+        // 4. Send Welcome Email
         sendWelcomeEmail(email, name).catch(err => console.error("Failed to send welcome email:", err));
 
         return NextResponse.json(
-            { message: "User registered successfully" },
+            { message: "User registered successfully", userId: authData.user.id },
             { status: 201 }
         );
 
