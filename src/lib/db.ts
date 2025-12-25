@@ -1,252 +1,160 @@
 import { supabase } from './supabase';
 
-type User = {
+export type UserProfile = {
     id: string;
     email: string;
-    password: string;
-    name: string | null;
-    createdAt: string;
-    updatedAt: string;
-    plans: CareerPlan[];
+    full_name: string | null;
+    highest_education: string | null;
+    field_of_study: string | null;
+    current_status: string | null;
+    experience_level: string | null;
+    career_goal: string | null;
+    created_at: string;
+    skills: UserSkill[];
+    recommendations: AIRecommendation[];
+    plans: any[]; // Keeping for backward compatibility or future migration
 };
 
-type CareerPlan = {
-    id: string;
-    title: string;
-    data: string;
-    userId: string;
-    createdAt: string;
+export type UserSkill = {
+    id?: number;
+    skill_name: string;
+    proficiency: 'Beginner' | 'Intermediate' | 'Advanced';
 };
 
-type CareerPath = {
-    id: string;
-    title: string;
-    category: string;
-    description: string;
-    difficulty_level: 'Beginner' | 'Intermediate' | 'Advanced';
-    required_skills: string[];
-    tools: string[];
-    growth_score: number; // 0-100
-    avgSalary: string;
-    learning_duration_months: number;
-    demand: 'High' | 'Medium' | 'Low';
+export type AIRecommendation = {
+    id?: number;
+    type: 'career' | 'course' | 'roadmap' | 'chat';
+    payload: any;
+    created_at?: string;
 };
 
-type Skill = {
-    id: string;
-    name: string;
-    category: string;
-    level: string;
-};
-
-type LearningResource = {
-    id: string;
-    title: string;
-    type: 'Course' | 'Video' | 'Article' | 'Project' | 'Certification';
-    description: string;
-    skill_tags: string[];
-    difficulty_level: 'Beginner' | 'Intermediate' | 'Advanced';
-    estimated_time: string;
-    provider: string;
-    url: string;
-    rating: number;
-    // career_mapping: string[]; // Supabase stores arrays as strings/json but text[] is fine
-    status: 'Active' | 'Archived';
-};
-
-type StartupIdea = {
-    id: string;
-    title: string;
-    problem_statement: string;
-    solution_summary: string;
-    target_users: string;
-    industry: string;
-    difficulty_level: 'Beginner' | 'Intermediate' | 'Advanced';
-    required_skills: string[];
-    market_size_estimate: string;
-    revenue_model: string[];
-    validation_score: number;
-    risk_level: 'Low' | 'Medium' | 'High';
-    execution_steps: string[];
-    status: 'Idea' | 'Validated' | 'Building';
+export type ActivityLog = {
+    action: string;
+    metadata?: any;
 };
 
 export const db = {
     user: {
-        findUnique: async ({ where }: { where: { email: string } }) => {
-            const { data, error } = await supabase
-                .from('users')
-                .select('*, plans:career_plans(*)')
-                .eq('email', where.email)
-                .single();
+        // Get full profile with relations
+        getProfile: async (userId: string) => {
+            try {
+                // 1. Fetch Profile
+                const { data: profile, error: profileError } = await supabase
+                    .from('profiles')
+                    .select('*')
+                    .eq('id', userId)
+                    .single();
 
-            if (error || !data) return null;
+                if (profileError || !profile) return null;
 
-            // Map response to User type
-            return {
-                id: data.id,
-                email: data.email,
-                password: data.password,
-                name: data.name,
-                createdAt: data.created_at,
-                updatedAt: data.updated_at,
-                plans: data.plans.map((p: any) => ({
-                    id: p.id,
-                    title: p.title,
-                    data: typeof p.data === 'string' ? p.data : JSON.stringify(p.data),
-                    userId: p.user_id,
-                    createdAt: p.created_at
-                }))
-            } as User;
-        },
-        create: async ({ data }: { data: any }) => {
-            const { data: newUser, error } = await supabase
-                .from('users')
-                .insert({
-                    email: data.email,
-                    password: data.password,
-                    name: data.name
-                })
-                .select()
-                .single();
+                // 2. Fetch Skills
+                const { data: skills } = await supabase
+                    .from('user_skills')
+                    .select('*')
+                    .eq('user_id', userId);
 
-            if (error) throw new Error(error.message);
+                // 3. Fetch Latest Recommendations (limit to 5 most recent)
+                const { data: recommendations } = await supabase
+                    .from('ai_recommendations')
+                    .select('*')
+                    .eq('user_id', userId)
+                    .order('created_at', { ascending: false })
+                    .limit(5);
 
-            // Create initial plan if provided
-            if (data.plans?.create) {
-                await supabase.from('career_plans').insert({
-                    user_id: newUser.id,
-                    title: data.plans.create.title || 'Initial Plan',
-                    data: typeof data.plans.create.data === 'string' ? JSON.parse(data.plans.create.data) : data.plans.create.data
-                });
+                return {
+                    ...profile,
+                    skills: skills || [],
+                    recommendations: recommendations || [],
+                    plans: [] // Placeholder if we need legacy plans support
+                } as UserProfile;
+
+            } catch (error) {
+                console.error("Error fetching profile:", error);
+                return null;
             }
+        },
 
-            return {
-                ...newUser,
-                plans: []
-            } as User;
-        },
-        delete: async (id: string) => {
-            await supabase.from('users').delete().eq('id', id);
-        },
-        update: async (email: string, data: Partial<User>) => {
-            const { data: updatedUser, error } = await supabase
-                .from('users')
-                .update({
-                    name: data.name,
+        // Create or Update Profile
+        updateProfile: async (userId: string, data: Partial<UserProfile>) => {
+            const { error } = await supabase
+                .from('profiles')
+                .upsert({
+                    id: userId,
+                    full_name: data.full_name,
+                    email: data.email,
+                    highest_education: data.highest_education,
+                    field_of_study: data.field_of_study,
+                    current_status: data.current_status,
+                    experience_level: data.experience_level,
+                    career_goal: data.career_goal,
                     updated_at: new Date().toISOString()
                 })
-                .eq('email', email)
                 .select()
                 .single();
 
-            if (error) return null;
-            return updatedUser;
-        },
-        getAll: async () => {
-            const { data, error } = await supabase
-                .from('users')
-                .select('*, plans:career_plans(*)');
+            if (error) throw new Error(`Profile update failed: ${error.message}`);
+        }
+    },
 
-            if (error) return [];
-
-            return data.map((u: any) => ({
-                id: u.id,
-                email: u.email,
-                name: u.name,
-                createdAt: u.created_at,
-                updatedAt: u.updated_at,
-                plans: u.plans || []
+    skills: {
+        // Save bulk skills (replace or add)
+        save: async (userId: string, skills: UserSkill[]) => {
+            // Check existing to avoid duplicates if needed, or just upsert logic
+            // Ideally we'd delete old ones or use upsert. 
+            // For MVP: Simple upsert loop or bulk insert
+            const records = skills.map(s => ({
+                user_id: userId,
+                skill_name: s.skill_name,
+                proficiency: s.proficiency || 'Beginner'
             }));
-        }
-    },
-    plan: {
-        create: async ({ data }: { data: { title: string, data: string | object, userId: string } }) => {
-            const { data: newPlan, error } = await supabase
-                .from('career_plans')
-                .insert({
-                    title: data.title,
-                    data: typeof data.data === 'string' ? JSON.parse(data.data) : data.data,
-                    user_id: data.userId
-                })
-                .select()
-                .single();
 
-            if (error) throw new Error(error.message);
-            return newPlan;
+            const { error } = await supabase
+                .from('user_skills')
+                .upsert(records, { onConflict: 'user_id, skill_name' });
+
+            if (error) console.error("Error saving skills:", error);
         }
     },
-    careerPath: {
-        getAll: async () => {
-            const { data } = await supabase.from('career_paths').select('*');
-            return data || [];
+
+    recommendations: {
+        // Save AI output
+        save: async (userId: string, type: string, payload: any) => {
+            const { error } = await supabase
+                .from('ai_recommendations')
+                .insert({
+                    user_id: userId,
+                    type,
+                    payload
+                });
+
+            if (error) console.error("Error saving recommendation:", error);
         },
-        create: async (data: Omit<CareerPath, 'id'>) => {
-            await supabase.from('career_paths').insert(data);
-        },
-        update: async (id: string, data: Partial<CareerPath>) => {
-            const { data: updated, error } = await supabase
-                .from('career_paths')
-                .update(data)
-                .eq('id', id)
-                .select()
+
+        // Get latest specific type
+        getLatest: async (userId: string, type: string) => {
+            const { data } = await supabase
+                .from('ai_recommendations')
+                .select('*')
+                .eq('user_id', userId)
+                .eq('type', type)
+                .order('created_at', { ascending: false })
+                .limit(1)
                 .single();
-            if (error) return null;
-            return updated;
-        },
-        delete: async (id: string) => {
-            await supabase.from('career_paths').delete().eq('id', id);
+            return data;
         }
     },
-    skill: {
-        getAll: async () => { const { data } = await supabase.from('skills').select('*'); return data || []; },
-        create: async (data: any) => { await supabase.from('skills').insert(data); },
-        update: async (id: string, data: any) => {
-            const { data: updated, error } = await supabase.from('skills').update(data).eq('id', id).select().single();
-            if (error) return null;
-            return updated;
-        },
-        delete: async (id: string) => { await supabase.from('skills').delete().eq('id', id); }
-    },
-    learningResource: {
-        getAll: async () => { const { data } = await supabase.from('learning_resources').select('*'); return data || []; },
-        create: async (data: any) => { await supabase.from('learning_resources').insert(data); },
-        update: async (id: string, data: any) => {
-            const { data: updated, error } = await supabase.from('learning_resources').update(data).eq('id', id).select().single();
-            if (error) return null;
-            return updated;
-        },
-        delete: async (id: string) => { await supabase.from('learning_resources').delete().eq('id', id); }
-    },
-    startupIdea: {
-        getAll: async () => { const { data } = await supabase.from('startup_ideas').select('*'); return data || []; },
-        create: async (data: any) => { await supabase.from('startup_ideas').insert(data); },
-        update: async (id: string, data: any) => {
-            const { data: updated, error } = await supabase.from('startup_ideas').update(data).eq('id', id).select().single();
-            if (error) return null;
-            return updated;
-        },
-        delete: async (id: string) => { await supabase.from('startup_ideas').delete().eq('id', id); }
-    },
-    otp: {
-        create: async (email: string, otp: string) => {
-            await supabase.from('otps').delete().eq('email', email);
-            await supabase.from('otps').insert({
-                email,
-                otp,
-                expires_at: new Date(Date.now() + 10 * 60 * 1000).toISOString()
+
+    analytics: {
+        // Log user actvity
+        logActivity: async (userId: string, action: string, metadata: any = {}) => {
+            // Fire and forget - don't await strictly if not needed
+            supabase.from('activity_logs').insert({
+                user_id: userId,
+                action,
+                metadata
+            }).then(({ error }) => {
+                if (error) console.warn("Analytics log failed:", error);
             });
-        },
-        verify: async (email: string, otp: string) => {
-            const { data } = await supabase.from('otps').select('*').eq('email', email).eq('otp', otp).single();
-            if (!data) return false;
-            if (new Date(data.expires_at) < new Date()) return false;
-            return true;
-        },
-        delete: async (email: string) => {
-            await supabase.from('otps').delete().eq('email', email);
         }
     }
 };
-
-export type { User, CareerPlan, CareerPath, Skill, LearningResource, StartupIdea };

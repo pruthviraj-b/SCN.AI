@@ -429,13 +429,13 @@ export default function Wizard() {
                 body: JSON.stringify({ userProfile: analysisPayload })
             });
 
-            // 3. Auto-Save to Database (New Request)
+            // 3. Auto-Save to Database (PERSISTENCE)
             if (session?.user?.email) {
-                const saveResponse = await fetch('/api/save-plan', { // We will create this or use existing /api/plans
+                const saveResponse = await fetch('/api/save-plan', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        profile: analysisPayload,
+                        profile: analysisPayload, // Contains all Wizard data
                         recommendations: recData,
                         analysis: analysisResponse.ok ? await analysisResponse.clone().json() : null
                     })
@@ -443,9 +443,11 @@ export default function Wizard() {
 
                 if (saveResponse.ok) {
                     const saveData = await saveResponse.json();
-                    if (saveData.planId) {
-                        setSavedPlanId(saveData.planId);
+                    if (saveData.userId) {
+                        setSavedPlanId("dashboard"); // Just a marker to show success
                     }
+                } else {
+                    console.error("Failed to save plan to DB");
                 }
             }
 

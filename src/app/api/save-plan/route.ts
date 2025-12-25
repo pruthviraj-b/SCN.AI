@@ -1,62 +1,53 @@
+
 import { NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/lib/auth';
 import { db } from '@/lib/db';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../auth/[...nextauth]/route';
 
 export async function POST(req: Request) {
     try {
         const session = await getServerSession(authOptions);
-
-        // We require a logged-in user to save a plan
-        if (!session || !session.user?.email) {
-            return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+        if (!session?.user?.email) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
         }
-
-        // The instruction implies a new try block here, but without a corresponding catch,
-        // it would be syntactically incorrect.
-        // Assuming the intent was to modify the existing check and continue within the outer try.
-        // If a new try/catch block was intended, the instruction would need to provide the catch block.
-        // For now, I will only apply the change to the if condition as explicitly shown.
 
         const body = await req.json();
         const { profile, recommendations, analysis } = body;
 
-        // Find the user in our DB
-        const user = await db.user.findUnique({
-            where: { email: session.user.email }
+        // 1. Get User ID from Email
+        const user = await db.user.findUnique({ where: { email: session.user.email } });
+        if (!user) return NextResponse.json({ error: 'User not found' }, { status: 404 });
+
+        // 2. Save Profile Data
+        await db.user.updateProfile(user.id, {
+            full_name: profile.fullName,
+            email: profile.email,
+            highest_education: profile.educationLevel,
+            field_of_study: profile.fieldOfStudy,
+            current_status: profile.currentStatus,
+            experience_level: profile.experienceLevel,
+            career_goal: profile.goal
         });
 
-        if (!user) {
-            return NextResponse.json({ error: 'User not found' }, { status: 404 });
-        }
+        // 3. Save Skills
+        const skillList = profile.skills.map((s: string) => ({
+            skill_name: s,
+            proficiency: 'Beginner' // Default or infer from experience level
+        }));
+        await db.skills.save(user.id, skillList);
 
-        // Create the plan
-        // We'll store the entire generation result so it can be reloaded
-        const planData = JSON.stringify({
-            ...profile,
-            recommendations: recommendations?.recommendations || [], // Extract array if nested
-            analysis: analysis,
-            tracking: {
-                totalSteps: analysis.recommendedSteps?.length || 0,
-                completedSteps: [],
-                progress: 0
-            }
+        // 4. Save Recommendations (Career, Courses, etc.)
+        await db.recommendations.save(user.id, 'career_analysis', analysis || recommendations);
+
+        // 5. Log Activity
+        await db.analytics.logActivity(user.id, 'onboarding_complete', {
+            goal: profile.goal
         });
 
-        const title = `Career Plan - ${analysis.careerPath || profile.goal || 'Onboarding'}`;
+        return NextResponse.json({ success: true, userId: user.id });
 
-        const newPlan = await db.plan.create({
-            data: {
-                title,
-                data: planData,
-                userId: user.id
-            }
-        });
-
-        return NextResponse.json({ success: true, message: 'Plan saved successfully', planId: newPlan.id });
-
-    } catch (error) {
-        console.error('Save Plan Error:', error);
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    } catch (error: any) {
+        console.error('Save failed:', error);
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
