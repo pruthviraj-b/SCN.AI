@@ -1,6 +1,5 @@
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
-import ChatModal from '@/components/ChatModal';
 import Navigation from '@/components/Navigation';
 import BentoGrid from '@/components/homepage/BentoGrid';
 import Footer from '@/components/Footer';
@@ -16,7 +15,6 @@ export default function Home() {
       <BentoGrid />
       <Features />
       <CallToAction />
-      <ChatModal />
       <Footer />
     </main>
   );

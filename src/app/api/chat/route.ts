@@ -147,6 +147,19 @@ export async function POST(request: Request) {
       responseText = "Continuous learning is the key to growth! 📚\n\nI've curated a list of top-rated resources for you in our **Resources** section, covering:\n- **Interactive Courses** (Coursera, Udemy)\n- **Video Tutorials**\n- **Documentation & Articles**\n\nI specifically recommend focused, project-based learning. Is there a specific technology you want to master this week?";
     }
 
+    // -- Website Navigation & Help --
+    else if (lowerMsg.match(/(how to|where is|stuck|cant|can't|help|login|password|reset|forgot)/)) {
+      if (lowerMsg.match(/(password|reset|forgot)/)) {
+        responseText = "Trouble with your password? No worries! 🔐\n\nYou can reset it securely by visiting our **Forgot Password** page. Would you like me to take you there?\n\n[Reset Password](/forgot-password)";
+      } else if (lowerMsg.match(/(login|sign in)/)) {
+        responseText = "You can log in to your dashboard by clicking the **Login** button at the top right, or use this direct link:\n\n[Login Now](/login)";
+      } else if (lowerMsg.match(/(plan|roadmap|where)/)) {
+        responseText = "Your personalized Career Roadmap is located in your **Dashboard**. 📊\n\nOnce logged in, you'll see your active plans, progress tracking, and daily tasks right on the main screen.\n\n[Go to Dashboard](/dashboard)";
+      } else {
+        responseText = "I'm here to help! 🆘\n\nIt sounds like you might be stuck. Here are some quick links:\n- **[Dashboard](/dashboard)**: View your plans\n- **[Profile](/profile)**: Update your skills\n- **[Resources](/resources)**: Find learning materials\n\nIf you're facing a technical issue, please describe it, and I'll do my best to guide you!";
+      }
+    }
+
     // -- Compensation --
     else if (lowerMsg.match(/(salary|pay|money|compensat|earn|rate)/)) {
       responseText = "Compensation varies significantly based on location, experience, and tech stack. 💰\n\n**General Estimates (Annual):**\n- **Junior Dev:** $60k - $90k\n- **Mid-Level:** $90k - $140k\n- **Senior/specialist:** $140k - $200k+\n\n*Pro Tip:* Specialized skills in Cloud (AWS/Azure) or AI/ML often command a 20-30% premium. Focus on building profound expertise in a niche to maximize your earning potential.";

@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 };
 
 import Providers from "@/components/Providers";
+import ChatModal from "@/components/ChatModal";
 
 export default function RootLayout({
   children,
@@ -33,6 +34,7 @@ export default function RootLayout({
       >
         <Providers>
           {children}
+          <ChatModal />
         </Providers>
       </body>
     </html>

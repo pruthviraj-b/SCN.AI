@@ -1,5 +1,5 @@
 import Wizard from '@/components/onboarding/Wizard';
-import ChatModal from '@/components/ChatModal';
+
 
 export default function OnboardingPage() {
     return (
@@ -13,7 +13,6 @@ export default function OnboardingPage() {
                 </div>
                 <Wizard />
             </div>
-            <ChatModal />
         </main>
     );
 }

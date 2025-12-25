@@ -1,7 +1,7 @@
 "use client";
 
 import { Sparkles, MessageSquare, ArrowRight } from "lucide-react";
-import ChatModal from "../ChatModal";
+
 import { useState } from "react";
 
 export default function StartupSupportWidget() {
@@ -29,11 +29,6 @@ export default function StartupSupportWidget() {
             {/* Decorative background */}
             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                 <Sparkles className="w-32 h-32" />
-            </div>
-
-            {/* Hidden chat trigger to open global modal */}
-            <div className="hidden">
-                <ChatModal />
             </div>
         </div>
     );
