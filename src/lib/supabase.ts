@@ -11,7 +11,8 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 // Create a single supabase client for interacting with your database
+// Provide placeholder values if missing to prevent build-time errors
 export const supabase = createClient(
-    supabaseUrl || '',
-    supabaseKey || ''
+    supabaseUrl || 'https://placeholder.supabase.co',
+    supabaseKey || 'placeholder-key'
 );
