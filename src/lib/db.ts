@@ -184,18 +184,49 @@ export const db = {
         create: async (data: Omit<CareerPath, 'id'>) => {
             await supabase.from('career_paths').insert(data);
         },
+        update: async (id: string, data: Partial<CareerPath>) => {
+            const { data: updated, error } = await supabase
+                .from('career_paths')
+                .update(data)
+                .eq('id', id)
+                .select()
+                .single();
+            if (error) return null;
+            return updated;
+        },
+        delete: async (id: string) => {
+            await supabase.from('career_paths').delete().eq('id', id);
+        }
     },
     skill: {
         getAll: async () => { const { data } = await supabase.from('skills').select('*'); return data || []; },
-        create: async (data: any) => { await supabase.from('skills').insert(data); }
+        create: async (data: any) => { await supabase.from('skills').insert(data); },
+        update: async (id: string, data: any) => {
+            const { data: updated, error } = await supabase.from('skills').update(data).eq('id', id).select().single();
+            if (error) return null;
+            return updated;
+        },
+        delete: async (id: string) => { await supabase.from('skills').delete().eq('id', id); }
     },
     learningResource: {
         getAll: async () => { const { data } = await supabase.from('learning_resources').select('*'); return data || []; },
-        create: async (data: any) => { await supabase.from('learning_resources').insert(data); }
+        create: async (data: any) => { await supabase.from('learning_resources').insert(data); },
+        update: async (id: string, data: any) => {
+            const { data: updated, error } = await supabase.from('learning_resources').update(data).eq('id', id).select().single();
+            if (error) return null;
+            return updated;
+        },
+        delete: async (id: string) => { await supabase.from('learning_resources').delete().eq('id', id); }
     },
     startupIdea: {
         getAll: async () => { const { data } = await supabase.from('startup_ideas').select('*'); return data || []; },
-        create: async (data: any) => { await supabase.from('startup_ideas').insert(data); }
+        create: async (data: any) => { await supabase.from('startup_ideas').insert(data); },
+        update: async (id: string, data: any) => {
+            const { data: updated, error } = await supabase.from('startup_ideas').update(data).eq('id', id).select().single();
+            if (error) return null;
+            return updated;
+        },
+        delete: async (id: string) => { await supabase.from('startup_ideas').delete().eq('id', id); }
     },
     otp: {
         create: async (email: string, otp: string) => {
