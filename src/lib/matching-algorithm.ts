@@ -55,8 +55,9 @@ export function calculateCareerMatch(userProfile: UserProfile, career: CareerPat
 
     // 1. Education Match
     let educationScore = 0;
-    const userLevel = userProfile.educationLevel?.toLowerCase();
-    const requiredLevel = career.requiredEducation.level.toLowerCase();
+    const userLevel = userProfile.educationLevel?.toLowerCase() || "";
+    // Safety check: requiredEducation might be missing in some data
+    const requiredLevel = career.requiredEducation?.level?.toLowerCase() || "high school"; // Default to lowest if missing
 
     // Simple hierarchy check (can be expanded)
     const levels = ["high school", "associate", "bachelor's", "master's", "phd"];
@@ -74,7 +75,9 @@ export function calculateCareerMatch(userProfile: UserProfile, career: CareerPat
     // 2. Field Match
     let fieldScore = 0;
     const userField = userProfile.fieldOfStudy?.toLowerCase() || "";
-    if (career.requiredEducation.fields.some(f => userField.includes(f.toLowerCase()) || f.toLowerCase().includes(userField))) {
+
+    // Safety check for requiredEducation and fields
+    if (career.requiredEducation?.fields?.some(f => userField.includes(f.toLowerCase()) || f.toLowerCase().includes(userField))) {
         fieldScore = 100;
     } else if (userField) {
         // Slight point for having any field if it's not a complete mismatch (simplified)
@@ -83,21 +86,21 @@ export function calculateCareerMatch(userProfile: UserProfile, career: CareerPat
 
     // 3. Skills Match (Skipped if startingFresh)
     let skillsScore = 0;
-    const careerSkills = career.requiredSkills.map(s => s.toLowerCase());
-    const userSkills = userProfile.skills.map(s => s.toLowerCase());
+    const careerSkills = (career.requiredSkills || []).map(s => s.toLowerCase());
+    const userSkills = (userProfile.skills || []).map(s => s.toLowerCase());
 
     // Even if starting fresh, if they HAVE skills that match, give them credit?
     // No, strictly follow weights. If weights.SKILLS is 0, score doesn't matter for the final sum, 
     // but useful for display.
-    const matchingSkills = userProfile.skills.filter(s => careerSkills.includes(s.toLowerCase()));
+    const matchingSkills = userSkills.filter(s => careerSkills.includes(s)); // Simplified filter
 
     if (careerSkills.length > 0) {
         skillsScore = (matchingSkills.length / careerSkills.length) * 100;
     }
 
     // 4. Interests Match
-    const careerInterests = career.relatedInterests.map(i => i.toLowerCase());
-    const userInterests = userProfile.interests.map(i => i.toLowerCase());
+    const careerInterests = (career.relatedInterests || []).map(i => i.toLowerCase());
+    const userInterests = (userProfile.interests || []).map(i => i.toLowerCase());
     const matchingInterests = userInterests.filter(i => careerInterests.includes(i));
 
     let interestsScore = 0;
@@ -123,6 +126,6 @@ export function calculateCareerMatch(userProfile: UserProfile, career: CareerPat
             interestsScore
         },
         matchingSkills,
-        missingSkills: career.requiredSkills.filter(s => !userSkills.includes(s.toLowerCase()))
+        missingSkills: (career.requiredSkills || []).filter(s => !(userSkills.includes(s.toLowerCase())))
     };
 }
