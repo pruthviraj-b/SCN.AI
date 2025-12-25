@@ -8,7 +8,7 @@ import PlanTracker from "@/components/dashboard/PlanTracker";
 export default async function PlanDetailsPage({ params }: { params: Promise<{ id: string }> }) {
     const session = await getServerSession(authOptions);
 
-    if (!session?.user?.email) {
+    if (!session || !session.user?.email) {
         redirect("/login");
     }
 

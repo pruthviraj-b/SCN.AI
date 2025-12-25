@@ -15,7 +15,7 @@ import { calculateCareerMatch, CareerPath, UserProfile } from '@/lib/matching-al
 export default async function DashboardPage() {
     const session = await getServerSession(authOptions);
 
-    if (!session) {
+    if (!session || !session.user?.email) {
         redirect("/login");
     }
 

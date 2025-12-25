@@ -24,7 +24,7 @@ export async function POST(req: Request) {
         }
 
         if (!userProfile) {
-            if (!session?.user?.email) {
+            if (!session || !session.user?.email) {
                 return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
             }
 
