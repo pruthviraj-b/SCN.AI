@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { BookOpen, Code, Video, FileText, ExternalLink } from 'lucide-react';
 
 type Resource = {
@@ -42,119 +43,84 @@ const resources: Resource[] = [
     { id: '16', title: 'Dev.to', type: 'Article', category: 'Programming', url: 'dev.to', description: 'Developer community and articles' },
 ];
 
+// Compact sidebar version of ResourcesLibrary
 export default function ResourcesLibrary() {
     const [selectedCategory, setSelectedCategory] = useState('All');
-    const [selectedType, setSelectedType] = useState('All');
 
-    const categories = ['All', ...Array.from(new Set(resources.map(r => r.category)))];
-    const types = ['All', 'Documentation', 'Tutorial', 'Video', 'Article'];
+    // Simplified categories for sidebar
+    const categories = ['All', 'Programming', 'Data Science', 'Design', 'Security'];
 
     const filteredResources = resources.filter(resource => {
         if (selectedCategory !== 'All' && resource.category !== selectedCategory) return false;
-        if (selectedType !== 'All' && resource.type !== selectedType) return false;
         return true;
     });
 
+    // Limit to 5 items for compact view
+    const displayedResources = filteredResources.slice(0, 5);
+
     const getTypeIcon = (type: string) => {
         switch (type) {
-            case 'Documentation': return <FileText className="w-4 h-4" />;
-            case 'Tutorial': return <Code className="w-4 h-4" />;
-            case 'Video': return <Video className="w-4 h-4" />;
-            case 'Article': return <BookOpen className="w-4 h-4" />;
-            default: return <FileText className="w-4 h-4" />;
-        }
-    };
-
-    const getTypeColor = (type: string) => {
-        switch (type) {
-            case 'Documentation': return 'text-blue-400 bg-blue-500/10 border-blue-500/30';
-            case 'Tutorial': return 'text-green-400 bg-green-500/10 border-green-500/30';
-            case 'Video': return 'text-purple-400 bg-purple-500/10 border-purple-500/30';
-            case 'Article': return 'text-yellow-400 bg-yellow-500/10 border-yellow-500/30';
-            default: return 'text-blue-200/60 bg-white/5 border-white/10';
+            case 'Documentation': return <FileText className="w-3.5 h-3.5" />;
+            case 'Tutorial': return <Code className="w-3.5 h-3.5" />;
+            case 'Video': return <Video className="w-3.5 h-3.5" />;
+            case 'Article': return <BookOpen className="w-3.5 h-3.5" />;
+            default: return <FileText className="w-3.5 h-3.5" />;
         }
     };
 
     return (
-        <div className="glass-card p-6 rounded-2xl border border-white/10">
-            <div className="flex justify-between items-center mb-6">
-                <h3 className="text-xl font-bold">Learning Resources</h3>
-                <span className="text-sm text-blue-200/60">{filteredResources.length} resources</span>
+        <div className="bg-card p-5 rounded-2xl border border-border shadow-sm">
+            <div className="flex justify-between items-center mb-4">
+                <h3 className="font-bold text-foreground">Resources</h3>
+                <span className="text-[10px] text-muted-foreground">{filteredResources.length} items</span>
             </div>
 
-            {/* Filters */}
-            <div className="space-y-3 mb-6">
-                <div>
-                    <p className="text-xs text-blue-200/60 mb-2">Category</p>
-                    <div className="flex gap-2 flex-wrap">
-                        {categories.map(category => (
-                            <button
-                                key={category}
-                                onClick={() => setSelectedCategory(category)}
-                                className={`px-3 py-1.5 rounded-lg text-xs transition-colors ${selectedCategory === category
-                                    ? 'bg-primary/20 text-primary border border-primary'
-                                    : 'bg-white/5 text-blue-200/60 border border-white/10 hover:bg-white/10'
-                                    }`}
-                            >
-                                {category}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-
-                <div>
-                    <p className="text-xs text-blue-200/60 mb-2">Type</p>
-                    <div className="flex gap-2 flex-wrap">
-                        {types.map(type => (
-                            <button
-                                key={type}
-                                onClick={() => setSelectedType(type)}
-                                className={`px-3 py-1.5 rounded-lg text-xs transition-colors ${selectedType === type
-                                    ? 'bg-primary/20 text-primary border border-primary'
-                                    : 'bg-white/5 text-blue-200/60 border border-white/10 hover:bg-white/10'
-                                    }`}
-                            >
-                                {type}
-                            </button>
-                        ))}
-                    </div>
-                </div>
+            {/* Compact Filters */}
+            <div className="flex gap-2 flex-wrap mb-4">
+                {categories.slice(0, 4).map(category => (
+                    <button
+                        key={category}
+                        onClick={() => setSelectedCategory(category)}
+                        className={`px-2 py-1 rounded-md text-[10px] transition-colors ${selectedCategory === category
+                            ? 'bg-primary/20 text-primary font-medium'
+                            : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                            }`}
+                    >
+                        {category}
+                    </button>
+                ))}
             </div>
 
-            {/* Resources Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {filteredResources.map(resource => (
+            {/* Stacked List */}
+            <div className="space-y-2">
+                {displayedResources.map(resource => (
                     <a
                         key={resource.id}
                         href={`https://${resource.url}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all group"
+                        className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-muted/50 transition-colors group border border-transparent hover:border-border"
                     >
-                        <div className="flex items-start justify-between mb-2">
-                            <div className="flex items-center gap-2">
-                                <div className={`p-2 rounded-lg border ${getTypeColor(resource.type)}`}>
-                                    {getTypeIcon(resource.type)}
-                                </div>
-                                <div className="flex-1">
-                                    <h4 className="font-semibold text-sm group-hover:text-primary transition-colors">
-                                        {resource.title}
-                                    </h4>
-                                    <p className="text-xs text-blue-200/60">{resource.category}</p>
-                                </div>
-                            </div>
-                            <ExternalLink className="w-4 h-4 text-blue-200/50 group-hover:text-primary transition-colors flex-shrink-0" />
+                        <div className={`p-1.5 rounded-md bg-muted text-muted-foreground group-hover:text-primary transition-colors`}>
+                            {getTypeIcon(resource.type)}
                         </div>
-                        <p className="text-xs text-blue-200/60 mt-2">{resource.description}</p>
+                        <div className="flex-1 min-w-0">
+                            <h4 className="font-medium text-xs text-foreground truncate group-hover:text-primary transition-colors">
+                                {resource.title}
+                            </h4>
+                            <p className="text-[10px] text-muted-foreground truncate">{resource.category} • {resource.type}</p>
+                        </div>
+                        <ExternalLink className="w-3 h-3 text-muted-foreground/50 group-hover:text-primary opacity-0 group-hover:opacity-100 transition-all" />
                     </a>
                 ))}
             </div>
 
-            {filteredResources.length === 0 && (
-                <div className="text-center py-12 border border-dashed border-white/10 rounded-xl">
-                    <p className="text-blue-200/60">No resources found for the selected filters</p>
-                </div>
-            )}
+            {/* View More Link */}
+            <div className="mt-4 text-center">
+                <Link href="/resources" className="text-xs text-primary hover:underline font-medium">
+                    View Library
+                </Link>
+            </div>
         </div>
     );
 }
