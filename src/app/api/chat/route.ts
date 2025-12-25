@@ -16,6 +16,12 @@ Keep responses concise (2-3 paragraphs max), practical, and tailored to the user
 
 IMPORTANT: The current date and time is ${new Date().toLocaleString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}. Always use this date when answering questions about time or date.`;
 
+// Helper to simulate "thinking" time for realism
+const simulateThinking = async () => {
+  const delay = Math.floor(Math.random() * 1500) + 1000; // 1-2.5 seconds
+  await new Promise(resolve => setTimeout(resolve, delay));
+};
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -54,8 +60,6 @@ export async function POST(request: Request) {
         });
 
         if (!response.ok) {
-          const errorData = await response.json();
-          logger.error('OpenAI API Error:', errorData);
           throw new Error(`OpenAI API failed: ${response.status}`);
         }
 
@@ -104,42 +108,65 @@ export async function POST(request: Request) {
       }
     }
 
-    // 3. Intelligent Fallback Responses
-    const lowerMsg = message.toLowerCase();
-    let responseText = "I'm here to help with your career journey. What would you like to know?";
+    // 3. Intelligent Fallback Responses (Simulation Mode)
+    // Even if no AI is connected, we simulate a thoughtful response
+    await simulateThinking();
 
-    if (context?.name) {
-      responseText = `Hi ${context.name}! ` + responseText;
+    const lowerMsg = message.toLowerCase();
+    let responseText = "";
+
+    // -- Greeting --
+    if (lowerMsg.match(/\b(hi|hello|hey|greetings|morning|afternoon)\b/)) {
+      responseText = context?.name
+        ? `Hello ${context.name}! 👋 I'm your AI Career Navigator. I can help you build your roadmap, find learning resources, or analyze career paths. What's your main goal for today?`
+        : "Hello! 👋 I'm your AI Career Navigator. Whether you're looking to switch careers, upskill, or find a new job, I'm here to help. What would you like to explore first?";
     }
 
-    if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('hey')) {
-      responseText = context?.name
-        ? `Hello ${context.name}! 👋 I'm your AI career assistant. ${context.goal ? `I see you're interested in ${context.goal}. ` : ''}How can I help you today?`
-        : "Hello! 👋 I'm your AI career assistant. I can help you explore career paths, learn new skills, and plan your professional journey. What's on your mind?";
-    } else if (lowerMsg.includes('python')) {
-      responseText = "Python is an excellent choice! 🐍 It's widely used in:\n\n• Data Science & Machine Learning\n• Web Development (Django, Flask)\n• Automation & Scripting\n• AI/ML Engineering\n\nI recommend starting with Python basics, then specializing based on your career goals. Would you like specific learning resources?";
-    } else if (lowerMsg.includes('react') || lowerMsg.includes('javascript')) {
-      responseText = "React is the industry standard for modern web development! ⚛️\n\nKey benefits:\n• High demand in job market\n• Component-based architecture\n• Strong ecosystem\n• Great for SPAs and mobile (React Native)\n\nI suggest building projects while learning. Start with the official React docs and create a portfolio. Need project ideas?";
-    } else if (lowerMsg.includes('salary') || lowerMsg.includes('pay')) {
-      responseText = "Salaries vary by location, experience, and specialization. Here are some averages:\n\n• Junior Developer: $60k-$85k\n• Mid-level: $85k-$130k\n• Senior: $130k-$180k+\n• Specialized roles (ML, Cloud): Often higher\n\nRemember: Skills, portfolio, and negotiation matter more than titles. Focus on continuous learning!";
-    } else if (lowerMsg.includes('career') || lowerMsg.includes('job')) {
-      responseText = "Let me help you with your career planning! 🎯\n\nI can assist with:\n• Identifying the right career path\n• Creating a learning roadmap\n• Skill gap analysis\n• Industry insights\n• Interview preparation\n\nWhat specific aspect would you like to explore?";
-    } else if (lowerMsg.includes('learn') || lowerMsg.includes('course')) {
-      responseText = "Great question about learning! 📚\n\nCheck out our Resources page for curated courses in:\n• Programming (Python, JavaScript, etc.)\n• Data Science & ML\n• Web Development\n• Design & UX\n\nWould you like recommendations for a specific skill or career path?";
-    } else {
-      responseText = `I understand you're asking about "${message}". While I'm currently in demo mode, I can still help! 💡\n\nTry asking me about:\n• Career paths and opportunities\n• Learning resources and courses\n• Skill development strategies\n• Industry trends\n\nOr visit our Careers page to explore different paths!`;
+    // -- Tech Skills: Java --
+    else if (lowerMsg.includes('java') && !lowerMsg.includes('script')) {
+      responseText = "Java is a powerhouse of the enterprise world! ☕\n\n**Why it's valuable:**\n- **Backend Systems:** Powers large-scale applications (banking, retail).\n- **Android Development:** The foundation of native Android apps.\n- **Big Data:** Tools like Hadoop and Spark run on Java.\n\n**Recommendation:** Start with Core Java (OOP concepts), then move to Spring Boot for web development. We have some great courses in the Resources section to get you started!";
+    }
+
+    // -- Tech Skills: Python --
+    else if (lowerMsg.includes('python')) {
+      responseText = "Python is currently one of the most versatile and compatible languages. 🐍\n\n**Key Career Paths:**\n1. **Data Science & AI:** The standard for ML libraries (PyTorch, TensorFlow).\n2. **Web Development:** Django and Flask make backend builds fast.\n3. **Automation:** Perfect for scripting and DevOps tasks.\n\nIt's beginner-friendly but scales to massive production systems. Are you interested in the Data Science track or Web Development?";
+    }
+
+    // -- Tech Skills: Web Dev (React, JS, HTML, CSS) --
+    else if (lowerMsg.match(/(react|javascript|typescript|html|css|frontend|web dev)/)) {
+      responseText = "Frontend development is an exciting field with high demand! ⚛️\n\n**Current Industry Standards:**\n- **React & Next.js:** The dominant frameworks for modern UIs.\n- **TypeScript:** Essential for maintainable, large-scale codebases.\n- **Tailwind CSS:** For rapid, responsive styling.\n\nTo build a strong portfolio, I suggest starting with a personal project like a dashboard or e-commerce site. Would you like a specific project idea suitable for your level?";
+    }
+
+    // -- Career & Jobs --
+    else if (lowerMsg.match(/(career|job|internship|hiring|role|path)/)) {
+      responseText = "Navigating your career path requires a strategic approach. 🎯\n\nI can assist you by:\n- **Analyzing your current skills** to find gaps.\n- **Suggesting high-growth roles** that match your profile.\n- **Structuring a learning path** to get you job-ready.\n\nIf you visit the **Careers** page, you can see detailed breakdowns of different roles. Or, tell me your current skills, and I can suggest a match right now!";
+    }
+
+    // -- Resources & Learning --
+    else if (lowerMsg.match(/(resource|course|learn|study|guide|tutorial)/)) {
+      responseText = "Continuous learning is the key to growth! 📚\n\nI've curated a list of top-rated resources for you in our **Resources** section, covering:\n- **Interactive Courses** (Coursera, Udemy)\n- **Video Tutorials**\n- **Documentation & Articles**\n\nI specifically recommend focused, project-based learning. Is there a specific technology you want to master this week?";
+    }
+
+    // -- Compensation --
+    else if (lowerMsg.match(/(salary|pay|money|compensat|earn|rate)/)) {
+      responseText = "Compensation varies significantly based on location, experience, and tech stack. 💰\n\n**General Estimates (Annual):**\n- **Junior Dev:** $60k - $90k\n- **Mid-Level:** $90k - $140k\n- **Senior/specialist:** $140k - $200k+\n\n*Pro Tip:* Specialized skills in Cloud (AWS/Azure) or AI/ML often command a 20-30% premium. Focus on building profound expertise in a niche to maximize your earning potential.";
+    }
+
+    // -- Default Fallback (Smart Redirect) --
+    else {
+      responseText = `That's an interesting question about "${message}".\n\nWhile I focus primarily on career guidance and technical skill-building, I can best assist if you ask about:\n\n- **Specific Technologies** (e.g., "What is Next.js?")\n- **Career Roles** (e.g., "How to become a DevOps Engineer?")\n- **Learning Resources** (e.g., "Best React courses")\n\nWhy not check out our **Careers page** to see the structured paths we offer?`;
     }
 
     return NextResponse.json({
       response: responseText,
-      source: 'fallback'
+      source: 'simulated_ai'
     });
 
   } catch (error) {
     logger.error('Chat API Error:', error);
     return NextResponse.json(
       {
-        error: 'Sorry, I encountered an error. Please try again.',
+        error: 'I apologize, but I am having trouble connecting right now. Please try again in a moment.',
         details: error instanceof Error ? error.message : 'Unknown error'
       },
       { status: 500 }
