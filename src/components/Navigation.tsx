@@ -131,6 +131,10 @@ export default function Navigation() {
                                 </Link>
                             ))}
                             <div className="flex flex-col gap-2 pt-4 border-t border-border">
+                                <div className="px-4 py-2 flex items-center justify-between">
+                                    <span className="text-sm font-medium text-foreground">Theme</span>
+                                    <ThemeToggle />
+                                </div>
                                 {!isLoggedIn ? (
                                     <>
                                         <Link
