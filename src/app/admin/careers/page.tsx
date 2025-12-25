@@ -120,7 +120,7 @@ export default function CareerPathManagementPage() {
     return (
         <div className="min-h-screen bg-background text-foreground p-8">
             <div className="max-w-7xl mx-auto">
-                <Link href="/dashboard" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
+                <Link href="/dashboard" className="inline-flex items-center gap-2 text-blue-200/70 hover:text-white mb-8 transition-colors">
                     <ArrowLeft className="w-4 h-4" />
                     Back to Dashboard
                 </Link>
@@ -128,7 +128,7 @@ export default function CareerPathManagementPage() {
                 <div className="flex justify-between items-center mb-8">
                     <div>
                         <h1 className="text-4xl font-bold mb-2">Career Path Management</h1>
-                        <p className="text-gray-400">Add, edit, or delete career paths that users will see</p>
+                        <p className="text-blue-200/60">Add, edit, or delete career paths that users will see</p>
                     </div>
                     <button
                         onClick={() => setShowModal(true)}
@@ -146,9 +146,9 @@ export default function CareerPathManagementPage() {
                                 <div className="flex-1">
                                     <h3 className="text-xl font-bold mb-2">{career.title}</h3>
                                     {career.description && (
-                                        <p className="text-gray-400 text-sm mb-3">{career.description}</p>
+                                        <p className="text-blue-200/60 text-sm mb-3">{career.description}</p>
                                     )}
-                                    <div className="flex gap-4 text-sm text-gray-400">
+                                    <div className="flex gap-4 text-sm text-blue-200/60">
                                         <span>Category: <span className="text-white">{career.category}</span></span>
                                         <span>Demand: <span className={career.demand === 'High' ? 'text-green-400' : 'text-yellow-400'}>{career.demand}</span></span>
                                         <span>Avg Salary: <span className="text-white">{career.avgSalary}</span></span>
@@ -157,7 +157,7 @@ export default function CareerPathManagementPage() {
                                 <div className="flex gap-2">
                                     <button
                                         onClick={() => handleEdit(career)}
-                                        className="p-2 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
+                                        className="p-2 rounded-lg hover:bg-white/10 text-blue-200/60 hover:text-white transition-colors"
                                     >
                                         <Edit className="w-5 h-5" />
                                     </button>

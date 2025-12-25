@@ -92,7 +92,7 @@ export default function AdminDashboard() {
         <div className="w-full">
             <div className="mb-8">
                 <h2 className="text-3xl font-bold text-white mb-2">Admin Dashboard</h2>
-                <p className="text-gray-400">Manage your application, users, and content from a central hub.</p>
+                <p className="text-blue-200/60">Manage your application, users, and content from a central hub.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -100,7 +100,7 @@ export default function AdminDashboard() {
                     <Link
                         key={index}
                         href={card.link}
-                        className="group relative bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden cursor-pointer"
+                        className="group relative bg-white/5 rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 overflow-hidden cursor-pointer"
                     >
                         <div className={`absolute top-0 right-0 w-24 h-24 ${card.color} opacity-10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-150`} />
 
@@ -109,11 +109,11 @@ export default function AdminDashboard() {
                                 <card.icon className={`w-6 h-6 ${card.color.replace('bg-', 'text-')}`} />
                             </div>
 
-                            <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
                                 {card.title}
                             </h3>
 
-                            <p className="text-gray-600 text-sm mb-6 line-clamp-2">
+                            <p className="text-blue-200/70 text-sm mb-6 line-clamp-2">
                                 {card.description}
                             </p>
 

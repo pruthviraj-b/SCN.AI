@@ -232,10 +232,10 @@
     {
       "id": "plvnd83gt",
       "email": "thepruthviraj1984bc@gmail.com",
-      "password": "$2b$10$Y6jY2cwiyNuARfbNguHrEOXak/iktOsRsT7v.91u1r7PQ8PTFHC52",
+      "password": "$2b$10$/2akPWrrEUq/Q/3PwELMrer/kxw260TkFidqcmIJnFAn.liFDIWMa",
       "name": "PRUTHVI RAJ B",
       "createdAt": "2025-12-11T18:39:54.768Z",
-      "updatedAt": "2025-12-11T18:39:54.768Z",
+      "updatedAt": "2025-12-18T11:03:16.212Z",
       "plans": [
         {
           "id": "hym4sdakz",
@@ -243,424 +243,956 @@
           "data": "{\"name\":\"PRUTHVI RAJ B\",\"experienceLevel\":\"beginner\",\"skills\":[\"Node.js\",\"Product Management\",\"Machine Learning\",\"Digital Marketing\"],\"goal\":\"q\",\"timeCommitment\":\"5-10\"}",
           "userId": "plvnd83gt",
           "createdAt": "2025-12-11T18:39:54.768Z"
+        },
+        {
+          "id": "w0q7wvci2",
+          "title": "Career Plan - Product Manager",
+          "data": "{\"fullName\":\"PRUTHVI RAJ B\",\"email\":\"thepruthviraj1984bc@gmail.com\",\"educationLevel\":\"Diploma\",\"fieldOfStudy\":\"cse\",\"currentStatus\":\"Career Switcher\",\"experienceLevel\":\"beginner\",\"skills\":[],\"interests\":[\"Leadership\"],\"primaryObjectives\":[\"Career switch\"],\"preferredDomains\":[\"Startup & Innovation\"],\"learningStyle\":\"Structured roadmap\",\"timeCommitment\":\"Less than 5 hours\",\"startingFresh\":true,\"goal\":\"Product Manager\",\"recommendations\":[{\"id\":\"cp4prodmgr\",\"title\":\"Product Manager\",\"match\":18,\"description\":\"Lead the vision and strategy for products. You'll bridge the gap between business, technology, and user needs to deliver successful products.\",\"timeframe\":\"3-6 months\"},{\"id\":\"cp1sweng\",\"title\":\"Software Engineer\",\"match\":5,\"description\":\"Design, develop, and test software applications. You'll solve complex problems using code and build systems that power the modern world.\",\"timeframe\":\"3-6 months\"},{\"id\":\"cp2datasci\",\"title\":\"Data Scientist\",\"match\":5,\"description\":\"Analyze complex data sets to help companies make better decisions. Uses statistics, machine learning, and programming skills in Python or R.\",\"timeframe\":\"3-6 months\"}],\"analysis\":{\"careerPath\":\"Product Manager\",\"matchScore\":75,\"strengths\":[\"Strong motivation and clear career trajectory\",\"Adaptable learning approach\",\"Strategic mindset aligned with industry standards\"],\"gaps\":[\"Data-driven decision making and analytics\",\"Stakeholder management in complex environments\"],\"recommendedSteps\":[\"Develop a comprehensive project focusing on core skills\",\"Obtain certification in advanced Product Manager concepts\",\"Network with professionals to validate industry requirements\"],\"resources\":[{\"title\":\"Harvard Business Review\",\"url\":\"https://hbr.org/\"},{\"title\":\"Product School\",\"url\":\"https://productschool.com/\"}],\"isFallback\":false,\"marketOutlook\":\"High Growth\",\"salaryRange\":\"₹65,000 - ₹85,000\",\"estimatedTime\":\"4-6 Months\",\"confidenceScore\":93}}",
+          "userId": "plvnd83gt",
+          "createdAt": "2025-12-18T10:11:08.032Z"
+        },
+        {
+          "id": "ehr58epez",
+          "title": "Career Plan - Software Engineer",
+          "data": "{\"fullName\":\"PRUTHVI RAJ B\",\"email\":\"thepruthviraj1984bc@gmail.com\",\"educationLevel\":\"Undergraduate\",\"fieldOfStudy\":\"Computer Science\",\"currentStatus\":\"Student\",\"experienceLevel\":\"beginner\",\"skills\":[\"Python\",\"Node.js\",\"React\",\"Communication\",\"Leadership\",\"Agile\"],\"interests\":[\"Coding\",\"Problem Solving\"],\"primaryObjectives\":[\"Career switch\",\"High-paying job\"],\"preferredDomains\":[\"Software Development\"],\"learningStyle\":\"Video-based learning\",\"timeCommitment\":\"5–10 hours\",\"startingFresh\":false,\"goal\":\"Software Engineer\",\"recommendations\":[{\"id\":\"cp1sweng\",\"title\":\"Software Engineer\",\"match\":48,\"description\":\"Design, develop, and test software applications. You'll solve complex problems using code and build systems that power the modern world.\",\"timeframe\":\"3-6 months\"},{\"id\":\"cp4prodmgr\",\"title\":\"Product Manager\",\"match\":35,\"description\":\"Lead the vision and strategy for products. You'll bridge the gap between business, technology, and user needs to deliver successful products.\",\"timeframe\":\"3-6 months\"},{\"id\":\"cp2datasci\",\"title\":\"Data Scientist\",\"match\":31,\"description\":\"Analyze complex data sets to help companies make better decisions. Uses statistics, machine learning, and programming skills in Python or R.\",\"timeframe\":\"3-6 months\"}],\"analysis\":{\"careerPath\":\"Software Engineer\",\"matchScore\":91,\"strengths\":[\"Solid foundation in Python and Node.js\",\"Demonstrated capability in React\",\"Adaptable learning approach\",\"Strategic mindset aligned with industry standards\"],\"gaps\":[\"Advanced architecture patterns for Software Engineer scale\",\"End-to-end testing and CI/CD pipeline optimization\"],\"recommendedSteps\":[\"Develop a comprehensive project focusing on Python\",\"Obtain certification in advanced Software Engineer concepts\",\"Network with professionals to validate industry requirements\"],\"resources\":[{\"title\":\"Coursera\",\"url\":\"https://www.coursera.org/\"},{\"title\":\"Udemy\",\"url\":\"https://www.udemy.com/\"}],\"isFallback\":false,\"marketOutlook\":\"High Growth\",\"salaryRange\":\"₹65,000 - ₹85,000\",\"estimatedTime\":\"4-6 Months\",\"confidenceScore\":97}}",
+          "userId": "plvnd83gt",
+          "createdAt": "2025-12-18T10:33:12.446Z"
+        },
+        {
+          "id": "6r073mft9",
+          "title": "Career Plan - Software Engineer",
+          "data": "{\"fullName\":\"PRUTHVI RAJ B\",\"email\":\"thepruthviraj1984bc@gmail.com\",\"educationLevel\":\"High School\",\"fieldOfStudy\":\"Computer Science\",\"currentStatus\":\"Student\",\"experienceLevel\":\"beginner\",\"skills\":[],\"interests\":[\"Coding\",\"Problem Solving\",\"Building Things\",\"Logic & Puzzles\"],\"primaryObjectives\":[\"High-paying job\"],\"preferredDomains\":[\"Software Development\"],\"learningStyle\":\"Structured roadmap\",\"timeCommitment\":\"Less than 5 hours\",\"startingFresh\":true,\"goal\":\"Software Engineer\",\"recommendations\":[{\"id\":\"cp1sweng\",\"title\":\"Software Engineer\",\"match\":75,\"description\":\"Design, develop, and test software applications. You'll solve complex problems using code and build systems that power the modern world.\",\"timeframe\":\"3-6 months\"},{\"id\":\"cp2datasci\",\"title\":\"Data Scientist\",\"match\":38,\"description\":\"Analyze complex data sets to help companies make better decisions. Uses statistics, machine learning, and programming skills in Python or R.\",\"timeframe\":\"3-6 months\"},{\"id\":\"cp7cyber\",\"title\":\"Cybersecurity Analyst\",\"match\":38,\"description\":\"Protect an organization's computer networks and systems. You'll monitor for security breaches and investigate violations.\",\"timeframe\":\"3-6 months\"}],\"analysis\":{\"careerPath\":\"Software Engineer\",\"matchScore\":78,\"strengths\":[\"Strong motivation and clear career trajectory\",\"Adaptable learning approach\",\"Strategic mindset aligned with industry standards\"],\"gaps\":[\"Advanced architecture patterns for Software Engineer scale\",\"End-to-end testing and CI/CD pipeline optimization\"],\"recommendedSteps\":[\"Develop a comprehensive project focusing on core skills\",\"Obtain certification in advanced Software Engineer concepts\",\"Network with professionals to validate industry requirements\"],\"resources\":[{\"title\":\"Coursera\",\"url\":\"https://www.coursera.org/\"},{\"title\":\"Udemy\",\"url\":\"https://www.udemy.com/\"}],\"isFallback\":false,\"marketOutlook\":\"Emerging\",\"salaryRange\":\"₹65,000 - ₹85,000\",\"estimatedTime\":\"4-6 Months\",\"confidenceScore\":96},\"tracking\":{\"totalSteps\":3,\"completedSteps\":[],\"progress\":0}}",
+          "userId": "plvnd83gt",
+          "createdAt": "2025-12-18T11:00:39.976Z"
+        },
+        {
+          "id": "7kf01puoc",
+          "title": "Career Plan - Software Engineer",
+          "data": "{\"fullName\":\"PRUTHVI RAJ B\",\"email\":\"thepruthviraj1984bc@gmail.com\",\"educationLevel\":\"Undergraduate\",\"fieldOfStudy\":\"Computer Science\",\"currentStatus\":\"Student\",\"experienceLevel\":\"beginner\",\"skills\":[\"Python\",\"Java\",\"Product Management\",\"Digital Marketing\"],\"interests\":[\"Economics\"],\"primaryObjectives\":[\"High-paying job\"],\"preferredDomains\":[\"Software Development\"],\"learningStyle\":\"Structured roadmap\",\"timeCommitment\":\"Full-time learning\",\"startingFresh\":false,\"goal\":\"Software Engineer\",\"recommendations\":[{\"id\":\"cp1sweng\",\"title\":\"Software Engineer\",\"match\":25,\"description\":\"Design, develop, and test software applications. You'll solve complex problems using code and build systems that power the modern world.\",\"timeframe\":\"3-6 months\"},{\"id\":\"cp2datasci\",\"title\":\"Data Scientist\",\"match\":25,\"description\":\"Analyze complex data sets to help companies make better decisions. Uses statistics, machine learning, and programming skills in Python or R.\",\"timeframe\":\"3-6 months\"},{\"id\":\"cp7cyber\",\"title\":\"Cybersecurity Analyst\",\"match\":25,\"description\":\"Protect an organization's computer networks and systems. You'll monitor for security breaches and investigate violations.\",\"timeframe\":\"3-6 months\"}],\"analysis\":{\"careerPath\":\"Software Engineer\",\"matchScore\":84,\"strengths\":[\"Solid foundation in Python and Java\",\"Demonstrated capability in Product Management\",\"Adaptable learning approach\",\"Strategic mindset aligned with industry standards\"],\"gaps\":[\"Advanced architecture patterns for Software Engineer scale\",\"End-to-end testing and CI/CD pipeline optimization\"],\"recommendedSteps\":[\"Develop a comprehensive project focusing on Python\",\"Obtain certification in advanced Software Engineer concepts\",\"Network with professionals to validate industry requirements\"],\"resources\":[{\"title\":\"Coursera\",\"url\":\"https://www.coursera.org/\"},{\"title\":\"Udemy\",\"url\":\"https://www.udemy.com/\"}],\"isFallback\":false,\"marketOutlook\":\"High Growth\",\"salaryRange\":\"₹65,000 - ₹85,000\",\"estimatedTime\":\"4-6 Months\",\"confidenceScore\":92},\"tracking\":{\"totalSteps\":3,\"completedSteps\":[],\"progress\":0}}",
+          "userId": "plvnd83gt",
+          "createdAt": "2025-12-18T11:24:11.494Z"
         }
       ]
+    },
+    {
+      "id": "kfriygwga",
+      "email": "samrat@gmail.com",
+      "password": "$2b$10$b71ddHFD3GeR6rkID7Q2duil4C6iriJSxtH65woUCfAoKTCUcVaoS",
+      "name": "SAMRAT",
+      "createdAt": "2025-12-12T05:43:26.277Z",
+      "updatedAt": "2025-12-12T05:43:26.277Z",
+      "plans": [
+        {
+          "id": "9zmp8tuea",
+          "title": "Career Plan - 12/12/2025",
+          "data": "{\"title\":\"Career Plan - DATA SCIENCIST\",\"data\":\"{\\\"name\\\":\\\"RAJ\\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"Python\\\",\\\"JavaScript\\\",\\\"React\\\",\\\"Data Analysis\\\"],\\\"goal\\\":\\\"DATA SCIENCIST\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "kfriygwga",
+          "createdAt": "2025-12-12T05:46:44.163Z"
+        }
+      ]
+    },
+    {
+      "id": "mly9r3hgt",
+      "email": "aaaaa@gmail.com",
+      "password": "$2b$10$I4TaD3jfFsZiUyhKssSWcOoM.JnjEV/7BzzvphCJtgAEicmBo50YC",
+      "name": "samrat",
+      "createdAt": "2025-12-12T06:09:23.570Z",
+      "updatedAt": "2025-12-12T06:09:23.571Z",
+      "plans": [
+        {
+          "id": "fa572ywkl",
+          "title": "Career Plan - 12/12/2025",
+          "data": "{\"title\":\"Career Plan - full stackdev\",\"data\":\"{\\\"name\\\":\\\"PRUTHVI RAJ B\\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"Python\\\",\\\"JavaScript\\\",\\\"React\\\",\\\"SQL\\\",\\\"Node.js\\\"],\\\"goal\\\":\\\"full stackdev\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "mly9r3hgt",
+          "createdAt": "2025-12-12T06:11:31.523Z"
+        }
+      ]
+    },
+    {
+      "id": "9tl26nt10",
+      "email": "vpraveen1718@gmail.com",
+      "password": "$2b$10$S9dkAkjsZM4H/OdUufzHiuUtYgeOOs0iQFR.PpVVpfNhxQM7g.HQ2",
+      "name": "user",
+      "createdAt": "2025-12-12T09:25:39.512Z",
+      "updatedAt": "2025-12-12T09:25:39.513Z",
+      "plans": [
+        {
+          "id": "jxxli457w",
+          "title": "Career Plan - 12/12/2025",
+          "data": "{\"title\":\"Career Plan - i became full stak developer\",\"data\":\"{\\\"name\\\":\\\"user\\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"JavaScript\\\",\\\"Python\\\"],\\\"goal\\\":\\\"i became full stak developer\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "9tl26nt10",
+          "createdAt": "2025-12-12T09:35:30.293Z"
+        },
+        {
+          "id": "7yq5wkhhg",
+          "title": "Career Plan - 12/12/2025",
+          "data": "{\"title\":\"Career Plan - python developer\",\"data\":\"{\\\"name\\\":\\\"user1\\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"Python\\\"],\\\"goal\\\":\\\"python developer\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "9tl26nt10",
+          "createdAt": "2025-12-12T09:36:06.454Z"
+        }
+      ]
+    },
+    {
+      "id": "3ne4fbhji",
+      "email": "sample1@gmail.com",
+      "password": "$2b$10$kWgM9/uFW3dGQa53UOQwGuktLeKwMmH93anl95BuhHdnim.V9X9dW",
+      "name": "sample",
+      "createdAt": "2025-12-12T09:40:33.804Z",
+      "updatedAt": "2025-12-12T09:40:33.804Z",
+      "plans": [
+        {
+          "id": "zswxdc0m3",
+          "title": "Career Plan - 12/12/2025",
+          "data": "{\"title\":\"Career Plan - python developer\",\"data\":\"{\\\"name\\\":\\\"sample\\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"Python\\\"],\\\"goal\\\":\\\"python developer\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "3ne4fbhji",
+          "createdAt": "2025-12-12T09:41:14.815Z"
+        }
+      ]
+    },
+    {
+      "id": "rkti16iyg",
+      "email": "sample12@gmail.com",
+      "password": "$2b$10$1XX0WClhaF9zRDX8dafMSuA8jZU1uFyWqQC2pUaw.lOUH5.iyxY/K",
+      "name": "sample",
+      "createdAt": "2025-12-12T09:48:13.493Z",
+      "updatedAt": "2025-12-12T09:48:13.493Z",
+      "plans": [
+        {
+          "id": "3iinuhpgb",
+          "title": "Career Plan - 12/12/2025",
+          "data": "{\"title\":\"Career Plan - python developer\",\"data\":\"{\\\"name\\\":\\\"sample\\\",\\\"experienceLevel\\\":\\\"beginner\\\",\\\"skills\\\":[\\\"Python\\\"],\\\"goal\\\":\\\"python developer\\\",\\\"timeCommitment\\\":\\\"5-10\\\"}\"}",
+          "userId": "rkti16iyg",
+          "createdAt": "2025-12-12T09:48:57.307Z"
+        }
+      ]
+    },
+    {
+      "id": "ubakzlyyl",
+      "email": "testuser2024@gmail.com",
+      "password": "$2b$10$S0YvR6881sAeCiI0UPTd..loaQzrgBUiro2ymjp4yaFnUTOVpnVye",
+      "name": "testuser2024",
+      "createdAt": "2025-12-24T18:04:39.554Z",
+      "updatedAt": "2025-12-24T18:04:39.557Z",
+      "plans": []
     }
   ],
   "careerPaths": [
     {
-      "id": "soruq1uf5",
-      "title": "Full Stack Developer",
-      "category": "Technology",
-      "demand": "High",
-      "avgSalary": "$105,000",
-      "description": "Work on both front-end and back-end development. Build complete web applications using modern frameworks and technologies like React, Node.js, and Python."
+      "id": "2cu2wn174",
+      "title": "AI Engineer",
+      "category": "Artificial Intelligence",
+      "description": "Build and deploy intelligent systems using machine learning and deep learning technologies. You will design models that can learn from data and make decisions.",
+      "difficulty_level": "Advanced",
+      "required_skills": [
+        "Python",
+        "TensorFlow",
+        "PyTorch",
+        "Linear Algebra",
+        "NLP"
+      ],
+      "tools": [
+        "Jupyter",
+        "AWS SageMaker",
+        "Docker",
+        "HuggingFace"
+      ],
+      "growth_score": 98,
+      "avgSalary": "₹18L - ₹45L",
+      "learning_duration_months": 12,
+      "demand": "High"
     },
     {
-      "id": "cp1data01",
+      "id": "ti92s32ow",
+      "title": "Full Stack Developer",
+      "category": "Software Development",
+      "description": "Master both frontend and backend technologies to build complete web applications. You will handle everything from user interface to database management.",
+      "difficulty_level": "Intermediate",
+      "required_skills": [
+        "React",
+        "Node.js",
+        "TypeScript",
+        "PostgreSQL",
+        "Tailwind CSS"
+      ],
+      "tools": [
+        "VS Code",
+        "Git",
+        "Postman",
+        "Vercel"
+      ],
+      "growth_score": 92,
+      "avgSalary": "₹8L - ₹25L",
+      "learning_duration_months": 8,
+      "demand": "High"
+    },
+    {
+      "id": "eykcdbb2j",
       "title": "Data Scientist",
       "category": "Data Science",
-      "demand": "Very High",
-      "avgSalary": "$120,000",
-      "description": "Analyze complex data sets to help companies make better decisions. Uses statistics, machine learning, and programming skills in Python or R."
+      "description": "Extract insights from complex data sets to drive business decisions. You will use statistical methods and visualization tools to tell stories with data.",
+      "difficulty_level": "Advanced",
+      "required_skills": [
+        "Python",
+        "SQL",
+        "Pandas",
+        "Scikit-learn",
+        "Statistics"
+      ],
+      "tools": [
+        "Tableau",
+        "PowerBI",
+        "Jupyter",
+        "Excel"
+      ],
+      "growth_score": 95,
+      "avgSalary": "₹12L - ₹35L",
+      "learning_duration_months": 10,
+      "demand": "High"
     },
     {
-      "id": "cp2prod01",
-      "title": "Product Manager",
-      "category": "Business",
-      "demand": "High",
-      "avgSalary": "$115,000",
-      "description": "Guide the success of a product and lead the cross-functional team that is responsible for improving it. Requires a mix of business, UX, and tech skills."
-    },
-    {
-      "id": "cp3uxui01",
+      "id": "pxy76mp11",
       "title": "UX/UI Designer",
       "category": "Design",
-      "demand": "High",
-      "avgSalary": "$95,000",
-      "description": "Design user-friendly interfaces for websites and apps. Focuses on userresearch, wireframing, prototyping, and visual design."
+      "description": "Design intuitive and beautiful user interfaces. You will focus on user experience research, wireframing, and high-fidelity prototyping.",
+      "difficulty_level": "Beginner",
+      "required_skills": [
+        "Figma",
+        "User Research",
+        "Prototyping",
+        "Wireframing",
+        "Color Theory"
+      ],
+      "tools": [
+        "Figma",
+        "Adobe XD",
+        "Sketch",
+        "Maze"
+      ],
+      "growth_score": 88,
+      "avgSalary": "₹6L - ₹20L",
+      "learning_duration_months": 6,
+      "demand": "Medium"
     },
     {
-      "id": "cp4devops",
+      "id": "w1fcmv1bk",
       "title": "DevOps Engineer",
-      "category": "Technology",
-      "demand": "High",
-      "avgSalary": "$125,000",
-      "description": "Bridge the gap between development and operations. Focuses on automation, CI/CD pipelines, and cloud infrastructure management."
+      "category": "Infrastructure",
+      "description": "Bridge the gap between development and operations. You will automate deployment pipelines and ensure system reliability and scalability.",
+      "difficulty_level": "Advanced",
+      "required_skills": [
+        "Linux",
+        "Docker",
+        "Kubernetes",
+        "CI/CD",
+        "AWS/Azure"
+      ],
+      "tools": [
+        "Jenkins",
+        "Terraform",
+        "Ansible",
+        "Grafana"
+      ],
+      "growth_score": 94,
+      "avgSalary": "₹15L - ₹40L",
+      "learning_duration_months": 10,
+      "demand": "High"
     },
     {
-      "id": "cp5digimkt",
-      "title": "Digital Marketing Specialist",
-      "category": "Marketing",
-      "demand": "Medium",
-      "avgSalary": "$75,000",
-      "description": "Drive brand awareness and lead generation through digital channels like SEO, social media, email marketing, and PPC advertising."
+      "id": "gx2z53gaa",
+      "title": "Product Manager",
+      "category": "Management",
+      "description": "Lead the vision and strategy for software products. You will work with engineering, design, and marketing teams to deliver product success.",
+      "difficulty_level": "Intermediate",
+      "required_skills": [
+        "Agile",
+        "Roadmapping",
+        "User Stories",
+        "Data Analysis",
+        "Communication"
+      ],
+      "tools": [
+        "Jira",
+        "Notion",
+        "Mixpanel",
+        "Slack"
+      ],
+      "growth_score": 90,
+      "avgSalary": "₹15L - ₹50L",
+      "learning_duration_months": 6,
+      "demand": "High"
+    },
+    {
+      "id": "4tt60az3e",
+      "title": "Blockchain Developer",
+      "category": "Web3",
+      "description": "Develop decentralized applications and smart contracts. You will work with distributed ledger technologies to build secure and transparent systems.",
+      "difficulty_level": "Advanced",
+      "required_skills": [
+        "Solidity",
+        "Rust",
+        "Cryptography",
+        "Smart Contracts",
+        "Web3.js"
+      ],
+      "tools": [
+        "Hardhat",
+        "Metamask",
+        "Remix",
+        "Ethers.js"
+      ],
+      "growth_score": 96,
+      "avgSalary": "₹20L - ₹60L",
+      "learning_duration_months": 12,
+      "demand": "Medium"
+    },
+    {
+      "id": "cm48ll7x5",
+      "title": "Cybersecurity Analyst",
+      "category": "Security",
+      "description": "Protect organizations from cyber threats. You will monitor networks, identify vulnerabilities, and implement security protocols.",
+      "difficulty_level": "Intermediate",
+      "required_skills": [
+        "Network Security",
+        "Ethical Hacking",
+        "Python",
+        "Linux",
+        "Risk Analysis"
+      ],
+      "tools": [
+        "Wireshark",
+        "Metasploit",
+        "Nmap",
+        "Burp Suite"
+      ],
+      "growth_score": 93,
+      "avgSalary": "₹10L - ₹30L",
+      "learning_duration_months": 9,
+      "demand": "High"
+    },
+    {
+      "id": "tkfm1mx7r",
+      "title": "Cloud Architect",
+      "category": "Infrastructure",
+      "description": "Design and manage cloud infrastructure strategies. You will ensure that cloud systems are secure, reliable, and cost-effective.",
+      "difficulty_level": "Advanced",
+      "required_skills": [
+        "AWS",
+        "Azure",
+        "System Design",
+        "Networking",
+        "Security"
+      ],
+      "tools": [
+        "AWS CLI",
+        "CloudFormation",
+        "Visio",
+        "Cost Explorer"
+      ],
+      "growth_score": 91,
+      "avgSalary": "₹25L - ₹55L",
+      "learning_duration_months": 14,
+      "demand": "High"
+    },
+    {
+      "id": "w0qigvxsu",
+      "title": "Mobile App Developer",
+      "category": "Software Development",
+      "description": "Create applications for iOS and Android devices. You will build performant and responsive mobile experiences using native or cross-platform tools.",
+      "difficulty_level": "Intermediate",
+      "required_skills": [
+        "React Native",
+        "Flutter",
+        "iOS/Swift",
+        "Android/Kotlin",
+        "API Integration"
+      ],
+      "tools": [
+        "Xcode",
+        "Android Studio",
+        "Firebase",
+        "Expo"
+      ],
+      "growth_score": 89,
+      "avgSalary": "₹8L - ₹28L",
+      "learning_duration_months": 8,
+      "demand": "High"
     }
   ],
   "skills": [
     {
-      "id": "ppjjedz8f",
+      "id": "sk1",
       "name": "Python",
-      "category": "Programming",
-      "level": "Beginner to Advanced"
+      "category": "Programming"
     },
     {
-      "id": "nu894stdh",
+      "id": "sk2",
       "name": "JavaScript",
-      "category": "Programming",
-      "level": "Beginner to Advanced"
+      "category": "Programming"
     },
     {
-      "id": "o5pdevn3r",
+      "id": "sk3",
       "name": "React",
-      "category": "Framework",
-      "level": "Intermediate to Advanced"
+      "category": "Framework"
     },
     {
-      "id": "45ceq5700",
+      "id": "sk4",
       "name": "Node.js",
-      "category": "Backend",
-      "level": "Intermediate to Advanced"
+      "category": "Backend"
     },
     {
-      "id": "2afdtdm7m",
+      "id": "sk5",
       "name": "SQL",
-      "category": "Database",
-      "level": "Beginner to Advanced"
+      "category": "Database"
     },
     {
-      "id": "zvn57yarv",
+      "id": "sk6",
       "name": "Data Analysis",
-      "category": "Analytics",
-      "level": "Beginner to Advanced"
+      "category": "Analytics"
     },
     {
-      "id": "3x7v7plie",
+      "id": "sk7",
       "name": "Machine Learning",
-      "category": "AI/ML",
-      "level": "Advanced"
+      "category": "AI/ML"
     },
     {
-      "id": "cr5hayub8",
-      "name": "UX Design",
-      "category": "Design",
-      "level": "Beginner to Advanced"
+      "id": "sk8",
+      "name": "UX Research",
+      "category": "Design"
     },
     {
-      "id": "fsy6oryhc",
+      "id": "sk9",
+      "name": "Figma",
+      "category": "Design"
+    },
+    {
+      "id": "sk10",
       "name": "Product Strategy",
-      "category": "Business",
-      "level": "Intermediate to Advanced"
+      "category": "Business"
     },
     {
-      "id": "j85i9lg6w",
+      "id": "sk11",
       "name": "Digital Marketing",
-      "category": "Marketing",
-      "level": "Beginner to Advanced"
+      "category": "Marketing"
+    },
+    {
+      "id": "sk12",
+      "name": "SEO",
+      "category": "Marketing"
+    },
+    {
+      "id": "sk13",
+      "name": "Excel",
+      "category": "Business"
+    },
+    {
+      "id": "sk14",
+      "name": "Financial Modeling",
+      "category": "Finance"
+    },
+    {
+      "id": "sk15",
+      "name": "Network Security",
+      "category": "Security"
+    },
+    {
+      "id": "sk16",
+      "name": "Ethical Hacking",
+      "category": "Security"
+    },
+    {
+      "id": "sk17",
+      "name": "CAD",
+      "category": "Engineering"
+    },
+    {
+      "id": "sk18",
+      "name": "SolidWorks",
+      "category": "Engineering"
+    },
+    {
+      "id": "sk19",
+      "name": "Communication",
+      "category": "Soft Skills"
+    },
+    {
+      "id": "sk20",
+      "name": "Leadership",
+      "category": "Soft Skills"
+    },
+    {
+      "id": "sk21",
+      "name": "Java",
+      "category": "Programming"
+    },
+    {
+      "id": "sk22",
+      "name": "C++",
+      "category": "Programming"
+    },
+    {
+      "id": "sk23",
+      "name": "Git",
+      "category": "Tools"
     }
   ],
   "learningResources": [
     {
-      "id": "d5lo08d5u",
-      "title": "Python for Everybody",
-      "platform": "Coursera",
-      "category": "Programming",
-      "url": "coursera.org/specializations/python",
+      "id": "vhrjymo93",
+      "title": "Complete Python Bootcamp",
+      "type": "Course",
+      "description": "Learn Python from scratch to advanced features. Covers decorators, generators, and working with files.",
+      "skill_tags": [
+        "Python",
+        "Programming Basics"
+      ],
+      "difficulty_level": "Beginner",
+      "estimated_time": "22 hours",
+      "provider": "Udemy",
+      "url": "https://www.udemy.com/course/complete-python-bootcamp/",
+      "rating": 4.8,
+      "career_mapping": [],
       "status": "Active"
     },
     {
-      "id": "pz22oov3g",
+      "id": "nf56c2eg8",
       "title": "React - The Complete Guide",
-      "platform": "Udemy",
-      "category": "Web Development",
-      "url": "udemy.com/course/react-the-complete-guide",
+      "type": "Course",
+      "description": "Dive deep into React.js. Learn Hooks, Redux, React Router, and Next.js.",
+      "skill_tags": [
+        "React",
+        "JavaScript",
+        "Frontend"
+      ],
+      "difficulty_level": "Intermediate",
+      "estimated_time": "40 hours",
+      "provider": "Udemy",
+      "url": "https://www.udemy.com/course/react-the-complete-guide-incl-redux/",
+      "rating": 4.7,
+      "career_mapping": [],
       "status": "Active"
     },
     {
-      "id": "lr3nds01",
-      "title": "Google Data Analytics Certificate",
-      "platform": "Coursera",
-      "category": "Data Science",
-      "url": "coursera.org/professional-certificates/google-data-analytics",
+      "id": "qrdok02q8",
+      "title": "Machine Learning Concepts Explained",
+      "type": "Video",
+      "description": "Visual explanation of core ML concepts like Gradient Descent, Neural Networks, and Backpropagation.",
+      "skill_tags": [
+        "Machine Learning",
+        "Mathematics"
+      ],
+      "difficulty_level": "Beginner",
+      "estimated_time": "1 hour",
+      "provider": "YouTube (3Blue1Brown)",
+      "url": "https://www.youtube.com/c/3blue1brown",
+      "rating": 4.9,
+      "career_mapping": [],
       "status": "Active"
     },
     {
-      "id": "lr4ux01",
-      "title": "Google UX Design Certificate",
-      "platform": "Coursera",
-      "category": "Design",
-      "url": "coursera.org/professional-certificates/google-ux-design",
+      "id": "4dgu6itp7",
+      "title": "Build a Full Stack App with Next.js",
+      "type": "Project",
+      "description": "Hands-on project building a social media clone using Next.js, Prisma, and PostgreSQL.",
+      "skill_tags": [
+        "Next.js",
+        "Full Stack",
+        "Database"
+      ],
+      "difficulty_level": "Advanced",
+      "estimated_time": "10 hours",
+      "provider": "YouTube",
+      "url": "#",
+      "rating": 4.5,
+      "career_mapping": [
+        "ti92s32ow"
+      ],
       "status": "Active"
     },
     {
-      "id": "lr5aws01",
-      "title": "AWS Certified Solutions Architect",
-      "platform": "Udemy",
-      "category": "Cloud Computing",
-      "url": "udemy.com/course/aws-certified-solutions-architect-associate",
+      "id": "fwssn2cff",
+      "title": "Google Data Analytics Professional Certificate",
+      "type": "Certification",
+      "description": "Gain in-demand skills in data analytics. Learn to use spreadsheets, SQL, Tableau, and R.",
+      "skill_tags": [
+        "Data Analysis",
+        "SQL",
+        "R",
+        "Tableau"
+      ],
+      "difficulty_level": "Beginner",
+      "estimated_time": "6 months",
+      "provider": "Coursera",
+      "url": "https://www.coursera.org/professional-certificates/google-data-analytics",
+      "rating": 4.8,
+      "career_mapping": [],
       "status": "Active"
     },
     {
-      "id": "lr6pm01",
-      "title": "Product Management Fundamentals",
-      "platform": "Udemy",
-      "category": "Business",
-      "url": "udemy.com/course/become-a-product-manager-learn-the-skills-get-the-job",
+      "id": "x094enu04",
+      "title": "System Design Interview Guide",
+      "type": "Article",
+      "description": "Comprehensive guide to acing system design interviews. Covers scalability, load balancing, and database design.",
+      "skill_tags": [
+        "System Design",
+        "Architecture"
+      ],
+      "difficulty_level": "Advanced",
+      "estimated_time": "3 hours",
+      "provider": "GitHub",
+      "url": "https://github.com/donnemartin/system-design-primer",
+      "rating": 4.9,
+      "career_mapping": [],
       "status": "Active"
     },
     {
-      "id": "lr7mkt01",
-      "title": "The Complete Digital Marketing Course",
-      "platform": "Udemy",
-      "category": "Marketing",
-      "url": "udemy.com/course/learn-digital-marketing-course",
+      "id": "dakohztqb",
+      "title": "Deep Learning Specialization",
+      "type": "Course",
+      "description": "Master Deep Learning, and break into AI. content by Andrew Ng.",
+      "skill_tags": [
+        "Deep Learning",
+        "Neural Networks",
+        "AI"
+      ],
+      "difficulty_level": "Advanced",
+      "estimated_time": "3 months",
+      "provider": "Coursera",
+      "url": "https://www.coursera.org/specializations/deep-learning",
+      "rating": 4.9,
+      "career_mapping": [
+        "2cu2wn174"
+      ],
       "status": "Active"
     },
     {
-      "id": "lr8fullstack",
-      "title": "The Web Developer Bootcamp",
-      "platform": "Udemy",
-      "category": "Web Development",
-      "url": "udemy.com/course/the-web-developer-bootcamp",
+      "id": "81nx4cpwe",
+      "title": "Figma for UI/UX Design",
+      "type": "Video",
+      "description": "Crash course on using Figma for interface design and prototyping.",
+      "skill_tags": [
+        "Figma",
+        "UI Design"
+      ],
+      "difficulty_level": "Beginner",
+      "estimated_time": "2 hours",
+      "provider": "YouTube",
+      "url": "#",
+      "rating": 4.6,
+      "career_mapping": [
+        "pxy76mp11"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "snuzu2faz",
+      "title": "Docker and Kubernetes: The Complete Guide",
+      "type": "Course",
+      "description": "Build, test, and deploy Docker applications with Kubernetes while learning production-style development workflows.",
+      "skill_tags": [
+        "Docker",
+        "Kubernetes",
+        "DevOps"
+      ],
+      "difficulty_level": "Intermediate",
+      "estimated_time": "22 hours",
+      "provider": "Udemy",
+      "url": "#",
+      "rating": 4.7,
+      "career_mapping": [
+        "w1fcmv1bk"
+      ],
+      "status": "Active"
+    },
+    {
+      "id": "ab6rq0pu3",
+      "title": "Smart Contract Development with Solidity",
+      "type": "Project",
+      "description": "Learn to write smart contracts and build DApps on Ethereum.",
+      "skill_tags": [
+        "Solidity",
+        "Blockchain",
+        "Web3"
+      ],
+      "difficulty_level": "Intermediate",
+      "estimated_time": "15 hours",
+      "provider": "CryptoZombies",
+      "url": "https://cryptozombies.io/",
+      "rating": 4.8,
+      "career_mapping": [
+        "4tt60az3e"
+      ],
       "status": "Active"
     }
   ],
   "startupIdeas": [
     {
-      "id": "5fwv6af34",
-      "title": "AI-Powered Resume Builder",
-      "category": "SaaS",
-      "difficulty": "Medium",
-      "market": "HR Tech",
-      "description": "Help job seekers create ATS-friendly resumes with AI suggestions",
-      "businessPlan": {
-        "executiveSummary": "A SaaS platform that leverages advanced AI to help job seekers build professional, ATS-optimized resumes in minutes. By analyzing industry keywords and formatting standards, we ensure high visibility for candidates.",
-        "targetAudience": [
-          "Recent graduates entering the job market",
-          "Professionals looking to switch careers",
-          "Freelancers needing portfolio resumes",
-          "Recruitment agencies"
-        ],
-        "revenueModel": [
-          "Freemium model with basic templates",
-          "Subscription for premium AI features ($15/mo)",
-          "B2B licensing for universities and bootcamps",
-          "Resume review services upsell"
-        ],
-        "marketingStrategy": [
-          "Content marketing via career advice blog",
-          "Partnerships with universities and coding bootcamps",
-          "Social media ads targeting job seekers",
-          "SEO optimization for 'resume builder' keywords"
-        ],
-        "financialProjections": [
-          {
-            "year": "Year 1",
-            "revenue": "$50,000",
-            "expenses": "$30,000",
-            "profit": "$20,000"
-          },
-          {
-            "year": "Year 2",
-            "revenue": "$150,000",
-            "expenses": "$60,000",
-            "profit": "$90,000"
-          },
-          {
-            "year": "Year 3",
-            "revenue": "$400,000",
-            "expenses": "$120,000",
-            "profit": "$280,000"
-          }
-        ]
-      },
-      "faqs": [
-        {
-          "question": "How is this different from other resume builders?",
-          "answer": "We use LLMs to rewrite bullet points for impact, not just fill in blanks."
-        },
-        {
-          "question": "Is the data secure?",
-          "answer": "Yes, all personal data is encrypted and GDPR compliant."
-        }
-      ]
+      "id": "xxrva23ce",
+      "title": "AI Legal Assistant for Freelancers",
+      "problem_statement": "Freelancers often struggle with complex contracts and legal jargon, leading to payment disputes and unfair terms.",
+      "solution_summary": "An AI-powered document reviewer that highlights risky clauses and suggests clearer terms in seconds.",
+      "target_users": "Freelancers, Consultants, Gig Workers",
+      "industry": "LegalTech",
+      "difficulty_level": "Intermediate",
+      "required_skills": [
+        "NLP",
+        "React",
+        "Legal Knowledge"
+      ],
+      "market_size_estimate": "$15B Global Freelance Market",
+      "revenue_model": [
+        "Subscription ($15/mo)",
+        "Per-document fee"
+      ],
+      "validation_score": 85,
+      "risk_level": "Medium",
+      "execution_steps": [
+        "Scrape legal templates",
+        "Fine-tune LLM on contracts",
+        "Build MVP web app"
+      ],
+      "status": "Validated"
     },
     {
-      "id": "76fnlinh7",
-      "title": "Eco-Friendly Delivery Service",
-      "category": "Logistics",
-      "difficulty": "High",
-      "market": "Green Tech",
-      "description": "Carbon-neutral last-mile delivery using electric vehicles",
-      "businessPlan": {
-        "executiveSummary": "A sustainable logistics solution focused on last-mile delivery using a fleet of electric cargo bikes and EVs. We parse the gap between speed and sustainability for modern e-commerce brands.",
-        "targetAudience": [
-          "Local e-commerce businesses",
-          "Restaurants requiring food delivery",
-          "Eco-conscious consumers",
-          "Corporate offices for document courier"
-        ],
-        "revenueModel": [
-          "Per-delivery fee structure",
-          "Monthly subscription for high-volume merchants",
-          "Advertising on delivery vehicles",
-          "Carbon offset certification fees"
-        ],
-        "marketingStrategy": [
-          "Partnerships with green-certified local brands",
-          "Local PR campaigns about reducing city smog",
-          "Referral program for small businesses",
-          "Direct sales to local restaurants"
-        ],
-        "financialProjections": [
-          {
-            "year": "Year 1",
-            "revenue": "$120,000",
-            "expenses": "$150,000",
-            "profit": "-$30,000"
-          },
-          {
-            "year": "Year 2",
-            "revenue": "$350,000",
-            "expenses": "$250,000",
-            "profit": "$100,000"
-          },
-          {
-            "year": "Year 3",
-            "revenue": "$800,000",
-            "expenses": "$500,000",
-            "profit": "$300,000"
-          }
-        ]
-      },
-      "faqs": [
-        {
-          "question": "What vehicles do you use?",
-          "answer": "We use E-bikes for city centers and electric vans for suburbs."
-        },
-        {
-          "question": "What is the delivery radius?",
-          "answer": "Currently 5-10 miles within major city hubs."
-        }
-      ]
+      "id": "qqzai336n",
+      "title": "Vertical SaaS for Plumbers",
+      "problem_statement": "Small plumbing businesses rely on pen-and-paper for scheduling, invoicing, and inventory, causing inefficiency.",
+      "solution_summary": "All-in-one mobile app for scheduling, dispatching, and invoicing specifically designed for plumbing workflows.",
+      "target_users": "Plumbing Contractors, HVAC Technicians",
+      "industry": "SaaS / Construction",
+      "difficulty_level": "Beginner",
+      "required_skills": [
+        "Mobile Dev",
+        "Stripe API",
+        "Sales"
+      ],
+      "market_size_estimate": "$100B+ Home Services",
+      "revenue_model": [
+        "Tiered Subscription ($50-$200/mo)"
+      ],
+      "validation_score": 92,
+      "risk_level": "Low",
+      "execution_steps": [
+        "Interview 10 plumbers",
+        "Build scheduling prototype",
+        "Launch beta in local area"
+      ],
+      "status": "Idea"
     },
     {
-      "id": "jaqoufrwj",
-      "title": "Online Tutoring Platform",
-      "category": "EdTech",
-      "difficulty": "Medium",
-      "market": "Education",
-      "description": "Connect students with expert tutors for personalized learning",
-      "businessPlan": {
-        "executiveSummary": "A curated marketplace connecting K-12 and college students with vetted subject matter experts. Features include interactive whiteboards, session recording, and progress tracking.",
-        "targetAudience": [
-          "K-12 students struggling with core subjects",
-          "College students needing exam prep",
-          "Adult learners upskilling",
-          "Parents seeking quality education support"
-        ],
-        "revenueModel": [
-          "Commission on every completed session (20%)",
-          "Premium listing fees for top-rated tutors",
-          "Subscription for unlimited resource access",
-          "White-label solutions for schools"
-        ],
-        "marketingStrategy": [
-          "SEO content for homework help",
-          "Parent forums and Facebook groups",
-          "School partnerships",
-          "Influencer marketing with education creators"
-        ],
-        "financialProjections": [
-          {
-            "year": "Year 1",
-            "revenue": "$80,000",
-            "expenses": "$40,000",
-            "profit": "$40,000"
-          },
-          {
-            "year": "Year 2",
-            "revenue": "$250,000",
-            "expenses": "$100,000",
-            "profit": "$150,000"
-          },
-          {
-            "year": "Year 3",
-            "revenue": "$600,000",
-            "expenses": "$200,000",
-            "profit": "$400,000"
-          }
-        ]
-      },
-      "faqs": [
-        {
-          "question": "How do you vet tutors?",
-          "answer": "We require background checks and subject proficiency tests."
-        },
-        {
-          "question": "Can I request a refund?",
-          "answer": "Yes, if the first session is not satisfactory, it's free."
-        }
-      ]
+      "id": "gilxswhj1",
+      "title": "Micro-Influencer Marketplace for Niche Brands",
+      "problem_statement": "Small brands can't afford big influencers, and micro-influencers struggle to monetize their dedicated following.",
+      "solution_summary": "A platform that automatically matches niche brands with micro-influencers (1k-10k followers) based on audience data.",
+      "target_users": "DTC Brands, Micro-Influencers",
+      "industry": "Marketing",
+      "difficulty_level": "Intermediate",
+      "required_skills": [
+        "Marketplace Logic",
+        "Social APIs",
+        "Growth Hacking"
+      ],
+      "market_size_estimate": "$21B Influencer Market",
+      "revenue_model": [
+        "Commission (20%)",
+        "Listing Fee"
+      ],
+      "validation_score": 78,
+      "risk_level": "Medium",
+      "execution_steps": [
+        "Build influencer database",
+        "Create brand signup page",
+        "Manual matching first"
+      ],
+      "status": "Idea"
     },
     {
-      "id": "nvtju8roo",
-      "title": "Smart Home Automation Hub",
-      "category": "IoT",
-      "difficulty": "High",
-      "market": "Smart Home",
-      "description": "Unified platform to control all smart home devices",
-      "businessPlan": {
-        "executiveSummary": "A hardware-agnostic platform that unifies disparate smart home devices (lights, locks, thermostats) into a single, easy-to-use interface with advanced automation routines.",
-        "targetAudience": [
-          "Tech-savvy homeowners",
-          "Airbnb hosts managing multiple properties",
-          "Elderly care facilities",
-          "Real estate developers"
-        ],
-        "revenueModel": [
-          "Hardware sales (Hub)",
-          "Monthly subscription for cloud features",
-          "Installation service fees",
-          "Enterprise licensing for property managers"
-        ],
-        "marketingStrategy": [
-          "Tech review channels on YouTube",
-          "Partnerships with real estate agents",
-          "Content marketing on home automation",
-          "Appearance at CES and tech expos"
-        ],
-        "financialProjections": [
-          {
-            "year": "Year 1",
-            "revenue": "$200,000",
-            "expenses": "$300,000",
-            "profit": "-$100,000"
-          },
-          {
-            "year": "Year 2",
-            "revenue": "$800,000",
-            "expenses": "$500,000",
-            "profit": "$300,000"
-          },
-          {
-            "year": "Year 3",
-            "revenue": "$2,000,000",
-            "expenses": "$1,200,000",
-            "profit": "$800,000"
-          }
-        ]
-      },
-      "faqs": [
-        {
-          "question": "Is it compatible with Alexa?",
-          "answer": "Yes, we support Alexa, Google Home, and HomeKit."
-        },
-        {
-          "question": "Does it work without internet?",
-          "answer": "Yes, local control is available for critical devices."
-        }
-      ]
+      "id": "i2ggg7sia",
+      "title": "Automated Employee Onboarding Platform",
+      "problem_statement": "Remote companies spend weeks coordinating logins, equipment shipping, and training for new hires.",
+      "solution_summary": "IT automation platform that provisions accounts, orders laptops, and assigns training modules with one click.",
+      "target_users": "Mid-sized Remote Companies",
+      "industry": "HR Tech",
+      "difficulty_level": "Advanced",
+      "required_skills": [
+        "System Admin",
+        "Integrations",
+        "Security"
+      ],
+      "market_size_estimate": "$30B HR Software Market",
+      "revenue_model": [
+        "Per-user licensing ($10/user/mo)"
+      ],
+      "validation_score": 88,
+      "risk_level": "Medium",
+      "execution_steps": [
+        "Integrate with G-Suite/Slack",
+        "Build dashboard",
+        "Partner with device vendors"
+      ],
+      "status": "Building"
+    },
+    {
+      "id": "ogydl603l",
+      "title": "Personalized Vitamin Subscription",
+      "problem_statement": "People take generic vitamins that don't match their specific blood work or lifestyle needs.",
+      "solution_summary": "DTC brand offering monthly vitamin packs based on a quiz or imported blood test results.",
+      "target_users": "Health-conscious Millennials",
+      "industry": "Health & Wellness",
+      "difficulty_level": "Advanced",
+      "required_skills": [
+        "Supply Chain",
+        "E-commerce",
+        "Health Regulations"
+      ],
+      "market_size_estimate": "$4B Personalized Nutrition",
+      "revenue_model": [
+        "Monthly Subscription ($40-80/mo)"
+      ],
+      "validation_score": 75,
+      "risk_level": "High",
+      "execution_steps": [
+        "Source supplements",
+        "Build quiz algorithm",
+        "Design packaging"
+      ],
+      "status": "Idea"
+    },
+    {
+      "id": "d9bx0kpai",
+      "title": "Local Event Discovery for Remote Workers",
+      "problem_statement": "Remote workers feel isolated and struggle to find social events happening during the week.",
+      "solution_summary": "Community app curating co-working pop-ups, happy hours, and networking events for digital nomads.",
+      "target_users": "Remote Workers, Digital Nomads",
+      "industry": "Social / Community",
+      "difficulty_level": "Beginner",
+      "required_skills": [
+        "Mobile App",
+        "Community Building"
+      ],
+      "market_size_estimate": "Growing Remote Workforce",
+      "revenue_model": [
+        "Event ticket cut",
+        "Premium membership"
+      ],
+      "validation_score": 65,
+      "risk_level": "Low",
+      "execution_steps": [
+        "Launch Meetup group",
+        "Build event scraper",
+        "Release iOS app"
+      ],
+      "status": "Idea"
+    },
+    {
+      "id": "qqjl1es0c",
+      "title": "AI-Powered Tutoring for Dyslexic Students",
+      "problem_statement": "Traditional tutoring doesn't adapt to the specific learning patterns of students with dyslexia.",
+      "solution_summary": "Adaptive learning platform using speech-to-text and special fonts/colors to help dyslexic kids read and write.",
+      "target_users": "Parents of Dyslexic Children, Schools",
+      "industry": "EdTech",
+      "difficulty_level": "Advanced",
+      "required_skills": [
+        "AI/ML",
+        "Accessibility",
+        "Education"
+      ],
+      "market_size_estimate": "$5B Special Ed Market",
+      "revenue_model": [
+        "Freemium + Subscription"
+      ],
+      "validation_score": 95,
+      "risk_level": "Medium",
+      "execution_steps": [
+        "Prototype reading tool",
+        "Test with users",
+        "Partner with schools"
+      ],
+      "status": "Building"
+    },
+    {
+      "id": "wxmph7tcu",
+      "title": "Sustainable Packaging Marketplace",
+      "problem_statement": "Small e-commerce shops want eco-friendly packaging but can't meet the high MOQs of large suppliers.",
+      "solution_summary": "B2B marketplace aggregating orders from small shops to unlock bulk rates for sustainable packaging.",
+      "target_users": "E-commerce Sellers",
+      "industry": "Logistics / GreenTech",
+      "difficulty_level": "Intermediate",
+      "required_skills": [
+        "Logistics",
+        "B2B Sales",
+        "Web Platform"
+      ],
+      "market_size_estimate": "$300B Packaging Industry",
+      "revenue_model": [
+        "Markup on goods"
+      ],
+      "validation_score": 80,
+      "risk_level": "Medium",
+      "execution_steps": [
+        "Find suppliers",
+        "Build Shopify App",
+        "Launch MVP"
+      ],
+      "status": "Validated"
+    },
+    {
+      "id": "vw0lfiusu",
+      "title": "VR Training for Hazardous Jobs",
+      "problem_statement": "Training oil rig workers or firefighters is dangerous and expensive in real life.",
+      "solution_summary": "VR simulation software allowing employees to practice safety protocols in a realistic, risk-free environment.",
+      "target_users": "Energy Companies, Fire Departments",
+      "industry": "Enterprise / VR",
+      "difficulty_level": "Advanced",
+      "required_skills": [
+        "Unity/Unreal",
+        "3D Modeling",
+        "Enterprise Sales"
+      ],
+      "market_size_estimate": "$10B Enterprise VR",
+      "revenue_model": [
+        "Enterprise Contracts ($50k+)"
+      ],
+      "validation_score": 90,
+      "risk_level": "High",
+      "execution_steps": [
+        "Build MVP scenario",
+        "Demo to safety officers",
+        "Pilot program"
+      ],
+      "status": "Idea"
+    },
+    {
+      "id": "iso8tmz05",
+      "title": "No-Code API Builder",
+      "problem_statement": "Non-technical founders can build frontends (Webflow) but struggle to build custom backends/APIs.",
+      "solution_summary": "Visual interface to define database schemas and API endpoints that deploy instantly to serverless infrastructure.",
+      "target_users": "No-Code Makers, Founders",
+      "industry": "DevTools",
+      "difficulty_level": "Intermediate",
+      "required_skills": [
+        "Cloud Architecture",
+        "UI Design",
+        "Backend Engineering"
+      ],
+      "market_size_estimate": "$20B No-Code Market",
+      "revenue_model": [
+        "Usage-based ($20/mo start)"
+      ],
+      "validation_score": 85,
+      "risk_level": "Medium",
+      "execution_steps": [
+        "Build visual editor",
+        "Create code generator",
+        "Launch on Product Hunt"
+      ],
+      "status": "Idea"
+    }
+  ],
+  "otps": [
+    {
+      "email": "thepruthviraj1984bc@gmail.com",
+      "otp": "206199",
+      "expiresAt": "2025-12-13T17:50:57.319Z"
     }
   ]
 }

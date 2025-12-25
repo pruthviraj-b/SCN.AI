@@ -44,7 +44,7 @@ export default function FeaturedCourses() {
             case 'Beginner': return 'bg-green-500/20 text-green-400';
             case 'Intermediate': return 'bg-yellow-500/20 text-yellow-400';
             case 'Advanced': return 'bg-red-500/20 text-red-400';
-            default: return 'bg-gray-500/20 text-gray-400';
+            default: return 'bg-white/5 text-blue-200/60';
         }
     };
 
@@ -53,7 +53,7 @@ export default function FeaturedCourses() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-bold mb-2">Featured Courses</h2>
-                    <p className="text-gray-400">{courses.length}+ courses from top platforms</p>
+                    <p className="text-blue-200/60">{courses.length}+ courses from top platforms</p>
                 </div>
 
                 {/* Search Bar */}
@@ -65,8 +65,9 @@ export default function FeaturedCourses() {
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-3 pl-12 focus:border-primary/50 focus:outline-none transition-all"
+                            suppressHydrationWarning
                         />
-                        <BookOpen className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                        <BookOpen className="w-5 h-5 text-blue-200/60 absolute left-4 top-1/2 -translate-y-1/2" />
                     </div>
                 </div>
 
@@ -78,7 +79,7 @@ export default function FeaturedCourses() {
                             onClick={() => setSelectedPlatform(platform)}
                             className={`px-6 py-2 rounded-full whitespace-nowrap transition-all ${selectedPlatform === platform
                                 ? 'bg-primary text-white'
-                                : 'bg-white/5 hover:bg-white/10 text-gray-400'
+                                : 'bg-white/5 hover:bg-white/10 text-blue-200/60'
                                 }`}
                         >
                             {platform}
@@ -94,7 +95,7 @@ export default function FeaturedCourses() {
                             onClick={() => setSelectedCategory(category)}
                             className={`px-4 py-1 rounded-full text-sm whitespace-nowrap transition-all ${selectedCategory === category
                                 ? 'bg-purple-500/20 text-purple-400 border border-purple-500/50'
-                                : 'bg-white/5 hover:bg-white/10 text-gray-400 border border-white/10'
+                                : 'bg-white/5 hover:bg-white/10 text-blue-200/60 border border-white/10'
                                 }`}
                         >
                             {category}
@@ -122,7 +123,7 @@ export default function FeaturedCourses() {
                                 {course.title}
                             </h3>
 
-                            <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+                            <div className="flex items-center gap-2 text-sm text-blue-200/60 mb-4">
                                 <span className="px-2 py-1 rounded bg-white/5">{course.platform}</span>
                                 <span>•</span>
                                 <span>{course.category}</span>
@@ -133,7 +134,7 @@ export default function FeaturedCourses() {
                                     <Star className="w-4 h-4 fill-current" />
                                     {course.rating}
                                 </div>
-                                <div className="flex items-center gap-1 text-gray-400">
+                                <div className="flex items-center gap-1 text-blue-200/60">
                                     <Clock className="w-4 h-4" />
                                     {course.duration}
                                 </div>
@@ -156,7 +157,7 @@ export default function FeaturedCourses() {
                 </div>
 
                 {displayedCourses.length === 0 && (
-                    <div className="text-center text-gray-400 mt-8">
+                    <div className="text-center text-blue-200/60 mt-8">
                         No courses found matching your criteria.
                     </div>
                 )}

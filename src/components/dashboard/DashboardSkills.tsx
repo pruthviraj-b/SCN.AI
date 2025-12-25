@@ -28,8 +28,8 @@ export default function DashboardSkills({ userSkills }: DashboardSkillsProps) {
         switch (demand) {
             case 'High': return 'text-green-500 bg-green-500/10 border-green-500/30';
             case 'Medium': return 'text-yellow-500 bg-yellow-500/10 border-yellow-500/30';
-            case 'Low': return 'text-gray-500 bg-gray-500/10 border-gray-500/30';
-            default: return 'text-gray-500 bg-gray-500/10 border-gray-500/30';
+            case 'Low': return 'text-blue-200/60 bg-white/5 border-white/10';
+            default: return 'text-blue-200/60 bg-white/5 border-white/10';
         }
     };
 
@@ -38,7 +38,7 @@ export default function DashboardSkills({ userSkills }: DashboardSkillsProps) {
             case 'Beginner': return 'text-blue-400';
             case 'Intermediate': return 'text-purple-400';
             case 'Advanced': return 'text-red-400';
-            default: return 'text-gray-400';
+            default: return 'text-blue-200/60';
         }
     };
 
@@ -47,8 +47,8 @@ export default function DashboardSkills({ userSkills }: DashboardSkillsProps) {
             <div className="glass-card p-6 rounded-2xl border border-white/10">
                 <h3 className="text-xl font-bold mb-4">Your Skills</h3>
                 <div className="text-center py-8 border border-dashed border-white/10 rounded-xl">
-                    <p className="text-gray-400 mb-4">No skills tracked yet</p>
-                    <p className="text-sm text-gray-500">Complete the onboarding wizard to add your skills</p>
+                    <p className="text-blue-200/60 mb-4">No skills tracked yet</p>
+                    <p className="text-sm text-blue-200/50">Complete the onboarding wizard to add your skills</p>
                 </div>
             </div>
         );
@@ -58,13 +58,13 @@ export default function DashboardSkills({ userSkills }: DashboardSkillsProps) {
         <div className="glass-card p-6 rounded-2xl border border-white/10">
             <div className="flex justify-between items-center mb-6">
                 <h3 className="text-xl font-bold">Your Skills</h3>
-                <span className="text-sm text-gray-400">{userSkillsData.length} skills tracked</span>
+                <span className="text-sm text-blue-200/60">{userSkillsData.length} skills tracked</span>
             </div>
 
             <div className="space-y-6">
                 {Object.entries(skillsByCategory).map(([category, categorySkills]) => (
                     <div key={category}>
-                        <h4 className="text-sm font-semibold text-gray-400 mb-3">{category}</h4>
+                        <h4 className="text-sm font-semibold text-blue-200/60 mb-3">{category}</h4>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                             {categorySkills.map((skill) => (
                                 <div

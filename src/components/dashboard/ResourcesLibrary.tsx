@@ -71,7 +71,7 @@ export default function ResourcesLibrary() {
             case 'Tutorial': return 'text-green-400 bg-green-500/10 border-green-500/30';
             case 'Video': return 'text-purple-400 bg-purple-500/10 border-purple-500/30';
             case 'Article': return 'text-yellow-400 bg-yellow-500/10 border-yellow-500/30';
-            default: return 'text-gray-400 bg-gray-500/10 border-gray-500/30';
+            default: return 'text-blue-200/60 bg-white/5 border-white/10';
         }
     };
 
@@ -79,21 +79,21 @@ export default function ResourcesLibrary() {
         <div className="glass-card p-6 rounded-2xl border border-white/10">
             <div className="flex justify-between items-center mb-6">
                 <h3 className="text-xl font-bold">Learning Resources</h3>
-                <span className="text-sm text-gray-400">{filteredResources.length} resources</span>
+                <span className="text-sm text-blue-200/60">{filteredResources.length} resources</span>
             </div>
 
             {/* Filters */}
             <div className="space-y-3 mb-6">
                 <div>
-                    <p className="text-xs text-gray-400 mb-2">Category</p>
+                    <p className="text-xs text-blue-200/60 mb-2">Category</p>
                     <div className="flex gap-2 flex-wrap">
                         {categories.map(category => (
                             <button
                                 key={category}
                                 onClick={() => setSelectedCategory(category)}
                                 className={`px-3 py-1.5 rounded-lg text-xs transition-colors ${selectedCategory === category
-                                        ? 'bg-primary/20 text-primary border border-primary'
-                                        : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10'
+                                    ? 'bg-primary/20 text-primary border border-primary'
+                                    : 'bg-white/5 text-blue-200/60 border border-white/10 hover:bg-white/10'
                                     }`}
                             >
                                 {category}
@@ -103,15 +103,15 @@ export default function ResourcesLibrary() {
                 </div>
 
                 <div>
-                    <p className="text-xs text-gray-400 mb-2">Type</p>
+                    <p className="text-xs text-blue-200/60 mb-2">Type</p>
                     <div className="flex gap-2 flex-wrap">
                         {types.map(type => (
                             <button
                                 key={type}
                                 onClick={() => setSelectedType(type)}
                                 className={`px-3 py-1.5 rounded-lg text-xs transition-colors ${selectedType === type
-                                        ? 'bg-primary/20 text-primary border border-primary'
-                                        : 'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10'
+                                    ? 'bg-primary/20 text-primary border border-primary'
+                                    : 'bg-white/5 text-blue-200/60 border border-white/10 hover:bg-white/10'
                                     }`}
                             >
                                 {type}
@@ -140,19 +140,19 @@ export default function ResourcesLibrary() {
                                     <h4 className="font-semibold text-sm group-hover:text-primary transition-colors">
                                         {resource.title}
                                     </h4>
-                                    <p className="text-xs text-gray-400">{resource.category}</p>
+                                    <p className="text-xs text-blue-200/60">{resource.category}</p>
                                 </div>
                             </div>
-                            <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary transition-colors flex-shrink-0" />
+                            <ExternalLink className="w-4 h-4 text-blue-200/50 group-hover:text-primary transition-colors flex-shrink-0" />
                         </div>
-                        <p className="text-xs text-gray-400 mt-2">{resource.description}</p>
+                        <p className="text-xs text-blue-200/60 mt-2">{resource.description}</p>
                     </a>
                 ))}
             </div>
 
             {filteredResources.length === 0 && (
                 <div className="text-center py-12 border border-dashed border-white/10 rounded-xl">
-                    <p className="text-gray-400">No resources found for the selected filters</p>
+                    <p className="text-blue-200/60">No resources found for the selected filters</p>
                 </div>
             )}
         </div>

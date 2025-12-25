@@ -10,7 +10,9 @@ export async function GET() {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const allUsers = db.read().users;
+    // Refactored to use Supabase (async)
+    // const allUsers = db.read().users; <-- OLD
+    const allUsers = await db.user.getAll(); // <-- NEW (added to db definition above)
     return NextResponse.json(allUsers);
 }
 

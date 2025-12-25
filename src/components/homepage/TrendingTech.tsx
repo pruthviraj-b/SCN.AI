@@ -15,7 +15,7 @@ export default function TrendingTech() {
                         <span className="text-sm text-cyan-400">Emerging Tech</span>
                     </div>
                     <h2 className="text-4xl font-bold mb-2">Trending Technologies</h2>
-                    <p className="text-gray-400">{technologies.length}+ technologies shaping the future</p>
+                    <p className="text-blue-200/60">{technologies.length}+ technologies shaping the future</p>
                 </div>
 
                 {/* Technologies Grid */}
@@ -41,12 +41,12 @@ export default function TrendingTech() {
                                 {tech.name}
                             </h3>
 
-                            <p className="text-sm text-gray-400 mb-4 line-clamp-2">
+                            <p className="text-sm text-blue-200/70 mb-4 line-clamp-2">
                                 {tech.description}
                             </p>
 
                             <div className="mb-4">
-                                <p className="text-xs text-gray-400 mb-2">Use Cases:</p>
+                                <p className="text-xs text-blue-200/60 mb-2">Use Cases:</p>
                                 <div className="flex flex-wrap gap-2">
                                     {tech.useCases.slice(0, 3).map((useCase, idx) => (
                                         <span key={idx} className="px-2 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs">
@@ -57,7 +57,7 @@ export default function TrendingTech() {
                             </div>
 
                             <div className="pt-4 border-t border-white/10">
-                                <span className="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-400">
+                                <span className="px-3 py-1 rounded-full bg-white/5 text-xs text-blue-200/60">
                                     {tech.category}
                                 </span>
                             </div>

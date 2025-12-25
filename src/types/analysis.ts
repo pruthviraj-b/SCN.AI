@@ -24,6 +24,16 @@ export interface CareerAnalysis {
     salaryRange?: string;
     estimatedTime?: string;
     confidenceScore?: number;
+    resources?: { title: string; url: string }[];
+    explanation?: string;
+    startupIdeas?: { title: string; description: string }[];
+    alternativePaths?: {
+        id: string;
+        title: string;
+        match: number;
+        description: string;
+        timeframe: string;
+    }[];
 }
 
 export interface UserProfile {

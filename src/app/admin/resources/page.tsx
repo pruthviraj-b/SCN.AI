@@ -118,7 +118,7 @@ export default function ResourcesPage() {
     return (
         <div className="min-h-screen bg-background text-foreground p-8">
             <div className="max-w-7xl mx-auto">
-                <Link href="/dashboard" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
+                <Link href="/dashboard" className="inline-flex items-center gap-2 text-blue-200/70 hover:text-white mb-8 transition-colors">
                     <ArrowLeft className="w-4 h-4" />
                     Back to Dashboard
                 </Link>
@@ -126,7 +126,7 @@ export default function ResourcesPage() {
                 <div className="flex justify-between items-center mb-8">
                     <div>
                         <h1 className="text-4xl font-bold mb-2">Learning Resource Aggregator</h1>
-                        <p className="text-gray-400">Review and update external course links and materials</p>
+                        <p className="text-blue-200/60">Review and update external course links and materials</p>
                     </div>
                     <button
                         onClick={() => setShowModal(true)}
@@ -143,7 +143,7 @@ export default function ResourcesPage() {
                             <div className="flex justify-between items-start">
                                 <div className="flex-1">
                                     <h3 className="text-xl font-bold mb-2">{resource.title}</h3>
-                                    <div className="flex gap-4 text-sm text-gray-400 mb-3">
+                                    <div className="flex gap-4 text-sm text-blue-200/50 mb-3">
                                         <span>Platform: <span className="text-white">{resource.platform}</span></span>
                                         <span>Category: <span className="text-white">{resource.category}</span></span>
                                         <a
@@ -159,14 +159,14 @@ export default function ResourcesPage() {
                                 </div>
                                 <div className="flex gap-2 items-center">
                                     <span className={`px-3 py-1 rounded-full text-sm ${resource.status === 'Active'
-                                            ? 'bg-green-500/20 text-green-400'
-                                            : 'bg-gray-500/20 text-gray-400'
+                                        ? 'bg-green-500/20 text-green-400'
+                                        : 'bg-white/5 text-blue-200/60'
                                         }`}>
                                         {resource.status}
                                     </span>
                                     <button
                                         onClick={() => handleEdit(resource)}
-                                        className="p-2 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
+                                        className="p-2 rounded-lg hover:bg-white/10 text-blue-200/60 hover:text-white transition-colors"
                                     >
                                         <Edit className="w-5 h-5" />
                                     </button>

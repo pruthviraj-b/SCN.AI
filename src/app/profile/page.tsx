@@ -25,7 +25,7 @@ export default async function ProfilePage() {
         <div className="min-h-screen bg-background text-foreground">
             <Navigation />
             <div className="container mx-auto px-4 py-20 pt-32 max-w-4xl">
-                <Link href="/dashboard" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
+                <Link href="/dashboard" className="inline-flex items-center gap-2 text-blue-200/70 hover:text-white mb-8 transition-colors">
                     <ArrowLeft className="w-4 h-4" />
                     Back to Dashboard
                 </Link>
@@ -38,7 +38,7 @@ export default async function ProfilePage() {
                         </div>
                         <div>
                             <h1 className="text-3xl font-bold mb-2">{user.name}</h1>
-                            <p className="text-gray-400">{user.email}</p>
+                            <p className="text-blue-200/60">{user.email}</p>
                         </div>
                     </div>
 
@@ -48,7 +48,7 @@ export default async function ProfilePage() {
 
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="flex items-center gap-2 text-sm text-gray-400">
+                                <label className="flex items-center gap-2 text-sm text-blue-200/60">
                                     <User className="w-4 h-4" />
                                     Full Name
                                 </label>
@@ -58,7 +58,7 @@ export default async function ProfilePage() {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="flex items-center gap-2 text-sm text-gray-400">
+                                <label className="flex items-center gap-2 text-sm text-blue-200/60">
                                     <Mail className="w-4 h-4" />
                                     Email Address
                                 </label>
@@ -68,7 +68,7 @@ export default async function ProfilePage() {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="flex items-center gap-2 text-sm text-gray-400">
+                                <label className="flex items-center gap-2 text-sm text-blue-200/60">
                                     <Calendar className="w-4 h-4" />
                                     Member Since
                                 </label>
@@ -82,7 +82,7 @@ export default async function ProfilePage() {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="flex items-center gap-2 text-sm text-gray-400">
+                                <label className="flex items-center gap-2 text-sm text-blue-200/60">
                                     <Briefcase className="w-4 h-4" />
                                     Career Plans
                                 </label>
@@ -102,7 +102,7 @@ export default async function ProfilePage() {
                                             <div className="flex justify-between items-start">
                                                 <div>
                                                     <h4 className="font-semibold mb-1">{plan.title}</h4>
-                                                    <p className="text-sm text-gray-400">
+                                                    <p className="text-sm text-blue-200/60">
                                                         Created on {new Date(plan.createdAt).toLocaleDateString()}
                                                     </p>
                                                 </div>
@@ -119,7 +119,7 @@ export default async function ProfilePage() {
                         {/* Actions */}
                         <div className="flex gap-4 pt-6">
                             <Link
-                                href="/onboarding"
+                                href="/get-started"
                                 className="flex-1 px-6 py-3 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors text-center"
                             >
                                 Create New Plan
@@ -138,17 +138,17 @@ export default async function ProfilePage() {
                 <div className="grid md:grid-cols-3 gap-6 mt-8">
                     <div className="glass-card p-6 rounded-xl border border-white/10 text-center">
                         <p className="text-3xl font-bold text-primary mb-2">{user.plans.length}</p>
-                        <p className="text-sm text-gray-400">Career Plans</p>
+                        <p className="text-sm text-blue-200/60">Career Plans</p>
                     </div>
                     <div className="glass-card p-6 rounded-xl border border-white/10 text-center">
                         <p className="text-3xl font-bold text-green-400 mb-2">
                             {Math.floor((Date.now() - new Date(user.createdAt).getTime()) / (1000 * 60 * 60 * 24))}
                         </p>
-                        <p className="text-sm text-gray-400">Days as Member</p>
+                        <p className="text-sm text-blue-200/60">Days as Member</p>
                     </div>
                     <div className="glass-card p-6 rounded-xl border border-white/10 text-center">
                         <p className="text-3xl font-bold text-purple-400 mb-2">0</p>
-                        <p className="text-sm text-gray-400">Skills Tracked</p>
+                        <p className="text-sm text-blue-200/60">Skills Tracked</p>
                     </div>
                 </div>
             </div>

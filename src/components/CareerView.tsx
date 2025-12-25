@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, DollarSign, TrendingUp, BookOpen, Users, Briefcase, GraduationCap } from "lucide-react";
+import { ArrowLeft, IndianRupee, TrendingUp, BookOpen, Users, Briefcase, GraduationCap } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -22,7 +22,7 @@ export default function CareerView({ career }: { career: CareerPath }) {
             {/* Header */}
             <div className="bg-gradient-to-b from-blue-900/20 to-background border-b border-white/5 pt-24 pb-12 px-4">
                 <div className="container mx-auto max-w-6xl">
-                    <Link href="/careers" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
+                    <Link href="/careers" className="inline-flex items-center gap-2 text-blue-200/70 hover:text-white mb-8 transition-colors">
                         <ArrowLeft className="w-4 h-4" />
                         Back to Careers
                     </Link>
@@ -33,17 +33,17 @@ export default function CareerView({ career }: { career: CareerPath }) {
                                 <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-medium">{career.category}</span>
                             </div>
                             <h1 className="text-4xl md:text-5xl font-bold mb-4">{career.title}</h1>
-                            <p className="text-xl text-gray-400 max-w-2xl">{career.description}</p>
+                            <p className="text-xl text-blue-100/60 max-w-2xl">{career.description}</p>
                         </div>
                         <div className="flex gap-4">
                             <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm min-w-[150px]">
-                                <div className="text-sm text-gray-400 mb-1">Avg. Salary</div>
+                                <div className="text-sm text-blue-200/60 mb-1">Avg. Salary</div>
                                 <div className="text-2xl font-bold text-green-400">
                                     {career.avgSalary}
                                 </div>
                             </div>
                             <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm min-w-[150px]">
-                                <div className="text-sm text-gray-400 mb-1">Demand</div>
+                                <div className="text-sm text-blue-200/60 mb-1">Demand</div>
                                 <div className={`text-2xl font-bold ${career.demand === 'High' || career.demand === 'Very High' ? 'text-green-400' : 'text-yellow-400'}`}>
                                     {career.demand}
                                 </div>
@@ -66,7 +66,7 @@ export default function CareerView({ career }: { career: CareerPath }) {
                             onClick={() => setActiveTab(tab.id as any)}
                             className={`flex items-center gap-2 px-6 py-4 border-b-2 transition-colors whitespace-nowrap ${activeTab === tab.id
                                 ? 'border-primary text-primary'
-                                : 'border-transparent text-gray-400 hover:text-white'
+                                : 'border-transparent text-blue-200/60 hover:text-white'
                                 }`}
                         >
                             <tab.icon className="w-4 h-4" />
@@ -92,7 +92,7 @@ export default function CareerView({ career }: { career: CareerPath }) {
                                             <Briefcase className="w-5 h-5 text-blue-400" />
                                             About This Role
                                         </h3>
-                                        <p className="text-gray-300 leading-relaxed text-lg">
+                                        <p className="text-blue-100/80 leading-relaxed text-lg">
                                             As a {career.title}, you will play a crucial role in {career.category === 'Technology' ? 'building and maintaining cutting-edge software solutions' :
                                                 career.category === 'Business' ? 'driving business growth and strategy' :
                                                     career.category === 'Design' ? 'creating intuitive and engaging user experiences' :
@@ -119,7 +119,7 @@ export default function CareerView({ career }: { career: CareerPath }) {
                                                     <div className="w-6 h-6 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center flex-shrink-0 text-xs">
                                                         {i + 1}
                                                     </div>
-                                                    <span className="text-gray-300">{item}</span>
+                                                    <span className="text-blue-100/90">{item}</span>
                                                 </li>
                                             ))}
                                         </ul>
@@ -129,7 +129,7 @@ export default function CareerView({ career }: { career: CareerPath }) {
                                 <div className="space-y-8">
                                     <section className="glass-card p-6 rounded-2xl border border-white/10 bg-gradient-to-br from-blue-900/10 to-transparent">
                                         <h3 className="font-bold mb-4 text-blue-400">Why Choose This Path?</h3>
-                                        <p className="text-sm text-gray-300 mb-4">
+                                        <p className="text-sm text-blue-100/80 mb-4">
                                             This career path offers high growth potential, competitive salaries, and the chance to make a significant impact in the {career.category} industry.
                                         </p>
                                     </section>
@@ -138,7 +138,7 @@ export default function CareerView({ career }: { career: CareerPath }) {
                                         <h3 className="font-bold mb-4">Quick Stats</h3>
                                         <div className="space-y-4">
                                             <div>
-                                                <div className="text-sm text-gray-400">Work-Life Balance</div>
+                                                <div className="text-sm text-blue-200/60">Work-Life Balance</div>
                                                 <div className="flex items-center gap-2 mt-1">
                                                     <div className="h-2 flex-1 bg-white/10 rounded-full overflow-hidden">
                                                         <div className="h-full bg-green-400 w-[80%]" />
@@ -147,7 +147,7 @@ export default function CareerView({ career }: { career: CareerPath }) {
                                                 </div>
                                             </div>
                                             <div>
-                                                <div className="text-sm text-gray-400">Job Satisfaction</div>
+                                                <div className="text-sm text-blue-200/60">Job Satisfaction</div>
                                                 <div className="flex items-center gap-2 mt-1">
                                                     <div className="h-2 flex-1 bg-white/10 rounded-full overflow-hidden">
                                                         <div className="h-full bg-primary w-[90%]" />
@@ -181,7 +181,7 @@ export default function CareerView({ career }: { career: CareerPath }) {
                                             <GraduationCap className="w-6 h-6 text-pink-400 mt-1" />
                                             <div>
                                                 <div className="font-bold">Bachelor's Degree</div>
-                                                <div className="text-sm text-gray-400">Computer Science, Business, or related field</div>
+                                                <div className="text-sm text-blue-200/60">Computer Science, Business, or related field</div>
                                             </div>
                                         </div>
                                     </div>
@@ -195,22 +195,22 @@ export default function CareerView({ career }: { career: CareerPath }) {
                                     <TrendingUp className="w-5 h-5 text-green-400" />
                                     Future Outlook
                                 </h3>
-                                <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                                <p className="text-blue-100/80 text-lg leading-relaxed mb-8">
                                     The demand for {career.title}s is expected to {career.demand === 'High' ? 'grow rapidly' : 'remain steady'} over the next decade.
                                     As industries continue to digitize and evolve, professionals in this field will find abundant opportunities for innovation and leadership.
                                 </p>
                                 <div className="grid md:grid-cols-3 gap-6">
                                     <div className="p-6 rounded-xl bg-white/5 border border-white/10 text-center">
                                         <div className="text-3xl font-bold text-primary mb-2">+22%</div>
-                                        <div className="text-sm text-gray-400">Job Growth (10 Yrs)</div>
+                                        <div className="text-sm text-blue-200/60">Job Growth (10 Yrs)</div>
                                     </div>
                                     <div className="p-6 rounded-xl bg-white/5 border border-white/10 text-center">
                                         <div className="text-3xl font-bold text-green-400 mb-2">150k+</div>
-                                        <div className="text-sm text-gray-400">Open Positions</div>
+                                        <div className="text-sm text-blue-200/60">Open Positions</div>
                                     </div>
                                     <div className="p-6 rounded-xl bg-white/5 border border-white/10 text-center">
                                         <div className="text-3xl font-bold text-purple-400 mb-2">Global</div>
-                                        <div className="text-sm text-gray-400">Opportunities</div>
+                                        <div className="text-sm text-blue-200/60">Opportunities</div>
                                     </div>
                                 </div>
                             </div>

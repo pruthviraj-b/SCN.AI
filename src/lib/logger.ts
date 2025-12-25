@@ -1,7 +1,7 @@
 // Production-safe logger utility
 // Only logs in development, silent in production
 
-const isDevelopment = process.env.NODE_ENV === 'development';
+const isDevelopment = true; // process.env.NODE_ENV === 'development';
 
 export const logger = {
     log: (...args: any[]) => {

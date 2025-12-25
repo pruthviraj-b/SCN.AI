@@ -10,8 +10,8 @@ export default function StartupIdeas() {
         switch (potential) {
             case 'High': return 'bg-green-500/20 text-green-400 border-green-500/50';
             case 'Medium': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50';
-            case 'Low': return 'bg-gray-500/20 text-gray-400 border-gray-500/50';
-            default: return 'bg-gray-500/20 text-gray-400 border-gray-500/50';
+            case 'Low': return 'bg-white/5 text-blue-200/60 border-white/10';
+            default: return 'bg-white/5 text-blue-200/60 border-white/10';
         }
     };
 
@@ -24,7 +24,7 @@ export default function StartupIdeas() {
                         <span className="text-sm text-yellow-400">Entrepreneurship</span>
                     </div>
                     <h2 className="text-4xl font-bold mb-2">Startup Ideas</h2>
-                    <p className="text-gray-400">Explore {startupIdeas.length}+ innovative business opportunities</p>
+                    <p className="text-blue-200/60">Explore {startupIdeas.length}+ innovative business opportunities</p>
                 </div>
 
                 {/* Ideas Grid */}
@@ -47,18 +47,18 @@ export default function StartupIdeas() {
                                 {idea.title}
                             </h3>
 
-                            <p className="text-sm text-gray-400 mb-4">
+                            <p className="text-sm text-blue-200/60 mb-4">
                                 {idea.description}
                             </p>
 
-                            <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+                            <div className="flex items-center gap-2 text-sm text-blue-200/80 mb-4">
                                 <span className="px-2 py-1 rounded bg-white/5">{idea.category}</span>
                                 <span>•</span>
                                 <span>{idea.estimatedCost}</span>
                             </div>
 
                             <div className="pt-4 border-t border-white/10">
-                                <p className="text-xs text-gray-400 mb-2">Required Skills:</p>
+                                <p className="text-xs text-blue-200/60 mb-2">Required Skills:</p>
                                 <div className="flex flex-wrap gap-2">
                                     {idea.requiredSkills.map((skill, idx) => (
                                         <span key={idx} className="px-2 py-1 rounded-full bg-primary/20 text-primary text-xs">

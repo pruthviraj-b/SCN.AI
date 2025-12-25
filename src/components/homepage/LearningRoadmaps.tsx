@@ -15,7 +15,7 @@ export default function LearningRoadmaps() {
                         <span className="text-sm text-purple-400">Learning Paths</span>
                     </div>
                     <h2 className="text-4xl font-bold mb-2">Learning Roadmaps</h2>
-                    <p className="text-gray-400">{roadmaps.length}+ structured paths from beginner to expert</p>
+                    <p className="text-blue-200/60">{roadmaps.length}+ structured paths from beginner to expert</p>
                 </div>
 
                 {/* Roadmaps Grid */}
@@ -29,7 +29,7 @@ export default function LearningRoadmaps() {
                                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
                                     <Map className="w-6 h-6 text-purple-400" />
                                 </div>
-                                <div className="flex items-center gap-1 text-sm text-gray-400">
+                                <div className="flex items-center gap-1 text-sm text-blue-200/60">
                                     <Clock className="w-4 h-4" />
                                     {roadmap.totalDuration}
                                 </div>
@@ -39,7 +39,7 @@ export default function LearningRoadmaps() {
                                 {roadmap.title}
                             </h3>
 
-                            <p className="text-sm text-gray-400 mb-4">
+                            <p className="text-sm text-blue-200/70 mb-4">
                                 {roadmap.description}
                             </p>
 
@@ -50,7 +50,7 @@ export default function LearningRoadmaps() {
                                         <span className="text-xs font-bold text-green-400">B</span>
                                     </div>
                                     <div className="flex-1">
-                                        <p className="text-xs text-gray-400">{roadmap.beginner.length} steps</p>
+                                        <p className="text-xs text-blue-200/60">{roadmap.beginner.length} steps</p>
                                         <div className="h-1 bg-white/10 rounded-full overflow-hidden mt-1">
                                             <div className="h-full bg-green-500 w-1/3"></div>
                                         </div>
@@ -63,7 +63,7 @@ export default function LearningRoadmaps() {
                                         <span className="text-xs font-bold text-yellow-400">I</span>
                                     </div>
                                     <div className="flex-1">
-                                        <p className="text-xs text-gray-400">{roadmap.intermediate.length} steps</p>
+                                        <p className="text-xs text-blue-200/60">{roadmap.intermediate.length} steps</p>
                                         <div className="h-1 bg-white/10 rounded-full overflow-hidden mt-1">
                                             <div className="h-full bg-yellow-500 w-2/3"></div>
                                         </div>
@@ -76,7 +76,7 @@ export default function LearningRoadmaps() {
                                         <span className="text-xs font-bold text-red-400">A</span>
                                     </div>
                                     <div className="flex-1">
-                                        <p className="text-xs text-gray-400">{roadmap.advanced.length} steps</p>
+                                        <p className="text-xs text-blue-200/60">{roadmap.advanced.length} steps</p>
                                         <div className="h-1 bg-white/10 rounded-full overflow-hidden mt-1">
                                             <div className="h-full bg-red-500 w-full"></div>
                                         </div>
@@ -85,7 +85,7 @@ export default function LearningRoadmaps() {
                             </div>
 
                             <div className="pt-4 border-t border-white/10">
-                                <span className="px-3 py-1 rounded-full bg-white/5 text-xs text-gray-400">
+                                <span className="px-3 py-1 rounded-full bg-white/5 text-xs text-blue-200/60">
                                     {roadmap.category}
                                 </span>
                             </div>

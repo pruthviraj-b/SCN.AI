@@ -11,7 +11,8 @@ type Props = {
 export default async function ResourceDetailPage({ params }: Props) {
     // Await params in Next.js 15+
     const resolvedParams = await params;
-    const resource = db.learningResource.getAll().find((r) => r.id === resolvedParams.id);
+    const resources = await db.learningResource.getAll();
+    const resource = resources.find((r) => r.id === resolvedParams.id);
 
     if (!resource) {
         notFound();

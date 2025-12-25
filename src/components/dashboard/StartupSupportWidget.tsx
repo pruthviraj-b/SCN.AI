@@ -13,7 +13,7 @@ export default function StartupSupportWidget() {
                 </div>
 
                 <h3 className="text-xl font-bold mb-2">Startup Support</h3>
-                <p className="text-muted-foreground mb-6 text-sm">
+                <p className="text-blue-200/60 mb-6 text-sm">
                     Have a business idea? Chat with our AI Business Consultant to validate your idea, build a business plan, or get market insights.
                 </p>
 

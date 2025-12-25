@@ -12,19 +12,21 @@ export default async function UserManagementPage() {
         redirect("/dashboard");
     }
 
-    const allUsers = db.read().users;
+    // Refactored to Supabase
+    const allUsers = await db.user.getAll(); // This is a Server Component, so await works fine
+    // const allUsers = db.read().users;
 
     return (
         <div className="min-h-screen bg-background text-foreground p-8">
             <div className="max-w-7xl mx-auto">
-                <Link href="/dashboard" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
+                <Link href="/dashboard" className="inline-flex items-center gap-2 text-blue-200/70 hover:text-white mb-8 transition-colors">
                     <ArrowLeft className="w-4 h-4" />
                     Back to Dashboard
                 </Link>
 
                 <div className="mb-8">
                     <h1 className="text-4xl font-bold mb-2">User Management</h1>
-                    <p className="text-gray-400">View, edit, verify, and manage user accounts</p>
+                    <p className="text-blue-200/60">View, edit, verify, and manage user accounts</p>
                 </div>
 
                 <div className="glass-card rounded-2xl border border-white/10 overflow-hidden">
@@ -51,13 +53,13 @@ export default async function UserManagementPage() {
                                                 <span className="font-medium">{user.name}</span>
                                             </div>
                                         </td>
-                                        <td className="px-6 py-4 text-gray-400">{user.email}</td>
+                                        <td className="px-6 py-4 text-blue-200/60">{user.email}</td>
                                         <td className="px-6 py-4">
                                             <span className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-sm">
                                                 {user.plans.length} plans
                                             </span>
                                         </td>
-                                        <td className="px-6 py-4 text-gray-400">
+                                        <td className="px-6 py-4 text-blue-200/60">
                                             {new Date(user.createdAt).toLocaleDateString()}
                                         </td>
                                         <td className="px-6 py-4">
@@ -68,7 +70,7 @@ export default async function UserManagementPage() {
                                         </td>
                                         <td className="px-6 py-4">
                                             <div className="flex gap-2">
-                                                <button className="p-2 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
+                                                <button className="p-2 rounded-lg hover:bg-white/10 text-blue-200/60 hover:text-white transition-colors">
                                                     View
                                                 </button>
                                                 <button className="p-2 rounded-lg hover:bg-red-500/20 text-red-400 hover:text-red-300 transition-colors">
@@ -83,7 +85,7 @@ export default async function UserManagementPage() {
                     </div>
                 </div>
 
-                <div className="mt-6 flex justify-between items-center text-sm text-gray-400">
+                <div className="mt-6 flex justify-between items-center text-sm text-blue-200/60">
                     <p>Total Users: {allUsers.length}</p>
                     <p>Active Users: {allUsers.length}</p>
                 </div>

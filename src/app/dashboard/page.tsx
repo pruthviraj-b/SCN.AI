@@ -3,15 +3,14 @@ import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import Link from "next/link";
-import { Plus, FileText, MessageSquare, Settings, LogOut, User, TrendingUp, BookOpen, Target } from "lucide-react";
-import DeepAnalysis from "@/components/DeepAnalysis";
+import { Plus, FileText, MessageSquare, Settings, LogOut, User, Target } from "lucide-react";
+
 import AdminDashboard from "@/components/admin/AdminDashboard";
-import DashboardSkills from "@/components/dashboard/DashboardSkills";
-import RecommendedCourses from "@/components/dashboard/RecommendedCourses";
-import CareerRoadmap from "@/components/dashboard/CareerRoadmap";
-import ResourcesLibrary from "@/components/dashboard/ResourcesLibrary";
-import StartupSupportWidget from "@/components/dashboard/StartupSupportWidget";
-import ProfessionalHelpWidget from "@/components/dashboard/ProfessionalHelpWidget";
+import DashboardContent from "@/components/dashboard/DashboardContent";
+
+import fs from 'fs';
+import path from 'path';
+import { calculateCareerMatch, CareerPath, UserProfile } from '@/lib/matching-algorithm';
 
 export default async function DashboardPage() {
     const session = await getServerSession(authOptions);
@@ -21,7 +20,7 @@ export default async function DashboardPage() {
     }
 
     const user = await db.user.findUnique({
-        where: { email: session.user?.email! }
+        where: { email: session.user.email }
     });
 
     if (!user) {
@@ -32,7 +31,10 @@ export default async function DashboardPage() {
 
     // Extract user profile data from the most recent plan
     let userProfile = {
+        educationLevel: '',
+        fieldOfStudy: '',
         skills: [] as string[],
+        interests: [] as string[],
         experienceLevel: 'beginner',
         goal: '',
         timeCommitment: '5-10'
@@ -42,15 +44,47 @@ export default async function DashboardPage() {
         try {
             const latestPlan = user.plans[user.plans.length - 1];
             const planData = JSON.parse(latestPlan.data);
+
+            // Handle nested JSON if present (legacy issue seen in data.json logs)
+            let actualData = planData;
+            if (typeof planData.data === 'string') {
+                try { actualData = JSON.parse(planData.data); } catch (e) { }
+            }
+
             userProfile = {
-                skills: planData.skills || [],
-                experienceLevel: planData.experienceLevel || 'beginner',
-                goal: planData.goal || '',
-                timeCommitment: planData.timeCommitment || '5-10'
+                educationLevel: actualData.educationLevel || '',
+                fieldOfStudy: actualData.fieldOfStudy || '',
+                skills: actualData.skills || [],
+                interests: actualData.interests || [],
+                experienceLevel: actualData.experienceLevel || 'beginner',
+                goal: actualData.goal || '',
+                timeCommitment: actualData.timeCommitment || '5-10'
             };
         } catch (error) {
             console.error('Error parsing plan data:', error);
         }
+    }
+
+    // --- Smart Matching ---
+    const dataFilePath = path.join(process.cwd(), 'data.json');
+    let matches: any[] = [];
+
+    try {
+        const fileContents = fs.readFileSync(dataFilePath, 'utf8');
+        const jsonData = JSON.parse(fileContents);
+        const careerPaths: CareerPath[] = jsonData.careerPaths;
+
+        const profileForMatching: UserProfile = {
+            educationLevel: userProfile.educationLevel,
+            fieldOfStudy: userProfile.fieldOfStudy,
+            skills: userProfile.skills,
+            interests: userProfile.interests
+        };
+
+        matches = careerPaths.map(career => calculateCareerMatch(profileForMatching, career));
+        matches.sort((a, b) => b.score - a.score);
+    } catch (error) {
+        console.error("Error calculating matches:", error);
     }
 
     const skillsCount = userProfile.skills.length;
@@ -80,9 +114,9 @@ export default async function DashboardPage() {
                             New Plan
                         </Link>
                     )}
-                    <Link href="/dashboard/chat-history" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
-                        <MessageSquare className="w-5 h-5" />
-                        Chat History
+                    <Link href="/dashboard#your-plans-section" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
+                        <Target className="w-5 h-5" />
+                        My Plans
                     </Link>
                     <Link href="/profile" className="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-muted text-muted-foreground hover:text-foreground transition-colors">
                         <User className="w-5 h-5" />
@@ -128,119 +162,19 @@ export default async function DashboardPage() {
                 {isAdmin ? (
                     <AdminDashboard />
                 ) : (
-                    <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-                        {/* Main Content Area */}
-                        <div className="lg:col-span-3 space-y-8">
-                            {/* Stats Grid */}
-                            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                                <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="p-2 rounded-lg bg-blue-500/10">
-                                            <FileText className="w-5 h-5 text-blue-600" />
-                                        </div>
-                                        <h3 className="text-muted-foreground text-sm">Career Plans</h3>
-                                    </div>
-                                    <p className="text-3xl font-bold text-foreground">{user.plans.length}</p>
-                                </div>
-                                <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="p-2 rounded-lg bg-green-500/10">
-                                            <TrendingUp className="w-5 h-5 text-green-600" />
-                                        </div>
-                                        <h3 className="text-muted-foreground text-sm">Skills Tracked</h3>
-                                    </div>
-                                    <p className="text-3xl font-bold text-foreground">{skillsCount}</p>
-                                </div>
-                                <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="p-2 rounded-lg bg-purple-500/10">
-                                            <BookOpen className="w-5 h-5 text-purple-600" />
-                                        </div>
-                                        <h3 className="text-muted-foreground text-sm">Recommended Courses</h3>
-                                    </div>
-                                    <p className="text-3xl font-bold text-foreground">{recommendedCoursesCount}</p>
-                                </div>
-                                <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                                    <div className="flex items-center gap-3 mb-2">
-                                        <div className="p-2 rounded-lg bg-yellow-500/10">
-                                            <Target className="w-5 h-5 text-yellow-600" />
-                                        </div>
-                                        <h3 className="text-muted-foreground text-sm">Current Goal</h3>
-                                    </div>
-                                    <p className="text-lg font-bold truncate text-foreground">{userProfile.goal || 'Not set'}</p>
-                                </div>
-                            </div>
-
-                            {/* Skills Section */}
-                            {skillsCount > 0 && (
-                                <DashboardSkills userSkills={userProfile.skills} />
-                            )}
-
-                            {/* Career Roadmap */}
-                            {userProfile.goal && (
-                                <CareerRoadmap
-                                    userGoal={userProfile.goal}
-                                    experienceLevel={userProfile.experienceLevel}
-                                />
-                            )}
-
-                            {/* Recommended Courses */}
-                            <RecommendedCourses
-                                userSkills={userProfile.skills}
-                                experienceLevel={userProfile.experienceLevel}
-                            />
-
-                            {/* Resources Library */}
-                            <ResourcesLibrary />
-
-                            {/* Deep Analysis */}
-                            <DeepAnalysis />
-                        </div>
-
-                        {/* Right Sidebar */}
-                        <div className="lg:col-span-1 space-y-6">
-                            <StartupSupportWidget />
-                            <ProfessionalHelpWidget />
-
-                            {/* Career Plans List */}
-                            <div className="bg-card p-6 rounded-2xl border shadow-sm">
-                                <div className="flex justify-between items-center mb-6">
-                                    <h3 className="text-lg font-bold text-foreground">Your Plans</h3>
-                                    <Link href="/onboarding" className="text-primary hover:underline text-xs">
-                                        + New
-                                    </Link>
-                                </div>
-
-                                <div className="grid gap-3">
-                                    {user.plans.length === 0 ? (
-                                        <div className="text-center py-8 border border-dashed border-border rounded-xl">
-                                            <p className="text-xs text-muted-foreground mb-3">No plans yet</p>
-                                            <Link href="/onboarding" className="px-4 py-1.5 rounded-full bg-primary text-primary-foreground text-xs hover:bg-primary/90 transition-colors inline-block">
-                                                Create
-                                            </Link>
-                                        </div>
-                                    ) : (
-                                        user.plans.map((plan: any) => (
-                                            <div key={plan.id} className="p-3 rounded-xl bg-muted/50 border border-border hover:border-primary/50 transition-colors cursor-pointer group">
-                                                <div className="flex justify-between items-start">
-                                                    <div className="min-w-0">
-                                                        <h4 className="font-semibold mb-1 text-sm group-hover:text-primary transition-colors text-foreground truncate">{plan.title}</h4>
-                                                        <p className="text-xs text-muted-foreground">Updated {new Date(plan.createdAt).toLocaleDateString()}</p>
-                                                    </div>
-                                                    <div className="w-2 h-2 rounded-full bg-green-500 mt-1.5 shrink-0" />
-                                                </div>
-                                            </div>
-                                        ))
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <DashboardContent
+                        user={user}
+                        userProfile={userProfile}
+                        skillsCount={skillsCount}
+                        recommendedCoursesCount={recommendedCoursesCount}
+                        matches={matches}
+                    />
                 )}
             </main>
         </div>
     );
 }
+
 
 function ArrowRight({ className }: { className?: string }) {
     return (

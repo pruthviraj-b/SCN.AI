@@ -11,7 +11,8 @@ type Props = {
 export default async function CareerDetailPage({ params }: Props) {
     // Await params in Next.js 15+
     const resolvedParams = await params;
-    const career = db.careerPath.getAll().find((c) => c.id === resolvedParams.id);
+    const careers = await db.careerPath.getAll();
+    const career = careers.find((c) => c.id === resolvedParams.id);
 
     if (!career) {
         notFound();

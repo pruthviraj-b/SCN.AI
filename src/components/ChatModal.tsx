@@ -103,7 +103,7 @@ export default function ChatModal() {
                                 onClick={() => setIsOpen(false)}
                                 className="p-2 hover:bg-white/10 rounded-full transition-colors"
                             >
-                                <X className="w-5 h-5 text-gray-400" />
+                                <X className="w-5 h-5 text-blue-200/60" />
                             </button>
                         </div>
 
@@ -117,7 +117,7 @@ export default function ChatModal() {
                                     <div
                                         className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
                                             ? 'bg-primary text-white rounded-br-none'
-                                            : 'bg-white/10 text-gray-200 rounded-bl-none'
+                                            : 'bg-white/10 text-blue-100 rounded-bl-none'
                                             }`}
                                     >
                                         <p className="whitespace-pre-wrap">{msg.content}</p>
@@ -127,9 +127,9 @@ export default function ChatModal() {
                             {isTyping && (
                                 <div className="flex justify-start">
                                     <div className="bg-white/10 p-3 rounded-2xl rounded-bl-none flex gap-1">
-                                        <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
-                                        <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-100" />
-                                        <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-200" />
+                                        <span className="w-2 h-2 bg-blue-300 rounded-full animate-bounce" />
+                                        <span className="w-2 h-2 bg-blue-300 rounded-full animate-bounce delay-100" />
+                                        <span className="w-2 h-2 bg-blue-300 rounded-full animate-bounce delay-200" />
                                     </div>
                                 </div>
                             )}

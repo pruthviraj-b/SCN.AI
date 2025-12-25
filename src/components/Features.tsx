@@ -41,21 +41,18 @@ export default function Features() {
     ];
 
     return (
-        <section className="py-32 relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/5 to-background pointer-events-none" />
-
+        <section className="py-24 relative overflow-hidden bg-background">
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-20">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6">
+                <div className="text-center mb-16">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
                         <Zap className="w-4 h-4 text-primary" />
-                        <span className="text-sm text-gray-300">Platform Features</span>
+                        <span className="text-sm font-medium text-primary">Platform Features</span>
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
                         Everything You Need To <br />
-                        <span className="text-gradient">Build Your Dream Career</span>
+                        <span className="text-primary">Build Your Dream Career</span>
                     </h2>
-                    <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                         Powerful features designed to guide you from exploration to achievement
                     </p>
                 </div>
@@ -64,49 +61,46 @@ export default function Features() {
                     {features.map((feature, index) => (
                         <div
                             key={index}
-                            className="group relative glass-card p-8 rounded-2xl border border-white/10 hover:border-primary/50 transition-all duration-300 hover:-translate-y-2"
+                            className="group relative bg-card p-8 rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md"
                         >
                             {/* Gradient background on hover */}
-                            <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`} />
+                            <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-300`} />
 
                             <div className="relative z-10">
                                 {/* Icon */}
-                                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.color} p-3 mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.color} p-3 mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                                     <feature.icon className="w-full h-full text-white" />
                                 </div>
 
                                 {/* Content */}
-                                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                                <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
                                     {feature.title}
                                 </h3>
-                                <p className="text-gray-400 leading-relaxed">
+                                <p className="text-muted-foreground leading-relaxed">
                                     {feature.description}
                                 </p>
                             </div>
-
-                            {/* Decorative corner */}
-                            <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-white/5 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         </div>
                     ))}
                 </div>
 
                 {/* Stats Section */}
-                <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto border-t border-border pt-12">
                     <div className="text-center">
-                        <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">10K+</p>
-                        <p className="text-gray-400">Career Paths</p>
+                        <p className="text-4xl md:text-5xl font-bold text-primary mb-2">10K+</p>
+                        <p className="text-muted-foreground">Career Paths</p>
                     </div>
                     <div className="text-center">
-                        <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">500+</p>
-                        <p className="text-gray-400">Learning Resources</p>
+                        <p className="text-4xl md:text-5xl font-bold text-primary mb-2">500+</p>
+                        <p className="text-muted-foreground">Learning Resources</p>
                     </div>
                     <div className="text-center">
-                        <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">24/7</p>
-                        <p className="text-gray-400">AI Support</p>
+                        <p className="text-4xl md:text-5xl font-bold text-primary mb-2">24/7</p>
+                        <p className="text-muted-foreground">AI Support</p>
                     </div>
                     <div className="text-center">
-                        <p className="text-4xl md:text-5xl font-bold text-gradient mb-2">100%</p>
-                        <p className="text-gray-400">Personalized</p>
+                        <p className="text-4xl md:text-5xl font-bold text-primary mb-2">100%</p>
+                        <p className="text-muted-foreground">Personalized</p>
                     </div>
                 </div>
             </div>

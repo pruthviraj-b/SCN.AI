@@ -23,32 +23,89 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-manrope);
 }
 
-:root {
-  --background: 222 47% 11%;
-  --foreground: 210 40% 98%;
+@layer base {
 
-  --primary: 217 91% 60%;
-  --primary-foreground: 222 47% 11%;
+  :root {
+    /* Google Skills Light Mode Default */
+    --background: 210 20% 98%;
+    /* Soft cool grey/white */
+    --foreground: 220 10% 10%;
+    /* Near black */
 
-  --secondary: 217 32% 17%;
-  --secondary-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 10% 10%;
 
-  --accent: 262 83% 58%;
-  --accent-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 10% 10%;
 
-  --muted: 217 32% 17%;
-  --muted-foreground: 215 20% 65%;
+    /* Google Blue #0B57D0 */
+    --primary: 217 90% 43%;
+    --primary-foreground: 0 0% 100%;
 
-  --card: 222 47% 11%;
-  --card-foreground: 210 40% 98%;
+    --secondary: 210 20% 96%;
+    --secondary-foreground: 220 10% 10%;
 
-  --border: 217 32% 17%;
-  --input: 217 32% 17%;
-  --ring: 224 76% 48%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 220 10% 40%;
 
-  --radius: 0.5rem;
+    --accent: 210 20% 96%;
+    --accent-foreground: 220 10% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 10% 90%;
+    --input: 220 10% 90%;
+    --ring: 217 90% 43%;
+
+    --radius: 1.5rem;
+    /* 24px for M3 feel */
+  }
+
+  .dark {
+    /* Google Material 3 Dark Mode */
+    --background: 240 4% 9%;
+    /* #131314 - Very dark grey/blue */
+    --foreground: 0 0% 89%;
+    /* #E3E3E3 - Off-white text */
+
+    --card: 240 4% 12%;
+    /* #1E1F20 - Slightly lighter surface */
+    --card-foreground: 0 0% 89%;
+
+    --popover: 240 4% 12%;
+    --popover-foreground: 0 0% 89%;
+
+    /* Google Blue 80 (Light Blue for Dark Mode) */
+    --primary: 215 87% 82%;
+    /* #A8C7FA */
+    --primary-foreground: 224 47% 11%;
+    /* #0B1D46 - Dark Blue text on primary */
+
+    --secondary: 210 10% 23%;
+    /* #30353D */
+    --secondary-foreground: 0 0% 89%;
+
+    --muted: 240 4% 12%;
+    --muted-foreground: 220 8% 78%;
+    /* #C4C7C5 */
+
+    --accent: 210 10% 23%;
+    --accent-foreground: 0 0% 89%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 5% 26%;
+    /* #444746 */
+    --input: 220 5% 26%;
+    --ring: 215 87% 82%;
+  }
 }
 
 @layer base {
@@ -58,21 +115,59 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0em;
     font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-manrope), sans-serif;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: hsl(var(--foreground));
+  }
+
+  h1 {
+    font-weight: 700;
+  }
+
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+  }
+
+  button,
+  .btn,
+  label,
+  .label {
+    font-family: var(--font-inter), sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.01em;
   }
 }
 
 @layer utilities {
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
   }
 
   .glass-card {
-    @apply bg-card/50 backdrop-blur-md border border-white/5 shadow-xl;
+    @apply bg-card/80 backdrop-blur-sm border border-border shadow-sm;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+    @apply text-primary;
+    /* Removed gradient for cleaner Google look */
   }
 
   /* Hide scrollbar for horizontal scrolling */
@@ -106,4 +201,60 @@
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(59, 130, 246, 0.7);
   }
+
+  /* Wizard Styling */
+  .input-field {
+    @apply w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary/50 transition-colors placeholder:text-gray-600;
+  }
+
+  .label {
+    @apply block text-sm font-medium text-gray-400 mb-2;
+  }
+
+  .text-error {
+    @apply text-red-400 text-xs mt-1;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors font-medium text-sm;
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+/* Custom Font: The Last Trunks */
+@font-face {
+  font-family: 'The Last Trunks';
+  src: url('/fonts/TheLastTrunks.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-trunks {
+  font-family: 'The Last Trunks', var(--font-display), sans-serif;
 }

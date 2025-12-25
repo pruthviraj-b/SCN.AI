@@ -15,8 +15,8 @@ export async function POST(request: Request) {
         }
 
         // Name validation - allow letters, spaces, hyphens, and apostrophes
-        if (name.length < 2 || name.length > 50 || !/^[a-zA-Z\s\-']+$/.test(name.trim())) {
-            return NextResponse.json({ error: 'Name must be 2-50 characters and contain only letters, spaces, hyphens, or apostrophes' }, { status: 400 });
+        if (name.length < 2 || name.length > 50) {
+            return NextResponse.json({ error: 'Name must be 2-50 characters' }, { status: 400 });
         }
 
         // Email validation
@@ -27,7 +27,7 @@ export async function POST(request: Request) {
 
         // Password validation
         if (password.length < 8 || !/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/.test(password)) {
-            return NextResponse.json({ error: 'Password must be at least 8 characters and contain uppercase, lowercase, and number' }, { status: 400 });
+            return NextResponse.json({ error: 'Password must be at least 8 characters and contain uppercase, lowercase, and a number' }, { status: 400 });
         }
 
         const existingUser = await db.user.findUnique({

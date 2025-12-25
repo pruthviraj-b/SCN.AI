@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import { careers, categories } from '@/data/careers';
-import { Briefcase, TrendingUp, DollarSign } from 'lucide-react';
+import { Briefcase, TrendingUp, IndianRupee } from 'lucide-react';
 
 export default function PopularCareers() {
     const { data: session, status } = useSession();
@@ -38,7 +38,7 @@ export default function PopularCareers() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-bold mb-2">Popular Career Paths</h2>
-                    <p className="text-gray-400">Explore 105+ career opportunities across industries and Trending Skills</p>
+                    <p className="text-blue-200/60">Explore 105+ career opportunities across industries and Trending Skills</p>
                 </div>
 
                 {/* Search Bar */}
@@ -51,7 +51,7 @@ export default function PopularCareers() {
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-3 pl-12 focus:border-primary/50 focus:outline-none transition-all"
                         />
-                        <Briefcase className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                        <Briefcase className="w-5 h-5 text-blue-200/60 absolute left-4 top-1/2 -translate-y-1/2" />
                     </div>
                 </div>
 
@@ -63,7 +63,7 @@ export default function PopularCareers() {
                             onClick={() => setSelectedCategory(category)}
                             className={`px-6 py-2 rounded-full whitespace-nowrap transition-all ${selectedCategory === category
                                 ? 'bg-primary text-white'
-                                : 'bg-white/5 hover:bg-white/10 text-gray-400'
+                                : 'bg-white/5 hover:bg-white/10 text-blue-200/60'
                                 }`}
                         >
                             {category}
@@ -94,13 +94,13 @@ export default function PopularCareers() {
                                 {career.title}
                             </h3>
 
-                            <p className="text-sm text-gray-400 mb-4 line-clamp-2">
+                            <p className="text-sm text-blue-200/70 mb-4 line-clamp-2">
                                 {career.description}
                             </p>
 
                             <div className="flex items-center justify-between text-sm">
                                 <div className="flex items-center gap-1 text-green-400">
-                                    <DollarSign className="w-4 h-4" />
+                                    <IndianRupee className="w-4 h-4" />
                                     {career.salary}
                                 </div>
                                 <div className="text-primary">
@@ -110,12 +110,12 @@ export default function PopularCareers() {
 
                             <div className="flex flex-wrap gap-2 mt-4">
                                 {career.skills.slice(0, 2).map((skill, idx) => (
-                                    <span key={idx} className="px-2 py-1 rounded-full bg-white/5 text-xs text-gray-400">
+                                    <span key={idx} className="px-2 py-1 rounded-full bg-white/5 text-xs text-blue-200/60">
                                         {skill}
                                     </span>
                                 ))}
                                 {career.skills.length > 2 && (
-                                    <span className="px-2 py-1 rounded-full bg-white/5 text-xs text-gray-400">
+                                    <span className="px-2 py-1 rounded-full bg-white/5 text-xs text-blue-200/60">
                                         +{career.skills.length - 2}
                                     </span>
                                 )}
@@ -125,7 +125,7 @@ export default function PopularCareers() {
                 </div>
 
                 {displayedCareers.length === 0 && (
-                    <div className="text-center text-gray-400 mt-8">
+                    <div className="text-center text-blue-200/60 mt-8">
                         No careers found matching your criteria.
                     </div>
                 )}

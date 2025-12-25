@@ -22,7 +22,7 @@ export default function ResourceView({ resource }: { resource: LearningResource 
             {/* Header */}
             <div className="bg-gradient-to-b from-green-900/20 to-background border-b border-white/5 pt-24 pb-12 px-4">
                 <div className="container mx-auto max-w-6xl">
-                    <Link href="/resources" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
+                    <Link href="/resources" className="inline-flex items-center gap-2 text-blue-200/70 hover:text-white mb-8 transition-colors">
                         <ArrowLeft className="w-4 h-4" />
                         Back to Resources
                     </Link>
@@ -34,7 +34,7 @@ export default function ResourceView({ resource }: { resource: LearningResource 
                                 <span className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-medium">{resource.platform}</span>
                             </div>
                             <h1 className="text-4xl md:text-5xl font-bold mb-4">{resource.title}</h1>
-                            <div className="flex items-center gap-4 text-gray-400">
+                            <div className="flex items-center gap-4 text-blue-200/70">
                                 <span className="flex items-center gap-1"><Star className="w-4 h-4 text-yellow-400 fill-current" /> 4.8 (1.2k reviews)</span>
                                 <span className="flex items-center gap-1"><Users className="w-4 h-4" /> 15k+ Students</span>
                                 <span className="flex items-center gap-1"><Clock className="w-4 h-4" /> ~25 Hours</span>
@@ -68,7 +68,7 @@ export default function ResourceView({ resource }: { resource: LearningResource 
                             onClick={() => setActiveTab(tab.id as any)}
                             className={`flex items-center gap-2 px-6 py-4 border-b-2 transition-colors whitespace-nowrap ${activeTab === tab.id
                                 ? 'border-green-500 text-green-400'
-                                : 'border-transparent text-gray-400 hover:text-white'
+                                : 'border-transparent text-blue-200/60 hover:text-white'
                                 }`}
                         >
                             <tab.icon className="w-4 h-4" />
@@ -94,7 +94,7 @@ export default function ResourceView({ resource }: { resource: LearningResource 
                                             <BookOpen className="w-5 h-5 text-green-400" />
                                             What You'll Learn
                                         </h3>
-                                        <p className="text-gray-300 leading-relaxed text-lg mb-6">
+                                        <p className="text-blue-100/80 leading-relaxed text-lg mb-6">
                                             This comprehensive course on {resource.title} is designed to take you from basics to advanced concepts.
                                             Hosted on {resource.platform}, it offers a structured learning path for anyone looking to master {resource.category}.
                                         </p>
@@ -102,7 +102,7 @@ export default function ResourceView({ resource }: { resource: LearningResource 
                                             {['Master core concepts and tools', 'Build real-world projects', 'Understand industry best practices', 'Earn a certificate of completion'].map((item, i) => (
                                                 <div key={i} className="flex items-start gap-3">
                                                     <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
-                                                    <span className="text-gray-300">{item}</span>
+                                                    <span className="text-blue-100/90">{item}</span>
                                                 </div>
                                             ))}
                                         </div>
@@ -113,19 +113,19 @@ export default function ResourceView({ resource }: { resource: LearningResource 
                                     <section className="glass-card p-6 rounded-2xl border border-white/10">
                                         <h3 className="font-bold mb-4">Course Features</h3>
                                         <ul className="space-y-3">
-                                            <li className="flex justify-between text-sm text-gray-300 border-b border-white/5 pb-2">
+                                            <li className="flex justify-between text-sm text-blue-200/70 border-b border-white/5 pb-2">
                                                 <span>Skill Level</span>
                                                 <span className="text-white">Intermediate</span>
                                             </li>
-                                            <li className="flex justify-between text-sm text-gray-300 border-b border-white/5 pb-2">
+                                            <li className="flex justify-between text-sm text-blue-200/70 border-b border-white/5 pb-2">
                                                 <span>Language</span>
                                                 <span className="text-white">English</span>
                                             </li>
-                                            <li className="flex justify-between text-sm text-gray-300 border-b border-white/5 pb-2">
+                                            <li className="flex justify-between text-sm text-blue-200/70 border-b border-white/5 pb-2">
                                                 <span>Certificate</span>
                                                 <span className="text-green-400">Included</span>
                                             </li>
-                                            <li className="flex justify-between text-sm text-gray-300">
+                                            <li className="flex justify-between text-sm text-blue-200/70">
                                                 <span>Access</span>
                                                 <span className="text-white">Lifetime</span>
                                             </li>
@@ -148,12 +148,12 @@ export default function ResourceView({ resource }: { resource: LearningResource 
                                     ].map((module, i) => (
                                         <div key={i} className="flex items-center justify-between p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors">
                                             <div className="flex items-center gap-4">
-                                                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm font-bold text-gray-400">
+                                                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-sm font-bold text-blue-200/60">
                                                     {i + 1}
                                                 </div>
                                                 <span className="font-medium text-lg">{module.title}</span>
                                             </div>
-                                            <span className="text-sm text-gray-400">{module.duration}</span>
+                                            <span className="text-sm text-blue-200/60">{module.duration}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -173,11 +173,11 @@ export default function ResourceView({ resource }: { resource: LearningResource 
                                         <div key={i} className="p-6 rounded-xl bg-white/5 border border-white/10">
                                             <div className="flex items-center gap-2 mb-3">
                                                 {[...Array(5)].map((_, starI) => (
-                                                    <Star key={starI} className={`w-4 h-4 ${starI < review.rating ? 'text-yellow-400 fill-current' : 'text-gray-600'}`} />
+                                                    <Star key={starI} className={`w-4 h-4 ${starI < review.rating ? 'text-yellow-400 fill-current' : 'text-blue-900'}`} />
                                                 ))}
                                             </div>
-                                            <p className="text-gray-300 mb-4 italic">"{review.comment}"</p>
-                                            <div className="text-sm text-gray-400 font-bold">- {review.name}</div>
+                                            <p className="text-blue-100/80 mb-4 italic">"{review.comment}"</p>
+                                            <div className="text-sm text-blue-300 font-bold">- {review.name}</div>
                                         </div>
                                     ))}
                                 </div>

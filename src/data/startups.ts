@@ -16,7 +16,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'Create an AI tool that automatically generates optimized resumes based on job descriptions and user experience.',
         marketPotential: 'High',
         requiredSkills: ['AI/ML', 'NLP', 'Web Development', 'UI/UX'],
-        estimatedCost: '$20k-$50k'
+        estimatedCost: '₹20k-₹50k'
     },
     {
         id: '2',
@@ -25,7 +25,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'Build a platform delivering 5-minute skill-based lessons for busy professionals.',
         marketPotential: 'High',
         requiredSkills: ['Mobile Development', 'Content Creation', 'Backend', 'Analytics'],
-        estimatedCost: '$30k-$70k'
+        estimatedCost: '₹30k-₹70k'
     },
     {
         id: '3',
@@ -34,7 +34,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'Connect local service providers (plumbers, electricians, etc.) with customers in real-time.',
         marketPotential: 'High',
         requiredSkills: ['Full Stack', 'Payment Integration', 'Geolocation', 'Mobile'],
-        estimatedCost: '$40k-$100k'
+        estimatedCost: '₹40k-₹100k'
     },
     {
         id: '4',
@@ -43,7 +43,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'AI chatbot providing 24/7 mental health support and connecting users with therapists.',
         marketPotential: 'High',
         requiredSkills: ['AI/ML', 'NLP', 'Healthcare Compliance', 'Security'],
-        estimatedCost: '$50k-$120k'
+        estimatedCost: '₹50k-₹120k'
     },
     {
         id: '5',
@@ -52,7 +52,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'Marketplace for eco-friendly and sustainable clothing brands.',
         marketPotential: 'Medium',
         requiredSkills: ['E-commerce', 'Web Development', 'Marketing', 'Supply Chain'],
-        estimatedCost: '$25k-$60k'
+        estimatedCost: '₹25k-₹60k'
     },
     {
         id: '6',
@@ -61,7 +61,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'All-in-one platform for remote teams with video, chat, project management, and time tracking.',
         marketPotential: 'High',
         requiredSkills: ['Full Stack', 'WebRTC', 'Real-time Systems', 'Cloud'],
-        estimatedCost: '$60k-$150k'
+        estimatedCost: '₹60k-₹150k'
     },
     {
         id: '7',
@@ -70,7 +70,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'IoT system that optimizes home energy consumption and reduces electricity bills.',
         marketPotential: 'Medium',
         requiredSkills: ['IoT', 'Hardware', 'Mobile App', 'Data Analytics'],
-        estimatedCost: '$40k-$90k'
+        estimatedCost: '₹40k-₹90k'
     },
     {
         id: '8',
@@ -79,7 +79,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'Financial planning and tax management tool specifically for freelancers and gig workers.',
         marketPotential: 'High',
         requiredSkills: ['FinTech', 'Accounting', 'Web Development', 'Security'],
-        estimatedCost: '$35k-$80k'
+        estimatedCost: '₹35k-₹80k'
     },
     {
         id: '9',
@@ -88,7 +88,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'Monthly subscription service delivering personalized pet products based on pet profiles.',
         marketPotential: 'Medium',
         requiredSkills: ['E-commerce', 'Subscription Management', 'Logistics', 'Marketing'],
-        estimatedCost: '$20k-$50k'
+        estimatedCost: '₹20k-₹50k'
     },
     {
         id: '10',
@@ -97,7 +97,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'AI-powered tool that automatically reviews code for bugs, security issues, and best practices.',
         marketPotential: 'High',
         requiredSkills: ['AI/ML', 'Static Analysis', 'DevOps', 'Security'],
-        estimatedCost: '$50k-$120k'
+        estimatedCost: '₹50k-₹120k'
     },
     {
         id: '11',
@@ -106,7 +106,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'Platform for hosting virtual conferences, workshops, and networking events.',
         marketPotential: 'High',
         requiredSkills: ['WebRTC', 'Streaming', 'Full Stack', 'Scalability'],
-        estimatedCost: '$70k-$160k'
+        estimatedCost: '₹70k-₹160k'
     },
     {
         id: '12',
@@ -115,7 +115,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'AI that creates personalized meal plans based on dietary restrictions, budget, and preferences.',
         marketPotential: 'Medium',
         requiredSkills: ['AI/ML', 'Nutrition', 'Mobile App', 'Recipe APIs'],
-        estimatedCost: '$30k-$70k'
+        estimatedCost: '₹30k-₹70k'
     },
     {
         id: '13',
@@ -124,7 +124,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'Transparent supply chain tracking system using blockchain for product authenticity.',
         marketPotential: 'High',
         requiredSkills: ['Blockchain', 'Smart Contracts', 'IoT', 'Web Development'],
-        estimatedCost: '$80k-$180k'
+        estimatedCost: '₹80k-₹180k'
     },
     {
         id: '14',
@@ -133,7 +133,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'Gamified language learning app with AR features and native speaker matching.',
         marketPotential: 'High',
         requiredSkills: ['Mobile Development', 'AR', 'Gamification', 'AI/ML'],
-        estimatedCost: '$60k-$140k'
+        estimatedCost: '₹60k-₹140k'
     },
     {
         id: '15',
@@ -142,7 +142,7 @@ export const startupIdeas: StartupIdea[] = [
         description: 'App that tracks personal carbon footprint and suggests eco-friendly alternatives.',
         marketPotential: 'Medium',
         requiredSkills: ['Mobile Development', 'Data Analytics', 'APIs', 'Sustainability'],
-        estimatedCost: '$25k-$60k'
+        estimatedCost: '₹25k-₹60k'
     }
 ];
 

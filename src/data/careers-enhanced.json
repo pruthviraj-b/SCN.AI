@@ -1,0 +1,388 @@
+[
+    {
+        "id": "1",
+        "title": "Full Stack Developer",
+        "category": "Software Development",
+        "description": "Design and build complete web applications from frontend to backend",
+        "requiredEducation": {
+            "level": "Undergraduate",
+            "fields": [
+                "Computer Science",
+                "Engineering",
+                "Information Technology"
+            ]
+        },
+        "requiredSkills": [
+            "React",
+            "Node.js",
+            "JavaScript",
+            "SQL",
+            "Git",
+            "REST APIs",
+            "HTML/CSS"
+        ],
+        "relatedInterests": [
+            "Coding",
+            "Building Things",
+            "Problem Solving",
+            "Logic & Puzzles"
+        ],
+        "demand": "Very High",
+        "growthRate": "Fast",
+        "salaryRange": {
+            "min": 60000,
+            "max": 140000,
+            "currency": "USD"
+        },
+        "experienceRange": {
+            "min": 0,
+            "max": 5
+        },
+        "industries": [
+            "Technology & Software",
+            "E-commerce & Retail",
+            "Finance & Banking"
+        ],
+        "suitableWorkStyles": [
+            "collaborative",
+            "independent"
+        ],
+        "topCompanies": [
+            "Google",
+            "Microsoft",
+            "Amazon",
+            "Meta",
+            "Netflix",
+            "Shopify",
+            "Stripe",
+            "Airbnb"
+        ],
+        "learningResources": [
+            {
+                "title": "The Odin Project",
+                "type": "Free Course",
+                "url": "https://www.theodinproject.com"
+            },
+            {
+                "title": "Full Stack Open",
+                "type": "Free Course",
+                "url": "https://fullstackopen.com"
+            }
+        ],
+        "careerPath": {
+            "entry": "Junior Full Stack Developer",
+            "mid": "Full Stack Developer",
+            "senior": "Senior Full Stack Developer / Tech Lead",
+            "expert": "Engineering Manager / Solutions Architect"
+        }
+    },
+    {
+        "id": "2",
+        "title": "Data Scientist",
+        "category": "Data Science & AI",
+        "description": "Extract insights from data using statistical analysis and machine learning",
+        "requiredEducation": {
+            "level": "Postgraduate",
+            "fields": [
+                "Computer Science",
+                "Statistics",
+                "Mathematics",
+                "Data Science"
+            ]
+        },
+        "requiredSkills": [
+            "Python",
+            "Machine Learning",
+            "Statistics",
+            "SQL",
+            "Data Visualization",
+            "Pandas",
+            "Scikit-learn"
+        ],
+        "relatedInterests": [
+            "Data Analysis",
+            "Math & Statistics",
+            "Research",
+            "Problem Solving"
+        ],
+        "demand": "Very High",
+        "growthRate": "Very Fast",
+        "salaryRange": {
+            "min": 80000,
+            "max": 180000,
+            "currency": "USD"
+        },
+        "experienceRange": {
+            "min": 1,
+            "max": 7
+        },
+        "industries": [
+            "Technology & Software",
+            "Finance & Banking",
+            "Healthcare & Biotech",
+            "E-commerce & Retail"
+        ],
+        "suitableWorkStyles": [
+            "independent",
+            "collaborative"
+        ],
+        "topCompanies": [
+            "Google",
+            "Meta",
+            "Amazon",
+            "Netflix",
+            "Uber",
+            "Airbnb",
+            "Microsoft",
+            "Apple"
+        ],
+        "learningResources": [
+            {
+                "title": "Andrew Ng ML Course",
+                "type": "Coursera",
+                "url": "https://www.coursera.org/learn/machine-learning"
+            },
+            {
+                "title": "Fast.ai",
+                "type": "Free Course",
+                "url": "https://www.fast.ai"
+            }
+        ],
+        "careerPath": {
+            "entry": "Junior Data Scientist / Data Analyst",
+            "mid": "Data Scientist",
+            "senior": "Senior Data Scientist / ML Engineer",
+            "expert": "Principal Data Scientist / Head of Data Science"
+        }
+    },
+    {
+        "id": "3",
+        "title": "UX Designer",
+        "category": "Design",
+        "description": "Create user-centered digital experiences through research and design",
+        "requiredEducation": {
+            "level": "Undergraduate",
+            "fields": [
+                "Design",
+                "Arts & Humanities",
+                "Computer Science",
+                "Psychology"
+            ]
+        },
+        "requiredSkills": [
+            "Figma",
+            "User Research",
+            "Prototyping",
+            "UI Design",
+            "Wireframing",
+            "User Testing"
+        ],
+        "relatedInterests": [
+            "Design & Art",
+            "User Empathy",
+            "Creativity",
+            "Psychology"
+        ],
+        "demand": "High",
+        "growthRate": "Fast",
+        "salaryRange": {
+            "min": 55000,
+            "max": 130000,
+            "currency": "USD"
+        },
+        "experienceRange": {
+            "min": 0,
+            "max": 6
+        },
+        "industries": [
+            "Technology & Software",
+            "Media & Entertainment",
+            "E-commerce & Retail"
+        ],
+        "suitableWorkStyles": [
+            "collaborative",
+            "independent"
+        ],
+        "topCompanies": [
+            "Apple",
+            "Google",
+            "Meta",
+            "Adobe",
+            "Airbnb",
+            "Uber",
+            "Netflix",
+            "Microsoft"
+        ],
+        "learningResources": [
+            {
+                "title": "Google UX Design Certificate",
+                "type": "Coursera",
+                "url": "https://www.coursera.org/professional-certificates/google-ux-design"
+            },
+            {
+                "title": "Interaction Design Foundation",
+                "type": "Paid Platform",
+                "url": "https://www.interaction-design.org"
+            }
+        ],
+        "careerPath": {
+            "entry": "Junior UX Designer / UX Researcher",
+            "mid": "UX Designer",
+            "senior": "Senior UX Designer / UX Lead",
+            "expert": "Principal Designer / Head of Design"
+        }
+    },
+    {
+        "id": "4",
+        "title": "DevOps Engineer",
+        "category": "Infrastructure & Cloud",
+        "description": "Automate and optimize software deployment and infrastructure management",
+        "requiredEducation": {
+            "level": "Undergraduate",
+            "fields": [
+                "Computer Science",
+                "Engineering",
+                "Information Technology"
+            ]
+        },
+        "requiredSkills": [
+            "Docker",
+            "Kubernetes",
+            "AWS",
+            "CI/CD",
+            "Linux",
+            "Python",
+            "Terraform"
+        ],
+        "relatedInterests": [
+            "Problem Solving",
+            "Automation",
+            "System Architecture"
+        ],
+        "demand": "Very High",
+        "growthRate": "Very Fast",
+        "salaryRange": {
+            "min": 70000,
+            "max": 160000,
+            "currency": "USD"
+        },
+        "experienceRange": {
+            "min": 2,
+            "max": 8
+        },
+        "industries": [
+            "Technology & Software",
+            "Finance & Banking",
+            "Telecommunications"
+        ],
+        "suitableWorkStyles": [
+            "independent",
+            "collaborative"
+        ],
+        "topCompanies": [
+            "Amazon",
+            "Google",
+            "Microsoft",
+            "Netflix",
+            "Uber",
+            "Airbnb",
+            "Stripe",
+            "Cloudflare"
+        ],
+        "learningResources": [
+            {
+                "title": "AWS Certified Solutions Architect",
+                "type": "Certification",
+                "url": "https://aws.amazon.com/certification"
+            },
+            {
+                "title": "Docker Mastery",
+                "type": "Udemy",
+                "url": "https://www.udemy.com/course/docker-mastery"
+            }
+        ],
+        "careerPath": {
+            "entry": "Junior DevOps Engineer / Site Reliability Engineer",
+            "mid": "DevOps Engineer",
+            "senior": "Senior DevOps Engineer / Platform Engineer",
+            "expert": "Principal Engineer / Director of Infrastructure"
+        }
+    },
+    {
+        "id": "5",
+        "title": "Product Manager",
+        "category": "Product & Business",
+        "description": "Define product strategy and drive product development from concept to launch",
+        "requiredEducation": {
+            "level": "Undergraduate",
+            "fields": [
+                "Business Administration",
+                "Computer Science",
+                "Engineering",
+                "Any"
+            ]
+        },
+        "requiredSkills": [
+            "Product Strategy",
+            "User Research",
+            "Data Analysis",
+            "Agile",
+            "Communication",
+            "Roadmapping"
+        ],
+        "relatedInterests": [
+            "Business Strategy",
+            "Innovation",
+            "Leadership",
+            "Working with People"
+        ],
+        "demand": "High",
+        "growthRate": "Fast",
+        "salaryRange": {
+            "min": 75000,
+            "max": 170000,
+            "currency": "USD"
+        },
+        "experienceRange": {
+            "min": 2,
+            "max": 10
+        },
+        "industries": [
+            "Technology & Software",
+            "E-commerce & Retail",
+            "Finance & Banking"
+        ],
+        "suitableWorkStyles": [
+            "leadership",
+            "collaborative"
+        ],
+        "topCompanies": [
+            "Google",
+            "Meta",
+            "Amazon",
+            "Microsoft",
+            "Apple",
+            "Airbnb",
+            "Uber",
+            "Netflix"
+        ],
+        "learningResources": [
+            {
+                "title": "Product Management Specialization",
+                "type": "Coursera",
+                "url": "https://www.coursera.org/specializations/product-management"
+            },
+            {
+                "title": "Cracking the PM Interview",
+                "type": "Book",
+                "url": "https://www.amazon.com/Cracking-PM-Interview-Product-Manager/dp/0984782818"
+            }
+        ],
+        "careerPath": {
+            "entry": "Associate Product Manager",
+            "mid": "Product Manager",
+            "senior": "Senior Product Manager / Group PM",
+            "expert": "Director of Product / VP of Product"
+        }
+    }
+]

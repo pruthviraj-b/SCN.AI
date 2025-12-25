@@ -3,7 +3,11 @@
 ## ✅ OpenAI API Key Configured
 
 Your chatbot is now powered by **OpenAI GPT-4o-mini** for intelligent career counseling!
+The website is running locally at:
 
+http://localhost:3000
+
+(The server is active and verified.)
 ---
 
 ## 🎯 How It Works

@@ -11,7 +11,8 @@ type Props = {
 export default async function StartupDetailPage({ params }: Props) {
     // Await params in Next.js 15+
     const resolvedParams = await params;
-    const idea = db.startupIdea.getAll().find((i) => i.id === resolvedParams.id);
+    const ideas = await db.startupIdea.getAll();
+    const idea = ideas.find((i) => i.id === resolvedParams.id);
 
     if (!idea) {
         notFound();

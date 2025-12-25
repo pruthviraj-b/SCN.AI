@@ -45,10 +45,10 @@ export default function CareerRoadmap({ userGoal, experienceLevel }: CareerRoadm
         <div className="glass-card p-6 rounded-2xl border border-white/10">
             <div className="mb-6">
                 <h3 className="text-xl font-bold mb-2">{matchingRoadmap.title} Roadmap</h3>
-                <p className="text-sm text-gray-400 mb-2">{matchingRoadmap.description}</p>
+                <p className="text-sm text-blue-200/60 mb-2">{matchingRoadmap.description}</p>
                 <div className="flex items-center gap-2 text-sm">
                     <Clock className="w-4 h-4 text-primary" />
-                    <span className="text-gray-400">Total Duration: <span className="text-white font-semibold">{matchingRoadmap.totalDuration}</span></span>
+                    <span className="text-blue-200/60">Total Duration: <span className="text-white font-semibold">{matchingRoadmap.totalDuration}</span></span>
                 </div>
             </div>
 
@@ -60,8 +60,8 @@ export default function CareerRoadmap({ userGoal, experienceLevel }: CareerRoadm
                         <div key={phase.key} className="relative">
                             {/* Phase Header */}
                             <div className={`flex items-center gap-3 mb-4 ${status === 'current' ? 'text-primary' :
-                                    status === 'completed' ? 'text-green-500' :
-                                        'text-gray-500'
+                                status === 'completed' ? 'text-green-500' :
+                                    'text-blue-200/40'
                                 }`}>
                                 {status === 'completed' ? (
                                     <CheckCircle2 className="w-6 h-6" />
@@ -86,15 +86,15 @@ export default function CareerRoadmap({ userGoal, experienceLevel }: CareerRoadm
                                     <div
                                         key={stepIndex}
                                         className={`p-4 rounded-xl border transition-all ${status === 'current'
-                                                ? 'bg-primary/5 border-primary/30 hover:border-primary/50'
-                                                : status === 'completed'
-                                                    ? 'bg-green-500/5 border-green-500/30'
-                                                    : 'bg-white/5 border-white/10 hover:border-white/20'
+                                            ? 'bg-primary/5 border-primary/30 hover:border-primary/50'
+                                            : status === 'completed'
+                                                ? 'bg-green-500/5 border-green-500/30'
+                                                : 'bg-white/5 border-white/10 hover:border-white/20'
                                             }`}
                                     >
                                         <div className="flex justify-between items-start mb-2">
                                             <h5 className="font-semibold text-sm">{step.title}</h5>
-                                            <span className="text-xs text-gray-400 whitespace-nowrap ml-2">
+                                            <span className="text-xs text-blue-200/60 whitespace-nowrap ml-2">
                                                 {step.duration}
                                             </span>
                                         </div>
@@ -102,7 +102,7 @@ export default function CareerRoadmap({ userGoal, experienceLevel }: CareerRoadm
                                             {step.skills.map((skill, skillIndex) => (
                                                 <span
                                                     key={skillIndex}
-                                                    className="text-xs px-2 py-1 rounded-full bg-white/5 text-gray-300 border border-white/10"
+                                                    className="text-xs px-2 py-1 rounded-full bg-white/5 text-blue-200/80 border border-white/10"
                                                 >
                                                     {skill}
                                                 </span>

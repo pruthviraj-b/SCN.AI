@@ -36,8 +36,8 @@ export default function TrendingSkills() {
         switch (demand) {
             case 'High': return 'text-green-400 bg-green-500/20';
             case 'Medium': return 'text-yellow-400 bg-yellow-500/20';
-            case 'Low': return 'text-gray-400 bg-gray-500/20';
-            default: return 'text-gray-400 bg-gray-500/20';
+            case 'Low': return 'text-blue-200/60 bg-white/5';
+            default: return 'text-blue-200/60 bg-white/5';
         }
     };
 
@@ -46,7 +46,7 @@ export default function TrendingSkills() {
             case 'Beginner': return 'text-blue-400';
             case 'Intermediate': return 'text-purple-400';
             case 'Advanced': return 'text-red-400';
-            default: return 'text-gray-400';
+            default: return 'text-blue-200/60';
         }
     };
 
@@ -55,7 +55,7 @@ export default function TrendingSkills() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-4xl font-bold mb-2">Trending Skills</h2>
-                    <p className="text-gray-400">Master {skills.length}+ in-demand skills</p>
+                    <p className="text-blue-200/60">Master {skills.length}+ in-demand skills</p>
                 </div>
 
                 {/* Search Bar */}
@@ -68,7 +68,7 @@ export default function TrendingSkills() {
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full bg-white/5 border border-white/10 rounded-full px-6 py-3 pl-12 focus:border-primary/50 focus:outline-none transition-all"
                         />
-                        <Zap className="w-5 h-5 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                        <Zap className="w-5 h-5 text-blue-200/60 absolute left-4 top-1/2 -translate-y-1/2" />
                     </div>
                 </div>
 
@@ -80,7 +80,7 @@ export default function TrendingSkills() {
                             onClick={() => setSelectedCategory(category)}
                             className={`px-6 py-2 rounded-full whitespace-nowrap transition-all ${selectedCategory === category
                                 ? 'bg-primary text-white'
-                                : 'bg-white/5 hover:bg-white/10 text-gray-400'
+                                : 'bg-white/5 hover:bg-white/10 text-blue-200/60'
                                 }`}
                         >
                             {category}
@@ -108,14 +108,14 @@ export default function TrendingSkills() {
 
                             <div className="space-y-2">
                                 <div className="flex items-center justify-between text-xs">
-                                    <span className="text-gray-400">Demand:</span>
+                                    <span className="text-blue-200/60">Demand:</span>
                                     <span className={`px-2 py-1 rounded-full ${getDemandColor(skill.demand)}`}>
                                         {skill.demand}
                                     </span>
                                 </div>
 
                                 <div className="flex items-center justify-between text-xs">
-                                    <span className="text-gray-400">Level:</span>
+                                    <span className="text-blue-200/60">Level:</span>
                                     <span className={getDifficultyColor(skill.difficulty)}>
                                         {skill.difficulty}
                                     </span>
@@ -126,7 +126,7 @@ export default function TrendingSkills() {
                 </div>
 
                 {displayedSkills.length === 0 && (
-                    <div className="text-center text-gray-400 mt-8">
+                    <div className="text-center text-blue-200/60 mt-8">
                         No skills found matching your criteria.
                     </div>
                 )}

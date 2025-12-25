@@ -4,28 +4,8 @@ export default function DashboardLayout({
     children: React.ReactNode;
 }) {
     return (
-        <div className="light-theme" style={{
-            '--background': '0 0% 100%',
-            '--foreground': '222 47% 11%',
-            '--card': '0 0% 100%',
-            '--card-foreground': '222 47% 11%',
-            '--popover': '0 0% 100%',
-            '--popover-foreground': '222 47% 11%',
-            '--primary': '221 83% 53%',
-            '--primary-foreground': '210 40% 98%',
-            '--secondary': '210 40% 96.1%',
-            '--secondary-foreground': '222 47% 11%',
-            '--muted': '210 40% 96.1%',
-            '--muted-foreground': '215.4 16.3% 46.9%',
-            '--accent': '210 40% 96.1%',
-            '--accent-foreground': '222 47% 11%',
-            '--destructive': '0 84.2% 60.2%',
-            '--destructive-foreground': '210 40% 98%',
-            '--border': '214.3 31.8% 91.4%',
-            '--input': '214.3 31.8% 91.4%',
-            '--ring': '221 83% 53%',
-        } as React.CSSProperties}>
-            <div className="min-h-screen bg-background text-foreground">
+        <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+            <div className="pt-20 container mx-auto px-4 pb-8">
                 {children}
             </div>
         </div>

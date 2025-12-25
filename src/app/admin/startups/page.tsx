@@ -21,7 +21,7 @@ export default async function StartupsPage() {
     return (
         <div className="min-h-screen bg-background text-foreground p-8">
             <div className="max-w-7xl mx-auto">
-                <Link href="/dashboard" className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors">
+                <Link href="/dashboard" className="inline-flex items-center gap-2 text-blue-200/70 hover:text-white mb-8 transition-colors">
                     <ArrowLeft className="w-4 h-4" />
                     Back to Dashboard
                 </Link>
@@ -29,7 +29,7 @@ export default async function StartupsPage() {
                 <div className="flex justify-between items-center mb-8">
                     <div>
                         <h1 className="text-4xl font-bold mb-2">Startup Ideas Management</h1>
-                        <p className="text-gray-400">Manage entrepreneurial guidance and startup templates</p>
+                        <p className="text-blue-200/60">Manage entrepreneurial guidance and startup templates</p>
                     </div>
                     <button className="flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-white hover:bg-primary/90 transition-colors">
                         <Plus className="w-5 h-5" />
@@ -60,7 +60,7 @@ export default async function StartupsPage() {
                                 </div>
                             </div>
                             <div className="flex gap-2 justify-end">
-                                <button className="p-2 rounded-lg hover:bg-white/10 text-gray-400 hover:text-white transition-colors">
+                                <button className="p-2 rounded-lg hover:bg-white/10 text-blue-200/60 hover:text-white transition-colors">
                                     <Edit className="w-5 h-5" />
                                 </button>
                                 <button className="p-2 rounded-lg hover:bg-red-500/20 text-red-400 hover:text-red-300 transition-colors">
